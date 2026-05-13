@@ -390,6 +390,7 @@ function dosubmit(){
   var notes=document.getElementById('fnotes').value.trim();
   var crib=document.getElementById('fcrib').checked?'TAK':'NIE';
   if(!nm||!ph||!em||!apt||!cin||!cout){alert('Uzupełnij wszystkie wymagane pola!');return;}
+  if(!em.includes('@') || !em.includes('.')){alert('Podaj poprawny adres email (musi zawierać @ oraz kropkę).');return;}
   
   var formData=new FormData();
   formData.append('Imię i nazwisko', nm);
