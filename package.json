@@ -1,0 +1,13 @@
+{
+  "name": "gajowka-blog-system",
+  "version": "1.0.0",
+  "description": "Automatyczny system blogowy dla Gajówki",
+  "main": "scripts/generate-blog.js",
+  "scripts": {
+    "generate": "node scripts/generate-blog.js",
+    "index": "node scripts/index-push.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5"
+  }
+}

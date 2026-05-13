@@ -1,0 +1,5 @@
+.env
+google-sa.json
+node_modules
+.DS_Store
+scripts/lib/openrouter.js.bak

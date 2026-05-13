@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Gajówka Węgorzewo | Mazury, Atrakcje, Relaks</title>
+    <meta name="description" content="Poznaj najlepsze atrakcje Mazur, odkryj uroki Węgorzewa i dowiedz się, jak najlepiej wypocząć w naszej Gajówce. Poradniki, kalendarz imprez i relacje.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #2d4a3e;
+            --accent: #c5a059;
+            --text: #333;
+            --light: #f9f7f2;
+            --white: #ffffff;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Outfit', sans-serif; 
+            line-height: 1.6; 
+            color: var(--text); 
+            background: var(--light);
+        }
+
+        header {
+            background: var(--primary);
+            padding: 4rem 1rem;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--accent);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 1.5rem;
+        }
+
+        h2.section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--primary);
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .blog-card {
+            background: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+
+        .blog-card-img {
+            height: 200px;
+            background: #ddd;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .blog-card-content {
+            padding: 2rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .blog-card-meta {
+            font-size: 0.8rem;
+            color: var(--accent);
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+            letter-spacing: 1px;
+        }
+
+        .blog-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .blog-card p {
+            color: #666;
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .read-more {
+            margin-top: auto;
+            color: var(--primary);
+            font-weight: 700;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .read-more:after {
+            content: '→';
+            transition: transform 0.3s;
+        }
+
+        .read-more:hover:after {
+            transform: translateX(5px);
+        }
+
+        footer {
+            background: var(--primary);
+            color: var(--white);
+            text-align: center;
+            padding: 3rem 1rem;
+            margin-top: 4rem;
+        }
+
+        .back-link {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 600;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        .back-link:hover { opacity: 1; }
+
+        @media (max-width: 600px) {
+            .blog-grid { grid-template-columns: 1fr; }
+            h2.section-title { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <a href="/" class="back-link">← Wróć do strony głównej</a>
+    <a href="/blog/" class="logo">Blog Gajówka</a>
+    <p>Mazurskie opowieści, inspiracje i przewodniki</p>
+</header>
+
+<main class="container">
+    <h2 class="section-title">Najnowsze wpisy</h2>
+    
+    <div class="blog-grid" id="blog-grid">
+        <!-- Wpisy będą tutaj -->
+        <article class="blog-card">
+            <div class="blog-card-img" style="background-image: url('https://images.unsplash.com/photo-1510672981848-a1c4f1cb5ccf?auto=format&fit=crop&q=80&w=600')"></div>
+            <div class="blog-card-content">
+                <div class="blog-card-meta">Atrakcje · Maj 2026</div>
+                <h3>Majówka na Mazurach 2026 – co robić w okolicach Węgorzewa?</h3>
+                <p>Planujesz majowy weekend? Odkryj najciekawsze szlaki rowerowe, rejsy po jeziorze Mamry i lokalne festiwale, które sprawią, że Twój wypoczynek będzie niezapomniany.</p>
+                <a href="/blog/majowka-mazury-2026.html" class="read-more">Czytaj dalej</a>
+            </div>
+        </article>
+    </div>
+</main>
+
+<footer>
+    <p>&copy; 2026 Gajówka Węgorzewo. <a href="/" style="color: var(--accent); text-decoration: none;">gajowkawegorzewo.pl</a></p>
+</footer>
+
+</body>
+</html>
