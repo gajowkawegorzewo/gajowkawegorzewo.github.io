@@ -7,9 +7,21 @@
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://gajowkawegorzewo.github.io/blog/atrakcje-wegorzewo.html</loc>
+    <lastmod>2026-05-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://gajowkawegorzewo.github.io/blog/</loc>
     <lastmod>2026-05-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://gajowkawegorzewo.github.io/blog/lato-2026-mazury.html</loc>
+    <lastmod>2026-05-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
 </urlset>

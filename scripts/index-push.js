@@ -69,18 +69,14 @@ async function pushToGoogle(url, accessToken) {
   return resp.ok;
 }
 
-async function main() {
-  const urls = process.argv.slice(2);
-  if (urls.length === 0) {
-    console.log('Usage: node scripts/index-push.js https://example.com/page1 https://example.com/page2');
-    process.exit(1);
-  }
+async function pushToIndexers(urls) {
+  if (!urls || urls.length === 0) return;
 
   // 1. IndexNow
   await pushToIndexNow(urls);
 
   // 2. Google Indexing (needs SA JSON)
-  const saPath = path.resolve(__dirname, '../../google-sa.json');
+  const saPath = path.resolve(__dirname, '../google-sa.json');
   if (fs.existsSync(saPath)) {
     try {
       console.log('[INDEX] Próba wysłania do Google Indexing API...');
@@ -100,4 +96,13 @@ async function main() {
   }
 }
 
-main();
+if (require.main === module) {
+  const urls = process.argv.slice(2);
+  if (urls.length === 0) {
+    console.log('Usage: node scripts/index-push.js https://example.com/page1 https://example.com/page2');
+    process.exit(1);
+  }
+  pushToIndexers(urls);
+}
+
+module.exports = { pushToIndexers };

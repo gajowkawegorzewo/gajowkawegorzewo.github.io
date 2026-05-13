@@ -8,9 +8,10 @@ try { require('dotenv').config(); } catch (e) {}
  */
 
 const MODELS_FREE = [
-  { name: 'google/gemini-2.0-flash-exp:free', label: 'Gemini 2.0 Flash (Free)' },
-  { name: 'meta-llama/llama-3.1-8b-instruct:free', label: 'Llama 3.1 8B (Free)' },
-  { name: 'mistralai/mistral-7b-instruct:free', label: 'Mistral 7B (Free)' },
+  { name: 'google/gemma-4-31b-it:free', label: 'Gemma 4 IT (Free)' },
+  { name: 'qwen/qwen3-next-80b-a3b-instruct:free', label: 'Qwen 3 Next (Free)' },
+  { name: 'google/gemma-4-26b-a4b-it:free', label: 'Gemma 4 Small (Free)' },
+  { name: 'openai/gpt-oss-20b:free', label: 'GPT-OSS (Free)' },
   { name: 'openrouter/auto', label: 'Auto Free Router' }
 ];
 

@@ -1,93 +1,60 @@
-const { chat } = require('./lib/openrouter');
-const { sendEmail } = require('./lib/mailer');
-const { execSync } = require('child_process');
-const fs = require('fs');
-const path = require('path');
-try { require('dotenv').config(); } catch (e) {}
-
-/**
- * DAILY BLOG ORCHESTRATOR
- * 1. Wybiera temat (AI)
- * 2. Generuje post
- * 3. Indeksuje w Google/Bing
- * 4. Wysyła raport email
- */
+require('dotenv').config();
+const { generateProPost } = require('./lib/generator-pro');
+const { generateSitemap } = require('./generate-sitemap');
+const { pushToIndexers } = require('./index-push');
 
 async function runDaily() {
-  console.log('--- START DAILY BLOG TASK ---');
-  let log = [];
-  const pushLog = (msg) => { console.log(msg); log.push(msg); };
-
+  console.log('--- START DAILY TASK (PRO MODE) ---');
+  
   try {
-    // 1. Wybierz temat
-    pushLog('[1] Wybieranie tematu przez AI...');
-    const topicResult = await chat([
-      { role: 'system', content: 'Jesteś redaktorem bloga agroturystyki Gajówka na Mazurach. Wymyśl jeden konkretny, ciekawy temat na wpis blogowy, który przyciągnie turystów w 2026 roku. Temat powinien dotyczyć atrakcji, przyrody, jedzenia lub relaksu w okolicach Węgorzewa. Podaj tylko sam tytuł.' }
-    ]);
-    const topic = topicResult.content.trim().replace(/"/g, '');
-    pushLog(`[1] Wybrany temat: ${topic}`);
-
-    // 2. Wygeneruj post (używając istniejącego skryptu)
-    pushLog('[2] Generowanie treści posta...');
-    // Przechwytujemy output z generate-blog.js
-    const genOutput = execSync(`node scripts/generate-blog.js "${topic}"`).toString();
-    pushLog(genOutput);
-
-    // Znajdź slug z outputu
-    const slugMatch = genOutput.match(/blog\/(.+)\.html/);
-    const slug = slugMatch ? slugMatch[1] : null;
-    const url = slug ? `https://gajowkawegorzewo.github.io/blog/${slug}.html` : null;
-
-    // 3. Odśwież Sitemap
-    pushLog('[3] Odświeżanie sitemap.xml...');
-    execSync('node scripts/generate-sitemap.js');
-
-    // 4. Indeksowanie
-    if (url) {
-      pushLog(`[4] Indeksowanie URL: ${url}`);
-      try {
-        const indexOutput = execSync(`node scripts/index-push.js ${url}`).toString();
-        pushLog(indexOutput);
-      } catch (e) {
-        pushLog(`[4] Błąd indeksowania: ${e.message}`);
-      }
-    } else {
-      pushLog('[4] Pominąłem indeksowanie - nie znaleziono URL.');
-    }
-
-    // 5. Raport Email
-    const reportEmail = process.env.REPORT_EMAIL || 'michalwor@gmail.com';
-    pushLog(`[5] Wysyłanie raportu na ${reportEmail}...`);
+    // 0. Sprawdzenie limitu (max 2 na dobę)
+    const fs = require('fs');
+    const path = require('path');
+    const blogDir = path.resolve(__dirname, '../blog');
+    const today = new Date().toISOString().split('T')[0];
     
-    const subject = `Gajówka Blog Report: ${new Date().toLocaleDateString()}`;
-    const html = `
-      <h2>Raport z automatycznego generowania bloga</h2>
-      <p><strong>Data:</strong> ${new Date().toLocaleString()}</p>
-      <p><strong>Temat dnia:</strong> ${topic}</p>
-      <p><strong>Status:</strong> Sukces</p>
-      ${url ? `<p><strong>Link:</strong> <a href="${url}">${url}</a></p>` : ''}
-      <hr>
-      <h3>Logi systemowe:</h3>
-      <pre style="background:#f4f4f4;padding:10px;font-size:12px;">${log.join('\n')}</pre>
-    `;
+    if (fs.existsSync(blogDir)) {
+      const todayPosts = fs.readdirSync(blogDir)
+        .filter(f => f.endsWith('.html'))
+        .map(f => fs.readFileSync(path.join(blogDir, f), 'utf8'))
+        .filter(html => html.includes(`datetime="${today}"`) || html.includes(`>${today}<`))
+        .length;
+        
+      if (todayPosts >= 2) {
+        console.log(`[LIMIT] Dzisiaj opublikowano już ${todayPosts} posty. Przerywam, aby nie spamować.`);
+        return;
+      }
+    }
+    // 1. Wybór tematu SEO (noclegi, atrakcje, domek nad jeziorem)
+    const keywords = [
+      "Atrakcje Mazur 2026: Kompletny przewodnik po Węgorzewie i okolicy",
+      "Gdzie spać na Mazurach? Porównanie noclegów i dlaczego domek nad jeziorem to najlepszy wybór",
+      "Weekend na Mazurach: Plan zwiedzania i najlepsze noclegi blisko natury",
+      "Najlepsze domki nad jeziorem na Mazurach - na co zwrócić uwagę przy rezerwacji",
+      "Węgorzewo: Ukryte perły i atrakcje Mazur Północnych"
+    ];
+    
+    // Wybieramy temat (można zautomatyzować wybór przez AI, tu bierzemy losowy z listy SEO)
+    const topic = keywords[Math.floor(Math.random() * keywords.length)];
+    
+    // 2. Profesjonalna generacja
+    const post = await generateProPost(topic);
+    console.log(`[OK] Wygenerowano post: ${post.title}`);
+    
+    const postUrl = `https://gajowkawegorzewo.github.io/blog/${post.slug}.html`;
+    
+    // 3. Odświeżenie sitemapy
+    await generateSitemap();
+    console.log('[OK] Sitemap zaktualizowana.');
+    
+    // 4. Indeksowanie (Google/Bing)
+    await pushToIndexers([postUrl]);
+    console.log('[OK] Zgłoszono do wyszukiwarek.');
 
-    await sendEmail({
-      to: reportEmail,
-      subject,
-      html,
-      text: log.join('\n')
-    });
-
-  } catch (e) {
-    pushLog(`[FATAL ERROR] ${e.message}`);
-    // Wyślij raport o błędzie
-    const reportEmail = process.env.REPORT_EMAIL || 'michalwor@gmail.com';
-    await sendEmail({
-      to: reportEmail,
-      subject: `BŁĄD: Gajówka Blog Report ${new Date().toLocaleDateString()}`,
-      html: `<h2>Wystąpił błąd podczas generowania bloga</h2><pre>${e.stack}</pre>`,
-      text: e.stack
-    }).catch(() => {});
+    console.log('--- DAILY TASK COMPLETED SUCCESSFULLY ---');
+  } catch (err) {
+    console.error('!!! DAILY TASK FAILED !!!');
+    console.error(err);
   }
 }
 
