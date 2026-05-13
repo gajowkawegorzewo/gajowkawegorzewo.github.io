@@ -10,9 +10,10 @@ try { require('dotenv').config(); } catch (e) {}
  */
 
 const MODELS_FREE = [
-  { name: 'qwen/qwen3-coder:free', label: 'Qwen 3 Coder (Free)' },
-  { name: 'google/gemma-4-26b-a4b-it:free', label: 'Gemma 4 (Free)' },
-  { name: 'nvidia/nemotron-3-super-120b-a12b:free', label: 'Nemotron 3 Super (Free)' }
+  { name: 'google/gemini-2.0-flash-exp:free', label: 'Gemini 2.0 Flash (Free)' },
+  { name: 'meta-llama/llama-3.1-8b-instruct:free', label: 'Llama 3.1 8B (Free)' },
+  { name: 'mistralai/mistral-7b-instruct:free', label: 'Mistral 7B (Free)' },
+  { name: 'openrouter/auto', label: 'Auto Free Router' }
 ];
 
 const MODEL_PREMIUM_FALLBACK = { name: 'anthropic/claude-3-haiku', label: 'Claude Haiku ($)' };
