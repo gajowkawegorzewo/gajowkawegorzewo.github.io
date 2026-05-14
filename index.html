@@ -236,6 +236,55 @@ footer{background:var(--dark);color:rgba(255,255,255,.44);padding:44px 48px 28px
 .bg-card h3{font-family:"Playfair Display",serif;font-size:18px;margin-bottom:8px;color:var(--dark);}
 .bg-card p{font-size:12px;color:var(--muted);line-height:1.6;margin-bottom:12px;}
 .bg-card .more{font-size:10px;color:var(--gold);font-weight:700;text-transform:uppercase;letter-spacing:1px;}
+/* ============ UX modernization v1 (2026-05-14) ============ */
+/* 1. Scroll reveal — wzmocniony (z 15px→34px translate, krzywa cubic-bezier) */
+.rv{opacity:0;transform:translateY(34px);transition:opacity .9s cubic-bezier(.22,1,.36,1),transform .9s cubic-bezier(.22,1,.36,1);}
+.rv.vis{opacity:1;transform:translateY(0);}
+/* 2. Karty obiektów — głębszy lift + miekki cień + zoom zdjęcia */
+.acard{transition:transform .45s cubic-bezier(.22,1,.36,1),box-shadow .45s cubic-bezier(.22,1,.36,1);will-change:transform;}
+.acard:hover{transform:translateY(-8px);box-shadow:0 22px 48px rgba(0,0,0,.16),0 8px 16px rgba(0,0,0,.06);}
+.acard:hover .aci img{transform:scale(1.07);}
+/* 3. Nav links — animowane podkreślenie gold od lewej */
+.nl a{position:relative;}
+.nl a:not(.ncta)::after{content:'';position:absolute;left:0;bottom:-5px;height:1px;width:100%;background:var(--gold);transform:scaleX(0);transform-origin:right center;transition:transform .35s cubic-bezier(.22,1,.36,1);}
+.nl a:not(.ncta):hover::after{transform:scaleX(1);transform-origin:left center;}
+/* 4. CTA buttons — lift + delikatne shadow */
+.btn{will-change:transform;}
+.bg:hover,.bw:hover,.bf:hover,.fsub:hover,.mlink:hover{transform:translateY(-2px);box-shadow:0 10px 22px rgba(0,0,0,.18);}
+.bg:hover{box-shadow:0 10px 26px rgba(200,165,90,.45),0 0 0 1px rgba(200,165,90,.3);}
+.fsub{transition:background .3s,transform .3s,box-shadow .3s;}
+.mlink{transition:transform .3s,box-shadow .3s,background .3s;}
+/* 5. Hero badges — staggered fade-up po załadowaniu */
+.hbadge{opacity:0;transform:translateY(22px);animation:hbadgeUp .8s cubic-bezier(.22,1,.36,1) forwards;}
+.hbadge:nth-child(1){animation-delay:.55s;}
+.hbadge:nth-child(2){animation-delay:.7s;}
+.hbadge:nth-child(3){animation-delay:.85s;}
+.hbadge:nth-child(4){animation-delay:1.0s;}
+.hbadge:nth-child(5){animation-delay:1.15s;}
+@keyframes hbadgeUp{to{opacity:1;transform:translateY(0);}}
+/* Bonus: hero text staggered fade-in (htag → h1 → hsub → buttons) */
+.hcon .htag,.hcon h1,.hcon .hsub,.hcon .hbtns{opacity:0;animation:heroIn 1s cubic-bezier(.22,1,.36,1) forwards;}
+.hcon .htag{animation-delay:.05s;}
+.hcon h1{animation-delay:.2s;transform:translateY(18px);}
+.hcon .hsub{animation-delay:.4s;}
+.hcon .hbtns{animation-delay:.6s;transform:translateY(14px);}
+@keyframes heroIn{to{opacity:1;transform:translateY(0);}}
+/* 6. Focus rings — accessibility + nowoczesny look */
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:3px;}
+.btn:focus-visible{outline-offset:4px;}
+/* Bonus: smooth scroll-margin dla anchor links (żeby nav nie zasłaniał) */
+section[id]{scroll-margin-top:80px;}
+/* Bonus: zdjęcia w aci/ti default transition (zachowane scale na hover .acard/.ti) */
+.aci img,.ti img{transition:transform .55s cubic-bezier(.22,1,.36,1);}
+/* Bonus: small lift dla map/rcard/atcard/pcard */
+.rcard,.atcard,.pcard,.kcard{transition:transform .35s ease,box-shadow .35s ease;}
+.rcard:hover,.atcard:hover,.pcard:hover,.kcard:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(0,0,0,.1);}
+/* Respect prefers-reduced-motion — wyłącz animacje */
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation-duration:.001s!important;animation-iteration-count:1!important;transition-duration:.001s!important;scroll-behavior:auto!important;}
+  .rv{opacity:1;transform:none;}
+  .hbadge,.hcon .htag,.hcon h1,.hcon .hsub,.hcon .hbtns{opacity:1;transform:none;}
+}
 </style></head><body>
 <nav id="nav"><a href="#" class="logo">Gaj&#xF3;wka<small>i Apartamenty &middot; W&#x119;gorzewo, Mazury</small></a><ul class="nl" id="navlinks"><li><a href="#obiekty">Obiekty</a></li><li><a href="#teren">Teren</a></li><li><a href="#relax">Relaks</a></li><li><a href="#jedzenie">Jedzenie</a></li><li><a href="#atrakcje">Atrakcje</a></li><li><a href="#place">Pla&#380;e</a></li><li><a href="#restauracje">Restauracje</a></li><li><a href="/blog/">Blog</a></li><li><a href="#dojazd">Dojazd</a></li><li><a href="#kontakt">Kontakt</a></li><li><a href="#rezerwacja" class="ncta">Zarezerwuj</a></li></ul><div class="hbg" onclick="toggleNav()"><span></span><span></span><span></span></div></nav>
 <div class="hero"><img class="hbg2" src="img/zdjecie_001.jpg" alt="Gaj&#xF3;wka"><div class="hov"></div><div class="hcon"><div class="htag">&#127807; Mazury &middot; W&#x119;gorzewo &middot; XIX-wieczna Le&#x15B;niczówka</div><h1 class="htit">Gaj&#xF3;wka<br><em>i Apartamenty</em></h1><p class="hsub">Trzy wyj&#x105;tkowe obiekty w sercu mazurskiej przyrody</p><div class="hbtns"><a href="#rezerwacja" class="btn bg">Zarezerwuj pobyt</a><a href="#obiekty" class="btn bw">Poznaj miejsce</a></div></div><div class="hbadges">
