@@ -402,25 +402,26 @@ function dosubmit(){
   if(!nm||!ph||!em||!apt||!cin||!cout){alert('Uzupełnij wszystkie wymagane pola!');return;}
   if(!em.includes('@') || !em.includes('.')){alert('Podaj poprawny adres email (musi zawierać @ oraz kropkę).');return;}
   
-  var formData=new FormData();
-  formData.append('Imię i nazwisko', nm);
-  formData.append('Telefon', ph);
-  formData.append('Email', em);
-  formData.append('Obiekt', apt);
-  formData.append('Przyjazd', cin);
-  formData.append('Wyjazd', cout);
-  formData.append('Liczba osób', guests);
-  formData.append('Lóżeczko turystyczne', crib);
-  formData.append('Uwagi', notes||'brak');
-  formData.append('_replyto', em);
-  formData.append('_subject', 'Nowa rezerwacja: '+apt+' ('+cin+' - '+cout+')');
-  formData.append('_template', 'table');
-  formData.append('_captcha', 'false');
+  var payload={
+    access_key:'704579ff-c17a-4f9f-8ee8-bd9512de7b9d',
+    subject:'Nowa rezerwacja: '+apt+' ('+cin+' - '+cout+')',
+    from_name:'Formularz Gajówka Węgorzewo',
+    replyto:em,
+    'Imię i nazwisko':nm,
+    Telefon:ph,
+    Email:em,
+    Obiekt:apt,
+    Przyjazd:cin,
+    Wyjazd:cout,
+    'Liczba osób':guests,
+    'Łóżeczko turystyczne':crib,
+    Uwagi:notes||'brak'
+  };
 
-  fetch('https://formsubmit.co/ajax/gajowkawegorzewo@gmail.com', {
+  fetch('https://api.web3forms.com/submit', {
     method:'POST',
-    body:formData,
-    headers:{Accept:'application/json'}
+    body:JSON.stringify(payload),
+    headers:{'Content-Type':'application/json',Accept:'application/json'}
   }).then(function(r){
     if(r.ok){
       document.getElementById('sname').innerText='Dziękujemy, '+nm+'!';
