@@ -1,0 +1,14 @@
+# Robots.txt for gajowkawegorzewo.github.io
+# https://www.robotstxt.org/robotstxt.html
+
+User-agent: *
+Allow: /
+Disallow: /node_modules/
+Disallow: /scripts/
+Disallow: /.env
+Disallow: /google-sa.json
+Disallow: /PROJECT_STATUS.md
+
+# Crawl-delay nie ustawiamy - GitHub Pages jest szybki
+
+Sitemap: https://gajowkawegorzewo.github.io/sitemap.xml
