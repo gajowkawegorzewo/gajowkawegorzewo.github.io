@@ -414,8 +414,10 @@ function dosubmit(){
   formData.append('Uwagi', notes||'brak');
   formData.append('_replyto', em);
   formData.append('_subject', 'Nowa rezerwacja: '+apt+' ('+cin+' - '+cout+')');
+  formData.append('_template', 'table');
+  formData.append('_captcha', 'false');
 
-  fetch('https://formspree.io/f/mgolgngr', {
+  fetch('https://formsubmit.co/ajax/gajowkawegorzewo@gmail.com', {
     method:'POST',
     body:formData,
     headers:{Accept:'application/json'}
