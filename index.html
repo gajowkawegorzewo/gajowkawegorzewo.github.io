@@ -285,6 +285,24 @@ section[id]{scroll-margin-top:80px;}
   .rv{opacity:1;transform:none;}
   .hbadge,.hcon .htag,.hcon h1,.hcon .hsub,.hcon .hbtns{opacity:1;transform:none;}
 }
+/* ============ Relaks section — czysty grid 2 kolumny ============ */
+/* Karta: główne zdjęcie | mała ilustracja | opis na dole spinający oba */
+.rc{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(0,1fr);grid-template-rows:auto auto;gap:4px;border-radius:8px;overflow:hidden;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);}
+.rc > img:first-of-type{grid-column:1;grid-row:1;width:100%;height:320px;object-fit:cover;margin:0;display:block;}
+.rc .mini{grid-column:2;grid-row:1;margin:0;display:block;}
+.rc .mini img{width:100%;height:320px;object-fit:cover;border-radius:0;display:block;}
+.rc .rcb{grid-column:1 / -1;grid-row:2;background:transparent;border:none;border-top:1px solid rgba(255,255,255,.08);padding:22px 24px;}
+.rc:hover{transform:translateY(-3px);box-shadow:0 18px 38px rgba(0,0,0,.35);transition:transform .35s,box-shadow .35s;}
+.rc:hover > img:first-of-type,.rc:hover .mini img{transform:scale(1.04);transition:transform .55s;}
+.rc > img:first-of-type,.rc .mini img{transition:transform .55s;}
+/* Mobile (≤680px): wszystko ułożone pionowo */
+@media (max-width: 680px){
+  .rc{grid-template-columns:1fr;}
+  .rc > img:first-of-type{grid-column:1;grid-row:1;height:220px;}
+  .rc .mini{grid-column:1;grid-row:2;}
+  .rc .mini img{height:160px;}
+  .rc .rcb{grid-row:3;padding:18px 18px;}
+}
 </style></head><body>
 <nav id="nav"><a href="#" class="logo">Gaj&#xF3;wka<small>i Apartamenty &middot; W&#x119;gorzewo, Mazury</small></a><ul class="nl" id="navlinks"><li><a href="#obiekty">Obiekty</a></li><li><a href="#teren">Teren</a></li><li><a href="#relax">Relaks</a></li><li><a href="#jedzenie">Jedzenie</a></li><li><a href="#atrakcje">Atrakcje</a></li><li><a href="#place">Pla&#380;e</a></li><li><a href="#restauracje">Restauracje</a></li><li><a href="/blog/">Blog</a></li><li><a href="#dojazd">Dojazd</a></li><li><a href="#kontakt">Kontakt</a></li><li><a href="#rezerwacja" class="ncta">Zarezerwuj</a></li></ul><div class="hbg" onclick="toggleNav()"><span></span><span></span><span></span></div></nav>
 <div class="hero"><img class="hbg2" src="img/zdjecie_001.jpg" alt="Gaj&#xF3;wka"><div class="hov"></div><div class="hcon"><div class="htag">&#127807; Mazury &middot; W&#x119;gorzewo &middot; XIX-wieczna Le&#x15B;niczówka</div><h1 class="htit">Gaj&#xF3;wka<br><em>i Apartamenty</em></h1><p class="hsub">Trzy wyj&#x105;tkowe obiekty w sercu mazurskiej przyrody</p><div class="hbtns"><a href="#rezerwacja" class="btn bg">Zarezerwuj pobyt</a><a href="#obiekty" class="btn bw">Poznaj miejsce</a></div></div><div class="hbadges">
