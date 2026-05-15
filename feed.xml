@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blog Gajówki Węgorzewo</title>
+    <link>https://gajowkawegorzewo.github.io/blog/</link>
+    <description>Praktyczne przewodniki po Mazurach i okolicach Węgorzewa: atrakcje, transport, domki, sezon, wydarzenia. Pisane lokalnie, bez clickbaitu.</description>
+    <language>pl-PL</language>
+    <lastBuildDate>Fri, 15 May 2026 08:18:46 GMT</lastBuildDate>
+    <pubDate>Fri, 15 May 2026 10:00:00 GMT</pubDate>
+    <atom:link href="https://gajowkawegorzewo.github.io/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Mazury z dziećmi 2026 — atrakcje, plaże i nocleg dla rodzin</title>
+      <link>https://gajowkawegorzewo.github.io/blog/mazury-z-dziecmi-atrakcje-2026.html</link>
+      <guid isPermaLink="true">https://gajowkawegorzewo.github.io/blog/mazury-z-dziecmi-atrakcje-2026.html</guid>
+      <pubDate>Fri, 15 May 2026 10:00:00 GMT</pubDate>
+      <description>Mazury z dziećmi 2026: atrakcje rodzinne (Park Linowy, Mini Zoo, Wilczy Szaniec), plaże ze strzeżonymi kąpieliskami, plan na 3-7 dni, checklista i porady noclegowe.</description>
+    </item>
+    <item>
+      <title>Atrakcje wokół Węgorzewa 2026 — co zobaczyć podczas pobytu</title>
+      <link>https://gajowkawegorzewo.github.io/blog/atrakcje-wokol-wegorzewa-co-zobaczyc-2026.html</link>
+      <guid isPermaLink="true">https://gajowkawegorzewo.github.io/blog/atrakcje-wokol-wegorzewa-co-zobaczyc-2026.html</guid>
+      <pubDate>Thu, 14 May 2026 10:00:00 GMT</pubDate>
+      <description>Atrakcje wokół Węgorzewa 2026: Wilczy Szaniec, Mamerki, Święta Lipka, Sztynort, Kanał Mazurski. Ceny biletów, godziny, dystanse i plan na 3 i 7 dni.</description>
+    </item>
+    <item>
+      <title>Domek z balią i sauną na Mazurach — przewodnik 2026</title>
+      <link>https://gajowkawegorzewo.github.io/blog/domek-z-balia-i-sauna-na-mazurach-2026.html</link>
+      <guid isPermaLink="true">https://gajowkawegorzewo.github.io/blog/domek-z-balia-i-sauna-na-mazurach-2026.html</guid>
+      <pubDate>Thu, 14 May 2026 10:00:00 GMT</pubDate>
+      <description>Domek z balią i sauną na Mazurach 2026 — ile kosztuje, jak działa, dla ilu osób, porównanie z SPA hotelowym. Praktyczny przewodnik przed rezerwacją.</description>
+    </item>
+    <item>
+      <title>Jak dojechać do Węgorzewa 2026 — pociąg, auto, autobus</title>
+      <link>https://gajowkawegorzewo.github.io/blog/jak-dojechac-do-wegorzewa-2026.html</link>
+      <guid isPermaLink="true">https://gajowkawegorzewo.github.io/blog/jak-dojechac-do-wegorzewa-2026.html</guid>
+      <pubDate>Thu, 14 May 2026 10:00:00 GMT</pubDate>
+      <description>Przewodnik 2026: jak dojechać do Węgorzewa pociągiem (sezonowo z Kętrzyna), autem z Warszawy (280 km) i autobusem Flixbus. Trasy, czasy, ceny.</description>
+    </item>
+  </channel>
+</rss>
