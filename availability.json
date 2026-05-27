@@ -6,9 +6,9 @@
       "source": "Airbnb"
     },
     {
-      "from": "2026-07-01",
+      "from": "2026-06-30",
       "to": "2026-07-06",
-      "source": "Airbnb"
+      "source": "Booking+Airbnb"
     },
     {
       "from": "2026-07-12",
@@ -17,13 +17,13 @@
     },
     {
       "from": "2026-07-25",
-      "to": "2026-07-29",
-      "source": "Airbnb"
+      "to": "2026-08-02",
+      "source": "Airbnb+Booking"
     },
     {
       "from": "2026-08-06",
       "to": "2026-08-14",
-      "source": "Airbnb"
+      "source": "Airbnb+Booking"
     },
     {
       "from": "2026-09-01",
@@ -39,8 +39,8 @@
     },
     {
       "from": "2026-05-29",
-      "to": "2026-05-31",
-      "source": "Airbnb"
+      "to": "2026-06-07",
+      "source": "Airbnb+Booking"
     },
     {
       "from": "2026-07-10",
@@ -53,9 +53,14 @@
       "source": "Airbnb+Slowhop"
     },
     {
-      "from": "2027-05-27",
+      "from": "2027-01-22",
+      "to": "2027-01-23",
+      "source": "Booking"
+    },
+    {
+      "from": "2027-02-01",
       "to": "2027-05-28",
-      "source": "Airbnb"
+      "source": "Booking+Airbnb"
     }
   ],
   "Sen Gajowego": [
@@ -63,6 +68,11 @@
       "from": "2026-05-28",
       "to": "2026-05-31",
       "source": "Airbnb"
+    },
+    {
+      "from": "2026-06-02",
+      "to": "2026-06-04",
+      "source": "Booking"
     },
     {
       "from": "2026-06-15",
@@ -80,9 +90,19 @@
       "source": "Airbnb+Slowhop"
     },
     {
-      "from": "2027-05-27",
+      "from": "2026-08-03",
+      "to": "2026-08-13",
+      "source": "Booking"
+    },
+    {
+      "from": "2026-08-19",
+      "to": "2026-08-23",
+      "source": "Booking"
+    },
+    {
+      "from": "2027-01-11",
       "to": "2027-05-28",
-      "source": "Airbnb"
+      "source": "Booking+Airbnb"
     }
   ],
   "Leśne pogaduchy": []
