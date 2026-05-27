@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>Admin — Kalendarz rezerwacji ręcznych</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/flatpickr.min.css">
+<script src="https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/flatpickr.min.js" defer></script>
+<script src="https://npmcdn.com/flatpickr/dist/l10n/pl.js" defer></script>
+<style>
+:root{--cream:#f8f4ee;--warm:#ede5d6;--forest:#3d5a34;--wd:#7a5c38;--dark:#1e1a14;--text:#3a3228;--muted:#7a6e60;--white:#fdfaf6;--gold:#c8a55a;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:"Lato",Arial,sans-serif;background:var(--cream);color:var(--text);padding:20px;font-weight:300;line-height:1.5;}
+.wrap{max-width:900px;margin:0 auto;}
+h1{font-size:24px;color:var(--forest);margin-bottom:5px;font-weight:700;}
+.sub{font-size:13px;color:var(--muted);margin-bottom:25px;}
+.card{background:var(--white);border-radius:4px;padding:24px;box-shadow:0 4px 18px rgba(0,0,0,.07);margin-bottom:20px;}
+.card h2{font-size:18px;color:var(--dark);margin-bottom:14px;font-weight:700;}
+.fg{margin-bottom:14px;}
+.fg label{display:block;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:5px;font-weight:700;}
+.fg input,.fg select,.fg textarea{width:100%;padding:10px 12px;border:1px solid #ddd;background:var(--white);font-family:"Lato",sans-serif;font-size:13px;color:var(--dark);border-radius:3px;outline:none;}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--gold);}
+.btn{background:var(--forest);color:var(--white);border:none;padding:11px 22px;font-family:"Lato",sans-serif;font-size:11px;letter-spacing:2px;text-transform:uppercase;cursor:pointer;border-radius:3px;font-weight:700;transition:background .2s;}
+.btn:hover{background:var(--wd);}
+.btn.warn{background:#b66;}.btn.warn:hover{background:#933;}
+.btn.ghost{background:transparent;color:var(--forest);border:1px solid var(--forest);}
+.btn.small{padding:5px 11px;font-size:10px;letter-spacing:1px;}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.msg{padding:12px 16px;border-radius:3px;margin-bottom:14px;font-size:13px;display:none;}
+.msg.ok{background:#dff5e0;color:#235e2c;border:1px solid #87c294;display:block;}
+.msg.err{background:#fde5e5;color:#8a2929;border:1px solid #d99090;display:block;}
+.msg.info{background:#e6efff;color:#22416a;border:1px solid #9ab4dd;display:block;}
+table{width:100%;border-collapse:collapse;font-size:13px;}
+th,td{padding:9px 10px;text-align:left;border-bottom:1px solid #eee;}
+th{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);}
+.tag{display:inline-block;padding:2px 8px;border-radius:10px;font-size:10px;background:rgba(61,90,52,.1);color:var(--forest);font-weight:700;}
+.muted{color:var(--muted);font-size:12px;}
+.hide{display:none!important;}
+a.back{display:inline-block;margin-bottom:18px;color:var(--forest);font-size:12px;text-decoration:none;font-weight:700;}
+a.back:hover{text-decoration:underline;}
+.help{font-size:11px;color:var(--muted);margin-top:4px;line-height:1.5;}
+.flatpickr-input{background:var(--white);}
+.flatpickr-day.selected,.flatpickr-day.startRange,.flatpickr-day.endRange,.flatpickr-day.selected.inRange,.flatpickr-day.startRange.inRange,.flatpickr-day.endRange.inRange{background:var(--gold)!important;border-color:var(--gold)!important;color:var(--dark)!important;}
+.flatpickr-day.inRange{background:rgba(200,165,90,.18)!important;border-color:rgba(200,165,90,.18)!important;}
+@media(max-width:600px){.row{grid-template-columns:1fr;}body{padding:12px;}.card{padding:16px;}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<a href="/" class="back">&larr; Powrót do strony głównej</a>
+<h1>Kalendarz — ręczne bloki rezerwacji</h1>
+<p class="sub">Wpisuj rezerwacje przyjęte przez telefon, Booking, Slowhop itp. Airbnb synchronizuje się automatycznie co kilka godzin.</p>
+
+<div class="msg" id="msg"></div>
+
+<!-- Auth panel -->
+<div class="card" id="auth-panel">
+  <h2>🔐 Logowanie</h2>
+  <div class="fg">
+    <label>Hasło administratora</label>
+    <input type="password" id="auth-pass" placeholder="••••••••" autocomplete="current-password">
+    <div class="help">Domyślne hasło: <code>gajowka2026</code>. Po pierwszym wejściu zmień w pliku <code>admin/calendar.html</code> (linia z <code>PWD_HASH</code>).</div>
+  </div>
+  <div class="fg">
+    <label>GitHub Personal Access Token (PAT)</label>
+    <input type="password" id="auth-pat" placeholder="ghp_..." autocomplete="off">
+    <div class="help">Wygeneruj na <a href="https://github.com/settings/tokens/new?scopes=repo&description=gajowka-admin-calendar" target="_blank">github.com/settings/tokens</a> ze scope <code>repo</code>. PAT zapisywany jest tylko w sessionStorage (TTL 1h) — nigdy w git.</div>
+  </div>
+  <button class="btn" onclick="doLogin()">Zaloguj</button>
+</div>
+
+<!-- Add block panel -->
+<div class="card hide" id="add-panel">
+  <h2>➕ Dodaj nowy blok</h2>
+  <div class="row">
+    <div class="fg">
+      <label>Obiekt</label>
+      <select id="add-apt">
+        <option value="Gajówka">Gajówka</option>
+        <option value="Wilcza Polana">Wilcza Polana</option>
+        <option value="Sen Gajowego">Sen Gajowego</option>
+        <option value="Leśne pogaduchy">Leśne pogaduchy</option>
+      </select>
+    </div>
+    <div class="fg">
+      <label>Źródło rezerwacji</label>
+      <select id="add-source">
+        <option>Booking</option>
+        <option>Slowhop</option>
+        <option>Telefon</option>
+        <option>Email</option>
+        <option>Inne</option>
+      </select>
+    </div>
+  </div>
+  <div class="fg">
+    <label>Zakres dat</label>
+    <input type="text" id="add-range" placeholder="Wybierz daty (od — do)" autocomplete="off">
+  </div>
+  <div class="fg">
+    <label>Notatka (opcjonalnie)</label>
+    <input type="text" id="add-note" placeholder="np. Kowalscy — zaliczka wpłacona">
+  </div>
+  <button class="btn" onclick="doAddBlock()">Dodaj blok</button>
+  <button class="btn ghost" onclick="doLogout()" style="margin-left:8px;">Wyloguj</button>
+</div>
+
+<!-- List panel -->
+<div class="card hide" id="list-panel">
+  <h2>📋 Istniejące ręczne bloki</h2>
+  <p class="muted" style="margin-bottom:12px;">Po dodaniu/usunięciu workflow GitHub Actions regeneruje <code>availability.json</code> w ~30 sekund.</p>
+  <div id="list-tbl"></div>
+</div>
+
+<!-- Help panel -->
+<div class="card hide" id="help-panel">
+  <h2>ℹ️ Jak to działa</h2>
+  <ol style="padding-left:20px;font-size:13px;line-height:1.7;">
+    <li>Airbnb iCal jest pobierany automatycznie co kilka godzin przez workflow <code>sync-ical.yml</code>.</li>
+    <li>Ręczne bloki (Booking, telefon, etc.) wpisujesz tutaj — zapisują się do <code>availability/manual-blocks.json</code>.</li>
+    <li>Po zapisie GitHub Actions wykrywa zmianę i regeneruje <code>availability.json</code> (sumę wszystkich źródeł).</li>
+    <li>Date picker na <a href="/#rezerwacja">stronie głównej</a> blokuje wszystkie te terminy.</li>
+  </ol>
+</div>
+
+</div>
+
+<script>
+// ===== Config =====
+// SHA-256 hasła "gajowka2026". Po pierwszym setupie ZMIEŃ na własny hash (node: crypto.createHash('sha256').update('twoje_haslo').digest('hex'))
+var PWD_HASH='7d01990038c3054d9213b0ccff6d45384abfc2e27cf309e32f874c685382ba09';
+var REPO_OWNER='gajowkawegorzewo';
+var REPO_NAME='gajowkawegorzewo.github.io';
+var FILE_PATH='availability/manual-blocks.json';
+var SESS_KEY='gj_admin_session_v1';
+var SESS_TTL=60*60*1000; // 1h
+
+// ===== Utils =====
+function $(id){return document.getElementById(id);}
+function msg(text,type){
+  var el=$('msg');
+  el.className='msg '+(type||'info');
+  el.textContent=text;
+  el.style.display='block';
+  if(type==='ok')setTimeout(function(){el.style.display='none';},5000);
+}
+function clearMsg(){$('msg').style.display='none';$('msg').textContent='';}
+
+async function sha256(text){
+  var enc=new TextEncoder().encode(text);
+  var buf=await crypto.subtle.digest('SHA-256',enc);
+  return Array.from(new Uint8Array(buf)).map(function(b){return b.toString(16).padStart(2,'0');}).join('');
+}
+
+function b64encodeUtf8(str){
+  // Base64 encoding kompatybilny z UTF-8 (polskie znaki)
+  return btoa(unescape(encodeURIComponent(str)));
+}
+function b64decodeUtf8(str){
+  return decodeURIComponent(escape(atob(str)));
+}
+
+function getSession(){
+  try{
+    var raw=sessionStorage.getItem(SESS_KEY);
+    if(!raw)return null;
+    var s=JSON.parse(raw);
+    if(!s||!s.ts||!s.pat)return null;
+    if(Date.now()-s.ts>SESS_TTL){sessionStorage.removeItem(SESS_KEY);return null;}
+    return s;
+  }catch(e){return null;}
+}
+function setSession(pat){
+  sessionStorage.setItem(SESS_KEY,JSON.stringify({ts:Date.now(),pat:pat}));
+}
+function clearSession(){sessionStorage.removeItem(SESS_KEY);}
+
+function formatPLDate(yyyymmdd){
+  if(!yyyymmdd||yyyymmdd.length<10)return yyyymmdd||'';
+  var p=yyyymmdd.split('-');
+  return p[2]+'.'+p[1]+'.'+p[0];
+}
+
+// ===== GitHub API =====
+async function ghGetFile(){
+  var pat=getSession().pat;
+  var url='https://api.github.com/repos/'+REPO_OWNER+'/'+REPO_NAME+'/contents/'+FILE_PATH;
+  var r=await fetch(url,{
+    headers:{
+      'Authorization':'Bearer '+pat,
+      'Accept':'application/vnd.github+json',
+      'X-GitHub-Api-Version':'2022-11-28'
+    }
+  });
+  if(r.status===401||r.status===403){throw new Error('AUTH_FAIL');}
+  if(!r.ok)throw new Error('GitHub GET błąd HTTP '+r.status);
+  var data=await r.json();
+  var content=b64decodeUtf8(data.content.replace(/\n/g,''));
+  return {data:JSON.parse(content),sha:data.sha};
+}
+
+async function ghPutFile(newContent,sha,commitMsg){
+  var pat=getSession().pat;
+  var url='https://api.github.com/repos/'+REPO_OWNER+'/'+REPO_NAME+'/contents/'+FILE_PATH;
+  var jsonStr=JSON.stringify(newContent,null,2)+'\n';
+  var body={
+    message:commitMsg,
+    content:b64encodeUtf8(jsonStr),
+    sha:sha
+  };
+  var r=await fetch(url,{
+    method:'PUT',
+    headers:{
+      'Authorization':'Bearer '+pat,
+      'Accept':'application/vnd.github+json',
+      'X-GitHub-Api-Version':'2022-11-28',
+      'Content-Type':'application/json'
+    },
+    body:JSON.stringify(body)
+  });
+  if(r.status===401||r.status===403){throw new Error('AUTH_FAIL');}
+  if(!r.ok){
+    var err=await r.text();
+    throw new Error('GitHub PUT błąd HTTP '+r.status+': '+err);
+  }
+  return r.json();
+}
+
+// ===== Login =====
+async function doLogin(){
+  clearMsg();
+  var pass=$('auth-pass').value;
+  var pat=$('auth-pat').value.trim();
+  if(!pass||!pat){msg('Wpisz hasło i PAT','err');return;}
+  var hash=await sha256(pass);
+  if(hash!==PWD_HASH){msg('Nieprawidłowe hasło','err');return;}
+  if(!pat.match(/^(ghp_|github_pat_)/)){msg('PAT powinien zaczynać się od ghp_ lub github_pat_','err');return;}
+  setSession(pat);
+  // Test PAT
+  try{
+    await ghGetFile();
+    showAuthenticated();
+    msg('Zalogowano poprawnie','ok');
+  }catch(e){
+    if(e.message==='AUTH_FAIL'){
+      clearSession();
+      msg('PAT jest nieprawidłowy lub nie ma scope=repo. Wygeneruj nowy.','err');
+    }else{
+      msg('Błąd: '+e.message,'err');
+    }
+  }
+}
+
+function doLogout(){
+  clearSession();
+  $('auth-panel').classList.remove('hide');
+  $('add-panel').classList.add('hide');
+  $('list-panel').classList.add('hide');
+  $('help-panel').classList.add('hide');
+  $('auth-pass').value='';
+  $('auth-pat').value='';
+  msg('Wylogowano','info');
+}
+
+function showAuthenticated(){
+  $('auth-panel').classList.add('hide');
+  $('add-panel').classList.remove('hide');
+  $('list-panel').classList.remove('hide');
+  $('help-panel').classList.remove('hide');
+  // init flatpickr range picker
+  if(typeof flatpickr!=='undefined'){
+    var localePl=(window.flatpickr&&window.flatpickr.l10ns&&window.flatpickr.l10ns.pl)?'pl':'default';
+    flatpickr('#add-range',{
+      locale:localePl,
+      mode:'range',
+      minDate:'today',
+      dateFormat:'Y-m-d',
+      altInput:true,
+      altFormat:'d.m.Y'
+    });
+  }
+  refreshList();
+}
+
+// ===== Add / Delete =====
+async function doAddBlock(){
+  clearMsg();
+  var apt=$('add-apt').value;
+  var source=$('add-source').value;
+  var range=$('add-range').value;
+  var note=$('add-note').value.trim();
+  if(!apt||!source||!range){msg('Wybierz obiekt, źródło i daty','err');return;}
+  // range w formacie "YYYY-MM-DD to YYYY-MM-DD"
+  var parts=range.split(/\s+to\s+|\s+do\s+/);
+  if(parts.length!==2){msg('Wybierz pełen zakres dat (od i do)','err');return;}
+  var from=parts[0].trim();
+  var to=parts[1].trim();
+  if(!from.match(/^\d{4}-\d{2}-\d{2}$/)||!to.match(/^\d{4}-\d{2}-\d{2}$/)){msg('Niepoprawny format dat','err');return;}
+  if(to<=from){msg('Data wyjazdu musi być późniejsza niż przyjazdu','err');return;}
+
+  try{
+    msg('Pobieram aktualny plik z GitHub…','info');
+    var cur=await ghGetFile();
+    var data=cur.data||{};
+    if(!data[apt])data[apt]=[];
+    var entry={from:from,to:to,source:source};
+    if(note)entry.note=note;
+    data[apt].push(entry);
+    msg('Zapisuję nowy blok…','info');
+    await ghPutFile(data,cur.sha,'manual block: '+apt+' '+from+' → '+to+' ('+source+')');
+    msg('✅ Dodano blok '+apt+' '+formatPLDate(from)+' — '+formatPLDate(to)+'. Workflow regeneruje availability.json w ~30s.','ok');
+    $('add-range').value='';
+    $('add-note').value='';
+    if(window.__addRangeFp&&window.__addRangeFp.clear)window.__addRangeFp.clear();
+    refreshList();
+  }catch(e){
+    if(e.message==='AUTH_FAIL'){
+      clearSession();
+      msg('Sesja wygasła lub PAT nieważny. Zaloguj się ponownie.','err');
+      doLogout();
+    }else{
+      msg('Błąd zapisu: '+e.message,'err');
+    }
+  }
+}
+
+async function doDeleteBlock(apt,idx){
+  if(!confirm('Usunąć blok '+apt+' #'+(idx+1)+'?'))return;
+  clearMsg();
+  try{
+    var cur=await ghGetFile();
+    var data=cur.data||{};
+    if(!data[apt]||!data[apt][idx]){msg('Blok już nie istnieje (odśwież)','err');refreshList();return;}
+    var removed=data[apt][idx];
+    data[apt].splice(idx,1);
+    await ghPutFile(data,cur.sha,'remove manual block: '+apt+' '+removed.from+' → '+removed.to);
+    msg('🗑️ Usunięto blok '+apt+' '+formatPLDate(removed.from)+' — '+formatPLDate(removed.to),'ok');
+    refreshList();
+  }catch(e){
+    if(e.message==='AUTH_FAIL'){
+      clearSession();
+      msg('Sesja wygasła. Zaloguj się ponownie.','err');
+      doLogout();
+    }else{
+      msg('Błąd: '+e.message,'err');
+    }
+  }
+}
+
+async function refreshList(){
+  var box=$('list-tbl');
+  box.innerHTML='<p class="muted">Ładuję…</p>';
+  try{
+    var cur=await ghGetFile();
+    var data=cur.data||{};
+    var total=0;
+    var html='<table><thead><tr><th>Obiekt</th><th>Od</th><th>Do</th><th>Źródło</th><th>Notatka</th><th></th></tr></thead><tbody>';
+    Object.keys(data).forEach(function(apt){
+      (data[apt]||[]).forEach(function(b,i){
+        total++;
+        html+='<tr>'+
+          '<td><span class="tag">'+apt+'</span></td>'+
+          '<td>'+formatPLDate(b.from)+'</td>'+
+          '<td>'+formatPLDate(b.to)+'</td>'+
+          '<td>'+(b.source||'-')+'</td>'+
+          '<td class="muted">'+(b.note||'')+'</td>'+
+          '<td><button class="btn warn small" onclick="doDeleteBlock(\''+apt.replace(/'/g,"\\'")+'\','+i+')">Usuń</button></td>'+
+          '</tr>';
+      });
+    });
+    html+='</tbody></table>';
+    if(total===0){box.innerHTML='<p class="muted">Brak ręcznych bloków. Wszystkie zajęte terminy pochodzą z Airbnb iCal.</p>';}
+    else{box.innerHTML=html;}
+  }catch(e){
+    if(e.message==='AUTH_FAIL'){
+      clearSession();
+      msg('Sesja wygasła. Zaloguj się ponownie.','err');
+      doLogout();
+    }else{
+      box.innerHTML='<p style="color:#933;">Błąd: '+e.message+'</p>';
+    }
+  }
+}
+
+// ===== Auto-login on load (sessionStorage) =====
+document.addEventListener('DOMContentLoaded',function(){
+  var sess=getSession();
+  if(sess&&sess.pat){
+    // try silently
+    ghGetFile().then(function(){
+      showAuthenticated();
+    }).catch(function(e){
+      clearSession();
+      // pokaż logowanie (default state)
+    });
+  }
+});
+</script>
+</body>
+</html>

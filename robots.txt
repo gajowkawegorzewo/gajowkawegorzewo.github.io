@@ -8,6 +8,7 @@ Disallow: /scripts/
 Disallow: /.env
 Disallow: /google-sa.json
 Disallow: /PROJECT_STATUS.md
+Disallow: /admin/
 
 # Crawl-delay nie ustawiamy - GitHub Pages jest szybki
 
