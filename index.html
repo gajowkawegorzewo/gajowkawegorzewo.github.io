@@ -24,7 +24,7 @@ gtag("config","G-FV3WMT39RV",{anonymize_ip:true});
 <style>
 :root{--cream:#f8f4ee;--warm:#ede5d6;--forest:#3d5a34;--wd:#7a5c38;--dark:#1e1a14;--text:#3a3228;--muted:#7a6e60;--white:#fdfaf6;--gold:#c8a55a;}
 *{box-sizing:border-box;margin:0;padding:0;}html{scroll-behavior:smooth;}
-body{font-family:"Lato",sans-serif;background:var(--white);color:var(--text);overflow-x:hidden;font-weight:300;}
+body{font-family:"Lato",sans-serif;background:var(--white);color:var(--text);overflow-x:hidden;font-weight:400;}
 nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:14px 48px;display:flex;justify-content:space-between;align-items:center;transition:padding .4s,box-shadow .4s;background:linear-gradient(135deg,rgba(30,26,20,.55) 0%,rgba(61,90,52,.45) 50%,rgba(30,26,20,.55) 100%);background-size:200% 200%;animation:navShift 12s ease-in-out infinite;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);}
 @keyframes navShift{0%,100%{background-position:0% 50%;}50%{background-position:100% 50%;}}
 nav.sc{background:linear-gradient(135deg,rgba(253,250,246,.94) 0%,rgba(237,229,214,.94) 50%,rgba(253,250,246,.94) 100%);background-size:200% 200%;animation:navShift 12s ease-in-out infinite;padding:10px 48px;box-shadow:0 2px 20px rgba(0,0,0,.12);}
@@ -429,6 +429,55 @@ section .rv.vis{transform:translateY(0) translateX(0);}
 .route-btn:hover{transform:translateY(-2px);box-shadow:0 4px 10px rgba(0,0,0,.1);}
 .route-btn.walk:hover{background:var(--forest);color:#fff;border-color:var(--forest);}
 .route-btn.drive:hover{background:var(--wd);color:#fff;border-color:var(--wd);}
+/* ============ GLOBAL FONT BOOST (2026-05-27) — czytelność opisów wszędzie ============ */
+/* Sekcje główne tekstów — section title text */
+.stxt{font-size:16px!important;line-height:1.75!important;color:var(--text)!important;font-weight:400!important;max-width:560px!important;}
+/* Karty obiektów (Gajówka/Wilcza/Sen/Leśne) */
+.acb p{font-size:15px!important;line-height:1.7!important;color:var(--text)!important;font-weight:400!important;margin-bottom:14px!important;}
+.aprice{font-size:13px!important;padding:6px 12px!important;}
+/* Karty jedzenia (Chałka/Chleb/Pierogi/Jajka) */
+.fcard p{font-size:15px!important;line-height:1.7!important;color:var(--text)!important;font-weight:400!important;}
+.fnote{font-size:14px!important;color:var(--text)!important;line-height:1.7!important;font-weight:400!important;}
+/* Karty atrakcji/plaż/restauracji/kontaktu */
+.atcard p,.pcard p,.rcard p,.kcard p{font-size:15px!important;line-height:1.7!important;color:var(--text)!important;font-weight:400!important;}
+.atcard .dist,.pcard .dist,.rcard .loc{font-size:12px!important;color:var(--wd)!important;font-weight:700!important;}
+.atcard .tip,.pcard .tip,.rcard .tip{font-size:13px!important;color:var(--forest)!important;font-weight:500!important;}
+.atcard h3,.pcard h3,.rcard h3{font-size:19px!important;}
+/* Sekcja Relaks (ciemna) */
+.rcb p{font-size:15px!important;color:rgba(255,255,255,.85)!important;line-height:1.7!important;font-weight:400!important;}
+.rcb h3{font-size:20px!important;}
+.rprice{font-size:13px!important;padding:7px 14px!important;}
+.rnote{font-size:13px!important;color:rgba(255,255,255,.7)!important;}
+.rnote2{font-size:14px!important;color:rgba(255,255,255,.8)!important;line-height:1.7!important;}
+.rs .stxt{color:rgba(255,255,255,.85)!important;}
+/* Features grid w "O miejscu" */
+.ftx b{font-size:14px!important;font-weight:700!important;}
+.ftx span{font-size:13px!important;color:var(--text)!important;opacity:.85;}
+/* Kroki "Jak to działa" */
+.bkst-t b{font-size:14px!important;}
+.bkst-t span{font-size:13px!important;color:var(--text)!important;opacity:.85;line-height:1.6!important;}
+.bksn{width:30px!important;height:30px!important;font-size:13px!important;}
+/* Form inputs */
+.fg input,.fg select,.fg textarea{font-size:15px!important;font-weight:400!important;padding:11px 13px!important;}
+.aopt b{font-size:14px!important;}
+.aopt span{font-size:13px!important;}
+/* Buttony */
+.btn{font-size:13px!important;}
+.fsub{font-size:12px!important;padding:14px!important;}
+/* Sekcja "Sukces" */
+.sbox p{font-size:14px!important;opacity:.95!important;}
+/* Stagi sekcji */
+.stag{font-size:11px!important;letter-spacing:3.5px!important;}
+/* Tooltips obrazków */
+.tc{font-size:13px!important;font-weight:500!important;}
+/* Footer */
+footer{font-size:14px!important;}
+.fcol h4{font-size:14px!important;}
+.fci2{font-size:14px!important;line-height:1.7!important;}
+@media(max-width:768px){
+  .stxt{font-size:15px!important;}
+  .acb p,.fcard p,.atcard p,.pcard p,.rcard p,.kcard p,.rcb p{font-size:14px!important;}
+}
 </style></head><body>
 <nav id="nav"><a href="#" class="logo">Gaj&#xF3;wka<small>i Apartamenty &middot; W&#x119;gorzewo, Mazury</small></a><ul class="nl" id="navlinks"><li><a href="#obiekty">Obiekty</a></li><li><a href="#teren">Teren</a></li><li><a href="#relax">Relaks</a></li><li><a href="#jedzenie">Jedzenie</a></li><li><a href="#atrakcje">Atrakcje</a></li><li><a href="#place">Pla&#380;e</a></li><li><a href="#restauracje">Restauracje</a></li><li><a href="/blog/">Blog</a></li><li><a href="#dojazd">Dojazd</a></li><li><a href="#kontakt">Kontakt</a></li><li><a href="#rezerwacja" class="ncta">Zarezerwuj</a></li></ul><div class="hbg" onclick="toggleNav()"><span></span><span></span><span></span></div></nav>
 <div class="hero"><img class="hbg2" src="img/zdjecie_001.jpg" alt="Gaj&#xF3;wka"><div class="hov"></div><div class="hcon"><div class="htag">&#127807; Mazury &middot; W&#x119;gorzewo &middot; XIX-wieczna Le&#x15B;niczówka</div><h1 class="htit">Gaj&#xF3;wka<br><em>i Apartamenty</em></h1><p class="hsub">Trzy wyj&#x105;tkowe obiekty w sercu mazurskiej przyrody</p><div class="hbtns"><a href="#rezerwacja" class="btn bg">Zarezerwuj pobyt</a><a href="#obiekty" class="btn bw">Poznaj miejsce</a></div></div><div class="hbadges"><div class="hbadges-track">
