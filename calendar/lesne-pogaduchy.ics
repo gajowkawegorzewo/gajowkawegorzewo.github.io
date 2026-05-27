@@ -1,0 +1,7 @@
+BEGIN:VCALENDAR
+PRODID:-//Gajowka Wegorzewo//Booking Calendar 1.0//PL
+CALSCALE:GREGORIAN
+VERSION:2.0
+X-WR-CALNAME:Gajowka - Leśne pogaduchy
+X-WR-TIMEZONE:Europe/Warsaw
+END:VCALENDAR

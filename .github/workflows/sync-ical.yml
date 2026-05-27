@@ -1,0 +1,46 @@
+name: Sync iCal from Airbnb/Booking
+
+on:
+  schedule:
+    - cron: '*/30 * * * *'   # co 30 minut
+  workflow_dispatch:          # manual trigger button
+  push:
+    paths:
+      - 'availability/sources.json'
+      - 'availability/manual-blocks.json'
+      - 'scripts/sync-ical.js'
+      - '.github/workflows/sync-ical.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-ical
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Run sync-ical.js
+        run: node scripts/sync-ical.js
+
+      - name: Commit changes (if any)
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add availability.json calendar/*.ics
+          if git diff --staged --quiet; then
+            echo "no changes"
+          else
+            git commit -m "chore(ical): sync availability $(date -u +%Y-%m-%dT%H:%MZ)"
+            git push
+          fi

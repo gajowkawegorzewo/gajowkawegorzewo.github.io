@@ -1,0 +1,17 @@
+{
+  "Gajówka": {
+    "slug": "gajowka",
+    "airbnb": "https://www.airbnb.pl/calendar/ical/1523749688583205773.ics?t=7286c1c83e2544e1ac44a89a7e975dd0"
+  },
+  "Wilcza Polana": {
+    "slug": "wilcza-polana",
+    "airbnb": "https://www.airbnb.pl/calendar/ical/666465823606986664.ics?t=78787df04d0e4fab942fde8e2b21cbe2"
+  },
+  "Sen Gajowego": {
+    "slug": "sen-gajowego",
+    "airbnb": "https://www.airbnb.pl/calendar/ical/666508859348825214.ics?t=7987550c7b3a4cc293e7f045297bb438"
+  },
+  "Leśne pogaduchy": {
+    "slug": "lesne-pogaduchy"
+  }
+}
