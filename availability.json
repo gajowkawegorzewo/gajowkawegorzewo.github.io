@@ -1,37 +1,92 @@
 {
   "Gajówka": [
     {
-      "from": "2026-05-25",
-      "to": "2026-06-25",
-      "source": "Airbnb"
+      "from": "2023-08-13",
+      "to": "2023-08-18",
+      "source": "Alohacamp"
     },
     {
-      "from": "2026-06-30",
+      "from": "2024-12-20",
+      "to": "2024-12-25",
+      "source": "Alohacamp"
+    },
+    {
+      "from": "2025-06-19",
+      "to": "2025-06-22",
+      "source": "Alohacamp"
+    },
+    {
+      "from": "2025-07-16",
+      "to": "2025-07-19",
+      "source": "Alohacamp"
+    },
+    {
+      "from": "2025-07-24",
+      "to": "2025-07-30",
+      "source": "Alohacamp"
+    },
+    {
+      "from": "2025-08-02",
+      "to": "2025-08-17",
+      "source": "Alohacamp"
+    },
+    {
+      "from": "2025-08-21",
+      "to": "2025-08-24",
+      "source": "Alohacamp"
+    },
+    {
+      "from": "2025-08-28",
+      "to": "2025-08-31",
+      "source": "Alohacamp"
+    },
+    {
+      "from": "2026-05-25",
       "to": "2026-07-06",
-      "source": "Booking+Airbnb"
+      "source": "Airbnb+Alohacamp+Booking"
     },
     {
       "from": "2026-07-12",
       "to": "2026-07-20",
-      "source": "Airbnb"
+      "source": "Airbnb+Alohacamp"
     },
     {
       "from": "2026-07-25",
       "to": "2026-08-02",
-      "source": "Airbnb+Booking"
+      "source": "Airbnb+Booking+Alohacamp"
     },
     {
       "from": "2026-08-06",
       "to": "2026-08-14",
-      "source": "Airbnb+Booking"
+      "source": "Airbnb+Booking+Alohacamp"
+    },
+    {
+      "from": "2026-08-22",
+      "to": "2026-08-23",
+      "source": "Alohacamp"
     },
     {
       "from": "2026-09-01",
-      "to": "2027-05-28",
-      "source": "Airbnb"
+      "to": "2028-11-28",
+      "source": "Airbnb+Alohacamp"
     }
   ],
   "Wilcza Polana": [
+    {
+      "from": "2023-05-05",
+      "to": "2023-05-07",
+      "source": "Alohacamp"
+    },
+    {
+      "from": "2026-05-11",
+      "to": "2026-05-18",
+      "source": "Alohacamp"
+    },
+    {
+      "from": "2026-05-22",
+      "to": "2026-05-24",
+      "source": "Alohacamp"
+    },
     {
       "from": "2026-05-27",
       "to": "2026-05-28",
@@ -45,7 +100,17 @@
     {
       "from": "2026-07-10",
       "to": "2026-07-13",
-      "source": "Airbnb"
+      "source": "Airbnb+Alohacamp"
+    },
+    {
+      "from": "2026-07-17",
+      "to": "2026-07-20",
+      "source": "Alohacamp"
+    },
+    {
+      "from": "2026-07-27",
+      "to": "2026-08-03",
+      "source": "Alohacamp"
     },
     {
       "from": "2026-08-11",
@@ -59,20 +124,50 @@
     },
     {
       "from": "2027-02-01",
-      "to": "2027-05-28",
-      "source": "Booking+Airbnb"
+      "to": "2029-05-28",
+      "source": "Booking+Airbnb+Alohacamp"
     }
   ],
   "Sen Gajowego": [
     {
+      "from": "2023-10-03",
+      "to": "2023-10-06",
+      "source": "Alohacamp"
+    },
+    {
+      "from": "2023-12-01",
+      "to": "2023-12-03",
+      "source": "Alohacamp"
+    },
+    {
+      "from": "2025-04-19",
+      "to": "2025-04-22",
+      "source": "Alohacamp"
+    },
+    {
+      "from": "2025-07-16",
+      "to": "2025-07-19",
+      "source": "Alohacamp"
+    },
+    {
+      "from": "2026-05-03",
+      "to": "2026-05-13",
+      "source": "Alohacamp"
+    },
+    {
+      "from": "2026-05-22",
+      "to": "2026-05-24",
+      "source": "Alohacamp"
+    },
+    {
       "from": "2026-05-28",
       "to": "2026-05-31",
-      "source": "Airbnb"
+      "source": "Airbnb+Alohacamp"
     },
     {
       "from": "2026-06-02",
-      "to": "2026-06-04",
-      "source": "Booking"
+      "to": "2026-06-07",
+      "source": "Booking+Alohacamp"
     },
     {
       "from": "2026-06-15",
@@ -80,14 +175,14 @@
       "source": "Airbnb+Slowhop"
     },
     {
-      "from": "2026-07-06",
+      "from": "2026-07-03",
       "to": "2026-07-10",
-      "source": "Airbnb"
+      "source": "Alohacamp+Airbnb"
     },
     {
-      "from": "2026-07-25",
+      "from": "2026-07-17",
       "to": "2026-08-01",
-      "source": "Airbnb+Slowhop"
+      "source": "Alohacamp+Airbnb+Slowhop"
     },
     {
       "from": "2026-08-03",
@@ -101,8 +196,8 @@
     },
     {
       "from": "2027-01-11",
-      "to": "2027-05-28",
-      "source": "Booking+Airbnb"
+      "to": "2029-05-28",
+      "source": "Booking+Airbnb+Alohacamp"
     }
   ],
   "Leśne pogaduchy": []

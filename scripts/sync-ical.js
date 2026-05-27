@@ -41,7 +41,7 @@ const SITE_DOMAIN = 'gajowkawegorzewo.github.io';
 // upstream format never silently drops a real block. Our own ICS output
 // re-writes SUMMARY to "Reserved" unconditionally — guest names never leak.
 const BLOCKED_SUMMARY_PATTERNS = [
-  /reserved/i,
+  /reserv/i,         // covers: reserved, reservation, "Manual reservation" (Aloha), "Reservation no XXX at alohacamp.com"
   /not available/i,
   /confirmed/i,
   /closed/i,
@@ -49,7 +49,7 @@ const BLOCKED_SUMMARY_PATTERNS = [
   /blocked/i,
   /busy/i,
   /unavailable/i,
-  /finalized/i,
+  /finalized/i,      // Slowhop: "Oskar - 1268257 finalized"
   /airbnb/i,
 ];
 
@@ -320,7 +320,7 @@ async function main() {
     }
 
     // External iCal sources
-    const sourceKeys = ['airbnb', 'booking', 'slowhop'];
+    const sourceKeys = ['airbnb', 'booking', 'slowhop', 'alohacamp'];
     for (const key of sourceKeys) {
       const url = cfg[key];
       if (!url) continue;
