@@ -25,17 +25,18 @@ gtag("config","G-FV3WMT39RV",{anonymize_ip:true});
 :root{--cream:#f8f4ee;--warm:#ede5d6;--forest:#3d5a34;--wd:#7a5c38;--dark:#1e1a14;--text:#3a3228;--muted:#7a6e60;--white:#fdfaf6;--gold:#c8a55a;}
 *{box-sizing:border-box;margin:0;padding:0;}html{scroll-behavior:smooth;}
 body{font-family:"Lato",sans-serif;background:var(--white);color:var(--text);overflow-x:hidden;font-weight:300;}
-nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:16px 48px;display:flex;justify-content:space-between;align-items:center;transition:all .4s;}
-nav.sc{background:rgba(253,250,246,.97);backdrop-filter:blur(10px);padding:11px 48px;box-shadow:0 2px 20px rgba(0,0,0,.08);}
-.logo{font-family:"Playfair Display",serif;font-size:18px;color:var(--white);text-decoration:none;transition:color .3s;line-height:1.2;}
-.logo small{display:block;font-size:9px;letter-spacing:3px;font-family:"Lato";font-weight:400;opacity:.7;text-transform:uppercase;}
-nav.sc .logo{color:var(--dark);}
-.nl{display:flex;gap:18px;list-style:none;align-items:center;flex-wrap:wrap;}
-.nl a{font-size:10px;letter-spacing:1.2px;text-transform:uppercase;color:rgba(255,255,255,.85);text-decoration:none;transition:color .2s;}
-nav.sc .nl a{color:var(--text);}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:14px 48px;display:flex;justify-content:space-between;align-items:center;transition:padding .4s,box-shadow .4s;background:linear-gradient(135deg,rgba(30,26,20,.55) 0%,rgba(61,90,52,.45) 50%,rgba(30,26,20,.55) 100%);background-size:200% 200%;animation:navShift 12s ease-in-out infinite;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);}
+@keyframes navShift{0%,100%{background-position:0% 50%;}50%{background-position:100% 50%;}}
+nav.sc{background:linear-gradient(135deg,rgba(253,250,246,.94) 0%,rgba(237,229,214,.94) 50%,rgba(253,250,246,.94) 100%);background-size:200% 200%;animation:navShift 12s ease-in-out infinite;padding:10px 48px;box-shadow:0 2px 20px rgba(0,0,0,.12);}
+.logo{font-family:"Playfair Display",serif;font-size:19px;color:var(--white);text-decoration:none;transition:color .3s;line-height:1.2;text-shadow:0 1px 3px rgba(0,0,0,.3);}
+.logo small{display:block;font-size:10px;letter-spacing:3px;font-family:"Lato";font-weight:500;opacity:.9;text-transform:uppercase;}
+nav.sc .logo{color:var(--dark);text-shadow:none;}
+.nl{display:flex;gap:22px;list-style:none;align-items:center;flex-wrap:wrap;}
+.nl a{font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.96);text-decoration:none;transition:color .25s;font-weight:600;text-shadow:0 1px 2px rgba(0,0,0,.35);}
+nav.sc .nl a{color:var(--dark);text-shadow:none;font-weight:600;}
 .nl a:hover{color:var(--gold)!important;}
-.ncta{background:var(--gold)!important;color:var(--dark)!important;padding:7px 16px;border-radius:2px;font-weight:700!important;}
-nav.sc .ncta{background:var(--wd)!important;color:var(--white)!important;}
+.ncta{background:var(--gold)!important;color:var(--dark)!important;padding:8px 18px;border-radius:3px;font-weight:700!important;text-shadow:none!important;}
+nav.sc .ncta{background:var(--forest)!important;color:var(--white)!important;}
 .hbg{display:none;flex-direction:column;gap:5px;cursor:pointer;z-index:301;}
 .hbg span{width:24px;height:2px;background:var(--white);display:block;}
 nav.sc .hbg span{background:var(--dark);}
@@ -43,10 +44,10 @@ nav.sc .hbg span{background:var(--dark);}
 .hbg2{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 80%;}
 .hov{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(8,6,2,.28),rgba(8,6,2,.6));}
 .hcon{position:relative;text-align:center;color:var(--white);padding:0 20px;}
-.htag{font-size:11px;letter-spacing:5px;text-transform:uppercase;opacity:.78;margin-bottom:16px;}
+.htag{font-size:13px;letter-spacing:5px;text-transform:uppercase;opacity:.85;margin-bottom:16px;font-weight:500;}
 .htit{font-family:"Playfair Display",serif;font-size:clamp(48px,8vw,100px);font-weight:400;line-height:.93;margin-bottom:10px;letter-spacing:-2px;}
 .htit em{font-style:italic;color:var(--gold);}
-.hsub{font-size:12px;letter-spacing:3px;text-transform:uppercase;opacity:.62;margin-bottom:38px;}
+.hsub{font-size:15px;letter-spacing:2.5px;text-transform:uppercase;opacity:.85;margin-bottom:38px;font-weight:400;}
 .hbtns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
 .btn{padding:12px 28px;font-family:"Lato";font-size:11px;letter-spacing:2px;text-transform:uppercase;cursor:pointer;border-radius:2px;transition:all .3s;text-decoration:none;display:inline-block;font-weight:700;}
 .bg{background:var(--gold);color:var(--dark);border:2px solid var(--gold);}.bg:hover{background:transparent;color:var(--white);}
@@ -96,11 +97,11 @@ section{padding:72px 48px;}
 .acb h3{font-family:"Playfair Display",serif;font-size:20px;font-weight:400;margin-bottom:7px;}
 .acb p{font-size:12px;line-height:1.7;color:var(--muted);margin-bottom:13px;}
 .specs{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:13px;}
-.spec{font-size:12px;color:var(--muted);background:var(--cream);padding:5px 10px;border-radius:2px;}
+.spec{font-size:13px;color:var(--text);background:var(--cream);padding:6px 12px;border-radius:3px;font-weight:500;}
 .mini{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;margin-bottom:13px;}
 .mini img{width:100%;height:58px;object-fit:cover;border-radius:2px;cursor:pointer;transition:opacity .2s;}
 .mini img:hover{opacity:.8;}
-.pnote{font-size:10px;color:var(--muted);font-style:italic;margin-bottom:10px;line-height:1.5;}
+.pnote{font-size:13px;color:var(--text);font-style:italic;margin-bottom:12px;line-height:1.55;}
 .ters{padding:72px 48px;}
 .tg{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:36px;}
 .ti{position:relative;overflow:hidden;border-radius:3px;cursor:pointer;}
@@ -140,7 +141,7 @@ section{padding:72px 48px;}
 .fbox{background:var(--white);padding:26px;border-radius:3px;box-shadow:0 5px 26px rgba(0,0,0,.09);}
 .fbox h3{font-family:"Playfair Display",serif;font-size:20px;margin-bottom:18px;color:var(--dark);}
 .fg{margin-bottom:12px;}
-.fg label{display:block;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:5px;font-weight:700;}
+.fg label{display:block;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--text);margin-bottom:7px;font-weight:700;}
 .fg input,.fg select,.fg textarea{width:100%;padding:9px 11px;border:1px solid #ddd;background:var(--white);font-family:"Lato";font-size:12px;color:var(--dark);border-radius:2px;outline:none;transition:border-color .2s;font-weight:300;}
 .fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--gold);}
 .fgr{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
@@ -151,7 +152,7 @@ section{padding:72px 48px;}
 .aopt span{font-size:10px;color:var(--muted);}
 .fsub{width:100%;background:var(--forest);color:white;padding:12px;font-family:"Lato";font-size:10px;letter-spacing:3px;text-transform:uppercase;border:none;cursor:pointer;border-radius:2px;transition:background .3s;margin-top:4px;font-weight:700;}
 .fsub:hover{background:var(--wd);}
-.fnote2{font-size:11px;color:var(--muted);margin-top:7px;text-align:center;line-height:1.6;}
+.fnote2{font-size:13px;color:var(--text);margin-top:9px;text-align:center;line-height:1.7;}
 .sbox{display:none;background:var(--forest);color:white;padding:20px;border-radius:3px;text-align:center;}
 .sbox h4{font-family:"Playfair Display",serif;font-size:20px;margin-bottom:6px;}
 .sbox p{font-size:12px;opacity:.75;line-height:1.6;}
@@ -346,12 +347,13 @@ section[id]{scroll-margin-top:80px;}
 .flatpickr-day.inRange{background:rgba(200,165,90,.18)!important;border-color:rgba(200,165,90,.18)!important;}
 .flatpickr-day.today{border-color:var(--forest);}
 .flatpickr-day.flatpickr-disabled,.flatpickr-day.flatpickr-disabled:hover{text-decoration:line-through;color:#b66!important;background:rgba(255,0,0,.05)!important;cursor:not-allowed;}
-.avail-info{font-size:10px;color:var(--muted);margin-top:4px;line-height:1.4;}
+.avail-info{font-size:13px;color:var(--text);margin-top:6px;line-height:1.5;}
 .avail-info b{color:var(--forest);font-weight:700;}
-.avail-blocked-list{margin-top:8px;padding:8px 10px;background:rgba(255,200,200,.18);border-left:3px solid #b66;border-radius:2px;font-size:11px;color:var(--text);line-height:1.5;}
-.avail-blocked-list b{color:#933;font-weight:700;display:block;margin-bottom:3px;}
-.avail-blocked-list ul{list-style:none;padding:0;margin:0;}
-.avail-blocked-list li{padding:1px 0;}
+.avail-free-list{margin-top:10px;padding:12px 14px;background:rgba(61,90,52,.08);border-left:3px solid var(--forest);border-radius:3px;font-size:14px;color:var(--text);line-height:1.6;}
+.avail-free-list b{color:var(--forest);font-weight:700;display:block;margin-bottom:6px;font-size:14px;}
+.avail-free-list ul{list-style:none;padding:0;margin:0;}
+.avail-free-list li{padding:3px 0;}
+.avail-free-list .nights{color:var(--wd);font-weight:600;font-size:12px;}
 </style></head><body>
 <nav id="nav"><a href="#" class="logo">Gaj&#xF3;wka<small>i Apartamenty &middot; W&#x119;gorzewo, Mazury</small></a><ul class="nl" id="navlinks"><li><a href="#obiekty">Obiekty</a></li><li><a href="#teren">Teren</a></li><li><a href="#relax">Relaks</a></li><li><a href="#jedzenie">Jedzenie</a></li><li><a href="#atrakcje">Atrakcje</a></li><li><a href="#place">Pla&#380;e</a></li><li><a href="#restauracje">Restauracje</a></li><li><a href="/blog/">Blog</a></li><li><a href="#dojazd">Dojazd</a></li><li><a href="#kontakt">Kontakt</a></li><li><a href="#rezerwacja" class="ncta">Zarezerwuj</a></li></ul><div class="hbg" onclick="toggleNav()"><span></span><span></span><span></span></div></nav>
 <div class="hero"><img class="hbg2" src="img/zdjecie_001.jpg" alt="Gaj&#xF3;wka"><div class="hov"></div><div class="hcon"><div class="htag">&#127807; Mazury &middot; W&#x119;gorzewo &middot; XIX-wieczna Le&#x15B;niczówka</div><h1 class="htit">Gaj&#xF3;wka<br><em>i Apartamenty</em></h1><p class="hsub">Trzy wyj&#x105;tkowe obiekty w sercu mazurskiej przyrody</p><div class="hbtns"><a href="#rezerwacja" class="btn bg">Zarezerwuj pobyt</a><a href="#obiekty" class="btn bw">Poznaj miejsce</a></div></div><div class="hbadges">
@@ -388,7 +390,7 @@ section[id]{scroll-margin-top:80px;}
 <section id="teren" class="ters"><div class="con"><div class="rv"><div class="stag">Teren i atrakcje</div><h2 class="stitle">Twoja prywatna <em>mazurska enklawa</em></h2></div><div class="tg rv"><div class="ti th" onclick="openlb(this.querySelector('img').src,this.querySelector('img'))"><img src="img/zdjecie_025.jpg" alt=""><div class="tc">&#127946; Basen sezonowy 4,3 x 2,5 m</div></div><div class="ti" onclick="openlb(this.querySelector('img').src,this.querySelector('img'))"><img src="img/zdjecie_026.jpg" alt=""><div class="tc">&#127795; nasz kot Leon</div></div><div class="ti" onclick="openlb(this.querySelector('img').src,this.querySelector('img'))"><img src="img/zdjecie_027.jpg" alt=""><div class="tc">&#128293; Balia i g&#322;&#xF3;wny budynek</div></div><div class="ti" onclick="openlb(this.querySelector('img').src,this.querySelector('img'))"><img src="img/zdjecie_028.jpg" alt=""><div class="tc">&#127803; znowu nasz kot Leon</div></div><div class="ti" onclick="openlb(this.querySelector('img').src,this.querySelector('img'))"><img src="img/zdjecie_029.jpg" alt=""><div class="tc">&#10052; Pi&#x119;kny o ka&#380;dej porze roku</div></div></div></div></section>
 <section id="relax" class="rs"><div class="con"><div class="rv"><div class="stag">Dodatkowe us&#322;ugi</div><h2 class="stitle">Strefa <em>relaksu</em></h2><p class="stxt">Wyj&#x105;tkowe atrakcje za dodatkow&#x105; op&#322;at&#x105;. Zarezerwuj przy sk&#322;adaniu rezerwacji.</p></div><div class="rg rv"><div class="rc"><img src="img/zdjecie_030.jpg" alt="" style="object-position:center 80%;" onclick="openlb(this.src,this)"><div class="mini"><img src="img/zdjecie_051.jpg" onclick="openlb(this.src,this)" alt=""></div><div class="rcb"><h3>&#128709; Balia z kinem pod gwiazdami</h3><p>Gor&#x105;ca balia opalana drewnem z ekranem projekcyjnym w ogrodzie. Rozpalamy my &mdash; reszta nale&#380;y do Ciebie. Drewno w cenie. Wieczór filmowy pod go&#322;ym niebem jakiego nie zapomnisz.</p><div><span class="rprice">250 z&#322; / doba</span></div><p class="rnote">&#129683; Drewno w cenie &middot; Rozpalamy my &middot; Reszta samodzielnie</p></div></div><div class="rc"><img src="img/zdjecie_031.jpg" alt="" onclick="openlb(this.src,this)"><div class="mini"><img src="img/zdjecie_052.jpg" onclick="openlb(this.src,this)" alt=""></div><div class="rcb"><h3>&#129443; Sauna beczkowa</h3><p>Fi&#x144;ska sauna beczkowa po&#x15B;r&#xF3;d mazurskiej przyrody. Idealna latem po basenie i zim&#x105; z kontrastem &#x15B;niegu. G&#322;&#x119;boki relaks przez ok. 2 godziny.</p><div><span class="rprice">150 z&#322; / sesja (~2h)</span></div><p class="rnote">&#128197; Rezerwacja z wyprzedzeniem &middot; Dost&#x119;pna ca&#322;y rok</p></div></div></div><div class="rnote2 rv">&#128161; Oba atrakcje mo&#380;na &#322;&#x105;czy&#x107;. Wpisz w uwagach formularza lub zadzwo&#x144; do Pana Janusza: <strong>608 502 327</strong></div></div></section>
 <section id="jedzenie" class="fs"><div class="con"><div class="rv"><div class="stag">Zam&#xF3;w z wyprzedzeniem</div><h2 class="stitle">Domowe smaki <em>prosto z serca</em></h2><p class="stxt">Wszystko robione r&#x119;cznie, z mi&#322;o&#x15B;ci&#x105; do gotowania. Zam&#xF3;w przy rezerwacji &mdash; b&#x119;dzie czeka&#x107; na Ciebie po przyje&#x17A;dzie.</p></div><div class="fgg rv"><div class="fcard"><img class="fcim" src="img/zdjecie_032.jpg" alt=""><div class="fci">&#127838;</div><h3>Cha&#322;ka</h3><p>Pieczona przez wnuczk&#x119; Pana Janusza pod okiem Babci lub Mamy &mdash; puszysta, z&#322;ocista, pachn&#x105;ca wanili&#x105;. Idealna na pierwsze &#x15B;niadanie.</p><div class="fprice">zapytaj o cen&#x119;</div></div><div class="fcard"><img class="fcim" src="img/zdjecie_053.png" alt=""><div class="fci">&#129360;</div><h3>Chleb z karmelizowaną cebulk&#x105;</h3><p>R&#x119;cznie wyrabiany przez wnuczk&#x119; Pana Janusza pod okiem Babci lub Mamy. Chrupi&#x105;ca sk&#xF3;rka, s&#322;odkawo-s&#322;ona karmelizowana cebulka &mdash; ten zapach powali Ci&#x119; z n&#xF3;g.</p><div class="fprice">zapytaj o cen&#x119;</div></div><div class="fcard"><img class="fcim" src="img/zdjecie_054.jpg" alt=""><div class="fci">&#129032;</div><h3>Pierogi ruskie</h3><p>Lepione r&#x119;cznie przez wnuczk&#x119; Pana Janusza pod okiem Babci lub Mamy. Prawdziwe, domowe, takie jak u babci na wsi. Bo to w&#322;a&#x15B;nie s&#x105;.</p><div class="fprice">zapytaj o cen&#x119;</div></div><div class="fcard"><img class="fcim" src="img/zdjecie_055.png" alt=""><div class="fci">&#129370;</div><h3>Jajka od Pani Pierogowej</h3><p>&#346;wie&#380;e jajka od lokalnej gospodyni, kt&#xF3;r&#x105; pieszczotliwie nazywamy Pani&#x105; Pierogow&#x105;. Prosto z zagrody, &#380;&#xF3;&#322;tko jak s&#322;o&#x144;ce.</p><div class="fprice">zapytaj o cen&#x119;</div></div></div><div class="fnote rv"><em>&#128218; Produkty dostarczane przez Wnuczk&#x119; do Was na zam&#xF3;wienie. Nie produkujemy tego na miejscu.</em><br><br>&#128336; <strong>Zam&#xF3;wienia min. 48h przed przyjazdem</strong> &mdash; zadzwo&#x144; pod numer <strong>574 753 831</strong> lub wpisz w uwagach formularza. Potrzebujemy czasu na przygotowanie!</div></div></section>
-<section id="rezerwacja" class="bks"><div class="bki"><div class="rv" style="text-align:center"><div class="stag">Rezerwacja bezpo&#x15B;rednia</div><h2 class="stitle">Zarezerwuj sw&#xF3;j <em>pobyt</em></h2></div><div class="bkg rv"><div><h3 style="font-family:'Playfair Display',serif;font-size:20px;margin-bottom:5px">Jak to dzia&#322;a?</h3><p style="font-size:12px;color:var(--muted);margin-bottom:4px">Rezerwacja bez po&#x15B;rednik&#xF3;w &mdash; bez prowizji platform.</p><div class="bksteps"><div class="bkst"><div class="bksn">1</div><div class="bkst-t"><b>Wype&#322;nij formularz</b><span>Wybierz obiekt, daty i wpisz dane</span></div></div><div class="bkst"><div class="bksn">2</div><div class="bkst-t"><b>Wysy&#322;asz zapytanie</b><span>Dosta&#322;e&#x15B; potwierdzenie &mdash; czekasz na nasz kontakt</span></div></div><div class="bkst"><div class="bksn">3</div><div class="bkst-t"><b>My potwierdzamy</b><span>Sprawdzamy termin i cen&#x119;, odpisujemy w ci&#x105;gu 24h</span></div></div><div class="bkst"><div class="bksn">4</div><div class="bkst-t"><b>Wp&#322;acasz zaliczk&#x119;</b><span>Dopiero po naszym potwierdzeniu &mdash; BLIK lub przelew</span></div></div></div><div style="margin-top:16px;padding:13px 16px;background:var(--white);border:1px solid #ddd;border-radius:3px;font-size:12px;color:var(--muted);line-height:1.6;">&#9888;&#65039; <strong>Nie rób przelewu przed potwierdzeniem od nas!</strong><br>Termin blokujemy dopiero po weryfikacji dost&#x119;pno&#x15B;ci i ceny.</div></div><div><div class="fbox" id="fbox"><h3>Zapytaj o termin</h3><div class="fg"><label>Obiekt</label><div class="asel"><div class="aopt sel" id="opt-g" onclick="pickApt('Gajówka')"><b>Gaj&#xF3;wka</b><span>12 os&#xF3;b</span></div><div class="aopt" id="opt-wp" onclick="pickApt('Wilcza Polana')"><b>Wilcza Polana</b><span>6+2 os&#xF3;b</span></div><div class="aopt" id="opt-sg" onclick="pickApt('Sen Gajowego')"><b>Sen Gajowego</b><span>6+2 os&#xF3;b</span></div><div class="aopt" id="opt-lp" onclick="pickApt('Leśne pogaduchy')"><b>Le&#x15B;ne pogaduchy</b><span>6+2 os&#xF3;b</span></div></div><input type="hidden" id="fapt" value="Gajówka"><div id="extra-apt-box" style="display:none;margin-top:8px;"><div style="font-size:12px;color:var(--muted);margin-bottom:6px;">&#10133; Dodatkowy apartament:</div><div style="display:flex;flex-direction:column;gap:5px;" id="extra-apts"></div></div></div><div class="fgr"><div class="fg"><label>Imi&#x119; i nazwisko</label><input type="text" id="fname" placeholder="Jan Kowalski"></div><div class="fg"><label>Telefon (opcjonalnie)</label><input type="tel" id="fphone" placeholder="+48 XXX XXX XXX"></div></div><div class="fg"><label>Email</label><input type="email" id="femail" placeholder="twoj@email.pl"></div><div class="fgr"><div class="fg"><label>Przyjazd</label><input type="text" id="fcin" placeholder="Wybierz datę" autocomplete="off" onchange="uprid()"></div><div class="fg"><label>Wyjazd</label><input type="text" id="fcout" placeholder="Wybierz datę" autocomplete="off" onchange="uprid()"></div></div><div class="avail-info" id="avail-info">&#8505;&#65039; Sprawdzamy zaj&#x119;to&#x15B;&#x107; z Airbnb i innych platform automatycznie &mdash; przekre&#x15B;lone daty s&#x105; ju&#380; zaj&#x119;te.</div><div class="avail-blocked-list" id="avail-blocked-list" style="display:none;"></div><div class="fg"><label>Liczba os&#xF3;b</label><select id="fguests"><option>2 osoby</option><option>3 osoby</option><option>4 osoby</option><option>5 os&#xF3;b</option><option>6 os&#xF3;b</option><option>7 os&#xF3;b</option><option>8 os&#xF3;b</option><option>9 os&#xF3;b</option><option>10 os&#xF3;b</option><option>11 os&#xF3;b</option><option>12 os&#xF3;b</option></select><div id="guests-note" style="font-size:11px;color:var(--muted);margin-top:5px;display:none;">&#8505;&#65039; 7. i 8. osoba: +100 z&#322; / osoba / doba</div></div><div class="fg" style="margin-top:4px"><label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-size:13px"><input type="checkbox" id="fcrib" style="width:16px;height:16px;cursor:pointer"> &#128704; &#321;&#xF3;&#380;eczko turystyczne dla ma&#322;ego dziecka</label></div><div class="fg"><label>Uwagi (jedzenie, balia, sauna...)</label><textarea id="fnotes" rows="3" placeholder="np. Chc&#x119; zam&#xF3;wi&#x107; cha&#322;k&#x119; i rezerwuj&#x119; bali&#x119; na 2 dni..."></textarea></div><button class="fsub" onclick="dosubmit()">Wy&#x15B;lij zapytanie &rarr;</button><p class="fnote2">Skontaktujemy si&#x119; w ci&#x105;gu 24h z potwierdzeniem terminu i cen&#x105;.<br><span style="font-size:10px;opacity:.85;">Wysy&#322;aj&#x105;c formularz, akceptujesz <a href="/polityka-prywatnosci.html" style="color:var(--gold);text-decoration:underline;">Polityk&#x119; prywatno&#x15B;ci</a>. Twoje dane (imi&#x119;, e-mail, ew. telefon) przetwarzamy wy&#322;&#x105;cznie w celu obs&#322;ugi tego zapytania na podstawie art. 6 ust. 1 lit. f RODO (uzasadniony interes).</span></p></div><div class="sbox" id="sbox"><h4>Wys&#322;ano! &#127881;</h4><p style="font-size:15px;margin:12px 0;color:var(--gold);font-family:'Playfair Display',serif;font-style:italic" id="sname"></p><p>Dzi&#x119;kujemy za zapytanie! Skontaktujemy si&#x119; z Tob&#x105; w ci&#x105;gu 24h.<br><br>&#9888;&#65039; <strong>Nie rób jeszcze przelewu</strong> &mdash; czekaj na nasze potwierdzenie dost&#x119;pno&#x15B;ci i ceny.</p></div></div></div></div></section>
+<section id="rezerwacja" class="bks"><div class="bki"><div class="rv" style="text-align:center"><div class="stag">Rezerwacja bezpo&#x15B;rednia</div><h2 class="stitle">Zarezerwuj sw&#xF3;j <em>pobyt</em></h2></div><div class="bkg rv"><div><h3 style="font-family:'Playfair Display',serif;font-size:20px;margin-bottom:5px">Jak to dzia&#322;a?</h3><p style="font-size:12px;color:var(--muted);margin-bottom:4px">Rezerwacja bez po&#x15B;rednik&#xF3;w &mdash; bez prowizji platform.</p><div class="bksteps"><div class="bkst"><div class="bksn">1</div><div class="bkst-t"><b>Wype&#322;nij formularz</b><span>Wybierz obiekt, daty i wpisz dane</span></div></div><div class="bkst"><div class="bksn">2</div><div class="bkst-t"><b>Wysy&#322;asz zapytanie</b><span>Dosta&#322;e&#x15B; potwierdzenie &mdash; czekasz na nasz kontakt</span></div></div><div class="bkst"><div class="bksn">3</div><div class="bkst-t"><b>My potwierdzamy</b><span>Sprawdzamy termin i cen&#x119;, odpisujemy w ci&#x105;gu 24h</span></div></div><div class="bkst"><div class="bksn">4</div><div class="bkst-t"><b>Wp&#322;acasz zaliczk&#x119;</b><span>Dopiero po naszym potwierdzeniu &mdash; BLIK lub przelew</span></div></div></div><div style="margin-top:16px;padding:13px 16px;background:var(--white);border:1px solid #ddd;border-radius:3px;font-size:12px;color:var(--muted);line-height:1.6;">&#9888;&#65039; <strong>Nie rób przelewu przed potwierdzeniem od nas!</strong><br>Termin blokujemy dopiero po weryfikacji dost&#x119;pno&#x15B;ci i ceny.</div></div><div><div class="fbox" id="fbox"><h3>Zapytaj o termin</h3><div class="fg"><label>Obiekt</label><div class="asel"><div class="aopt sel" id="opt-g" onclick="pickApt('Gajówka')"><b>Gaj&#xF3;wka</b><span>12 os&#xF3;b</span></div><div class="aopt" id="opt-wp" onclick="pickApt('Wilcza Polana')"><b>Wilcza Polana</b><span>6+2 os&#xF3;b</span></div><div class="aopt" id="opt-sg" onclick="pickApt('Sen Gajowego')"><b>Sen Gajowego</b><span>6+2 os&#xF3;b</span></div><div class="aopt" id="opt-lp" onclick="pickApt('Leśne pogaduchy')"><b>Le&#x15B;ne pogaduchy</b><span>6+2 os&#xF3;b</span></div></div><input type="hidden" id="fapt" value="Gajówka"><div id="extra-apt-box" style="display:none;margin-top:8px;"><div style="font-size:12px;color:var(--muted);margin-bottom:6px;">&#10133; Dodatkowy apartament:</div><div style="display:flex;flex-direction:column;gap:5px;" id="extra-apts"></div></div></div><div class="fgr"><div class="fg"><label>Imi&#x119; i nazwisko</label><input type="text" id="fname" placeholder="Jan Kowalski"></div><div class="fg"><label>Telefon (opcjonalnie)</label><input type="tel" id="fphone" placeholder="+48 XXX XXX XXX"></div></div><div class="fg"><label>Email</label><input type="email" id="femail" placeholder="twoj@email.pl"></div><div class="fgr"><div class="fg"><label>Przyjazd</label><input type="text" id="fcin" placeholder="Wybierz datę" autocomplete="off" onchange="uprid()"></div><div class="fg"><label>Wyjazd</label><input type="text" id="fcout" placeholder="Wybierz datę" autocomplete="off" onchange="uprid()"></div></div><div class="avail-info" id="avail-info">&#8505;&#65039; Synchronizujemy dost&#x119;pno&#x15B;&#x107; z Airbnb, Booking, Slowhop i Aloha Camp w czasie rzeczywistym &mdash; pokazujemy najbli&#380;sze wolne terminy poni&#380;ej.</div><div class="avail-free-list" id="avail-free-list" style="display:none;"></div><div class="fg"><label>Liczba os&#xF3;b</label><select id="fguests"><option>2 osoby</option><option>3 osoby</option><option>4 osoby</option><option>5 os&#xF3;b</option><option>6 os&#xF3;b</option><option>7 os&#xF3;b</option><option>8 os&#xF3;b</option><option>9 os&#xF3;b</option><option>10 os&#xF3;b</option><option>11 os&#xF3;b</option><option>12 os&#xF3;b</option></select><div id="guests-note" style="font-size:11px;color:var(--muted);margin-top:5px;display:none;">&#8505;&#65039; 7. i 8. osoba: +100 z&#322; / osoba / doba</div></div><div class="fg" style="margin-top:4px"><label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-size:13px"><input type="checkbox" id="fcrib" style="width:16px;height:16px;cursor:pointer"> &#128704; &#321;&#xF3;&#380;eczko turystyczne dla ma&#322;ego dziecka</label></div><div class="fg"><label>Uwagi (jedzenie, balia, sauna...)</label><textarea id="fnotes" rows="3" placeholder="np. Chc&#x119; zam&#xF3;wi&#x107; cha&#322;k&#x119; i rezerwuj&#x119; bali&#x119; na 2 dni..."></textarea></div><button class="fsub" onclick="dosubmit()">Wy&#x15B;lij zapytanie &rarr;</button><p class="fnote2">Skontaktujemy si&#x119; w ci&#x105;gu 24h z potwierdzeniem terminu i cen&#x105;.<br><span style="font-size:10px;opacity:.85;">Wysy&#322;aj&#x105;c formularz, akceptujesz <a href="/polityka-prywatnosci.html" style="color:var(--gold);text-decoration:underline;">Polityk&#x119; prywatno&#x15B;ci</a>. Twoje dane (imi&#x119;, e-mail, ew. telefon) przetwarzamy wy&#322;&#x105;cznie w celu obs&#322;ugi tego zapytania na podstawie art. 6 ust. 1 lit. f RODO (uzasadniony interes).</span></p></div><div class="sbox" id="sbox"><h4>Wys&#322;ano! &#127881;</h4><p style="font-size:15px;margin:12px 0;color:var(--gold);font-family:'Playfair Display',serif;font-style:italic" id="sname"></p><p>Dzi&#x119;kujemy za zapytanie! Skontaktujemy si&#x119; z Tob&#x105; w ci&#x105;gu 24h.<br><br>&#9888;&#65039; <strong>Nie rób jeszcze przelewu</strong> &mdash; czekaj na nasze potwierdzenie dost&#x119;pno&#x15B;ci i ceny.</p></div></div></div></div></section>
 <section id="atrakcje" class="atrs"><div class="con"><div class="rv"><div class="stag">Co zobaczyc w okolicy</div><h2 class="stitle">Atrakcje <em>w okolicy</em></h2></div><div class="ag2 rv"><div class="atcard"><div class="atcard-body"><div style="font-size:28px;margin-bottom:8px">&#128269;</div><h3>Poszukiwacze Skarb&#xF3;w + Drezyna</h3><div class="dist">&#128205; 15 min autem &middot; 6P9F+5X W&#x119;gorzewo</div><p>Muzeum poszukiwaczy skarb&#xF3;w (wst&#x119;p co &#322;aska) &mdash; przewodnicy opowiadaj&#x105; o ka&#380;dym eksponacie z pasj&#x105;. W tym samym miejscu przejazd r&#x119;czn&#x105;/elektryczn&#x105; drezyn&#x105; przez bunkry i nieczynna tras&#x105; kolejow&#x105;.</p><p class="tip">&#128161; Rewelacyjne dla dzieci i doros&#322;ych &mdash; koniecznie!</p><a href="https://www.google.com/maps/place/WENDRUSZ+Izba+Historyczna+Stowarzyszenia+Historyczno-Eksploracyjnego+Ziemi+W%C4%99gorzewskiej/@54.2178488,21.7248835,95m/data=!3m1!1e3!4m9!1m2!2m1!1s6P9F+5X+Wegorzewo!3m5!1s0x46e22dd523515183:0x90b835ed65ec92dd!8m2!3d54.217916!4d21.7248838!16s%2Fg%2F11kq8svnwr?entry=ttu" target="_blank" class="mapbtn" style="margin-top:10px;display:inline-block">Otwórz w mapach &rarr;</a></div></div>
 <div class="atcard"><div class="atcard-body"><div style="font-size:28px;margin-bottom:8px">&#128737;</div><h3>Wilczy Szaniec</h3><div class="dist">&#128205; 35 min autem &middot; Kętrzyn</div><p>Klasyk Mazur &mdash; kwatera g&#322;&#xF3;wna Hitlera z II WW. Wi&#x119;kszo&#x15B;&#x107; to ruiny, dlatego koniecznie bierz z przewodnikiem &mdash; s&#x105; tani a robi&#x105; &#x15B;wietn&#x105; robot&#x119;.</p><p class="tip">&#128161; Prze&#x17A;azd wozem pancernym te&#380; jest ca&#322;kiem fajny!</p><a href="https://www.google.com/maps/place/Wilczy+Szaniec/@54.0806891,21.4944688,640m/data=!3m2!1e3!5s0x46e2253f7ff62267:0xd10994a0d3a58035!4m6!3m5!1s0x46e2255c2397e193:0x4f63b7e977811c25!8m2!3d54.0806539!4d21.4942846!16zL20vMDJtaDVx?entry=ttu" target="_blank" class="mapbtn" style="margin-top:10px;display:inline-block">Otwórz w mapach &rarr;</a></div></div>
 <div class="atcard"><div class="atcard-body"><div style="font-size:28px;margin-bottom:8px">&#128688;</div><h3>&#346;luza w Le&#x15B;niewie</h3><div class="dist">&#128205; 40 min pieszo / 5 min autem &middot; Le&#x15B;niewo</div><p>Legendarne miejsce &mdash; pot&#x119;ga niemieckiej in&#380;ynierii. Mo&#380;na i&#x15B;&#x107; piechotą z Gaj&#xF3;wki (godzinna przechadzka, darmowy parking). Na miejscu tak&#380;e tyrolka i bungee!</p><p class="tip">&#128161; Parking p&#322;atny ale mo&#380;na przyj&#x15B;&#x107; pieszo z nas</p><a href="https://www.google.com/maps/place/%C3%9Aluza+Le%C5%9Bniewo+G%C3%B3rne/@54.2050931,21.5868202,3214m/data=!3m1!1e3!4m9!1m2!2m1!1s6H5V+9C+Lesniewo!3m5!1s0x46e22d7bc69358f1:0xb209c2c469bc3ba9!8m2!3d54.2084526!4d21.5935896!16s%2Fg%2F1tcv0361?entry=ttu" target="_blank" class="mapbtn" style="margin-top:10px;display:inline-block">Otwórz w mapach &rarr;</a></div></div>
@@ -484,17 +486,56 @@ function formatPLDate(yyyymmdd){
   var p=yyyymmdd.split('-');
   return p[2]+'.'+p[1]+'.'+p[0];
 }
-function renderBlockedList(ranges){
-  var box=document.getElementById('avail-blocked-list');
+function findFreeWindows(ranges, minNights, horizonDays){
+  // Z listy zaj&#x119;tych [{from, to}] zwr&#xF3;&#x107; "okienka" wolnych termin&#xF3;w
+  // od dzi&#x15B; do dzi&#x15B;+horizonDays, ka&#380;de min minNights nocy.
+  minNights = minNights || 2;
+  horizonDays = horizonDays || 180;
+  var today = new Date(); today.setHours(0,0,0,0);
+  var horizon = new Date(today); horizon.setDate(horizon.getDate() + horizonDays);
+  function ymd(d){return d.toISOString().slice(0,10);}
+  function parseYmd(s){var p=s.split('-');return new Date(parseInt(p[0],10),parseInt(p[1],10)-1,parseInt(p[2],10));}
+  function nights(a,b){return Math.round((b.getTime()-a.getTime())/86400000);}
+  // Sort + merge overlapping ranges
+  var sorted=(ranges||[]).slice().sort(function(a,b){return a.from<b.from?-1:1;}).map(function(r){return {from:parseYmd(r.from),to:parseYmd(r.to)};});
+  var merged=[];
+  sorted.forEach(function(r){
+    if(!merged.length || r.from > merged[merged.length-1].to){merged.push({from:r.from,to:r.to});}
+    else if(r.to > merged[merged.length-1].to){merged[merged.length-1].to=r.to;}
+  });
+  // Generuj wolne okienka mi&#x119;dzy zaj&#x119;tymi
+  var windows=[];
+  var cursor = new Date(today);
+  for(var i=0;i<merged.length;i++){
+    var r=merged[i];
+    if(r.to<=cursor)continue;
+    if(r.from>cursor){
+      var n=nights(cursor,r.from);
+      if(n>=minNights){windows.push({from:ymd(cursor),to:ymd(r.from),nights:n});}
+    }
+    if(r.to>cursor)cursor=new Date(r.to);
+  }
+  // Ostatnie okno do horizon
+  if(cursor<horizon){
+    var n2=nights(cursor,horizon);
+    if(n2>=minNights){windows.push({from:ymd(cursor),to:ymd(horizon),nights:n2,openEnd:true});}
+  }
+  return windows;
+}
+function renderFreeList(ranges){
+  var box=document.getElementById('avail-free-list');
   if(!box)return;
-  if(!ranges||!ranges.length){box.style.display='none';box.innerHTML='';return;}
-  // sort by from date ascending, take top 3 future
-  var todayStr=new Date().toISOString().slice(0,10);
-  var future=ranges.filter(function(r){return r.to>=todayStr;}).slice().sort(function(a,b){return a.from<b.from?-1:1;}).slice(0,3);
-  if(!future.length){box.style.display='none';box.innerHTML='';return;}
-  var html='<b>📅 Najbliższe zajęte terminy:</b><ul>';
-  future.forEach(function(r){
-    html+='<li>'+formatPLDate(r.from)+' &mdash; '+formatPLDate(r.to)+' <span style="opacity:.7">('+r.source+(r.apt?' / '+r.apt:'')+')</span></li>';
+  var windows = findFreeWindows(ranges, 2, 180);
+  if(!windows.length){
+    box.innerHTML='<b>📅 Najbliższe wolne terminy:</b><div style="padding:4px 0;color:var(--muted);">Brak wolnych terminów w najbliższych 6 miesiącach &mdash; zadzwoń do Kamili pod <a href="tel:+48574753831" style="color:var(--forest);font-weight:700;">574 753 831</a>, czasem zwalniają się terminy.</div>';
+    box.style.display='block';
+    return;
+  }
+  var top = windows.slice(0,3);
+  var html='<b>📅 Najbliższe wolne terminy:</b><ul>';
+  top.forEach(function(w){
+    var label = w.openEnd ? formatPLDate(w.from)+' &rarr; dalej' : formatPLDate(w.from)+' &mdash; '+formatPLDate(w.to);
+    html+='<li>'+label+' <span class="nights">('+w.nights+' '+(w.nights===1?'noc':(w.nights<5?'noce':'nocy'))+' wolne)</span></li>';
   });
   html+='</ul>';
   box.innerHTML=html;
@@ -533,7 +574,7 @@ function initDatepickers(){
     altFormat:'d.m.Y',
     disable:disable
   });
-  renderBlockedList(ranges);
+  renderFreeList(ranges);
 }
 function refreshDatepickers(){
   if(!window.__fpCin||!window.__fpCout){return initDatepickers();}
@@ -547,7 +588,7 @@ function refreshDatepickers(){
     window.__fpCin.redraw();
     window.__fpCout.redraw();
   }catch(e){console.warn('[datepicker] refresh err',e);}
-  renderBlockedList(ranges);
+  renderFreeList(ranges);
 }
 document.addEventListener('DOMContentLoaded',function(){
   loadAvailability().then(initDatepickers);
