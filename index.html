@@ -53,14 +53,18 @@ nav.sc .hbg span{background:var(--dark);}
 .bg{background:var(--gold);color:var(--dark);border:2px solid var(--gold);}.bg:hover{background:transparent;color:var(--white);}
 .bw{background:transparent;color:var(--white);border:2px solid rgba(255,255,255,.5);}.bw:hover{background:var(--white);color:var(--dark);}
 .bf{background:var(--forest);color:var(--white);border:2px solid var(--forest);display:inline-block;text-decoration:none;}.bf:hover{background:transparent;color:var(--forest);}
-.hbadges{position:absolute;bottom:100px;left:0;right:0;display:flex;justify-content:space-between;padding:0 40px;pointer-events:none;z-index:10;gap:8px;flex-wrap:wrap;}
-.hbadge{background:rgba(0,0,0,0.55);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,0.15);border-radius:12px;padding:10px 16px;display:flex;align-items:center;gap:10px;color:#fff;min-width:160px;}
+.hbadges{position:absolute;bottom:100px;left:0;right:0;z-index:10;overflow:hidden;pointer-events:none;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 80px,#000 calc(100% - 80px),transparent 100%);mask-image:linear-gradient(90deg,transparent 0,#000 80px,#000 calc(100% - 80px),transparent 100%);}
+.hbadges-track{display:flex;gap:18px;width:max-content;padding:0 9px;animation:badgeMarquee 32s linear infinite;pointer-events:auto;}
+.hbadges:hover .hbadges-track{animation-play-state:paused;}
+@keyframes badgeMarquee{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+.hbadge{background:rgba(0,0,0,0.55);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,0.15);border-radius:12px;padding:10px 16px;display:flex;align-items:center;gap:10px;color:#fff;min-width:200px;flex-shrink:0;}
 .hbadge-score{font-size:22px;font-weight:700;line-height:1;}
 .hbadge-label{font-size:10px;opacity:.75;line-height:1.3;}
 .hbadge-name{font-size:12px;font-weight:600;}
 .hbadge-stars{color:#FFD700;font-size:11px;letter-spacing:1px;}
-@media(max-width:900px){.hbadges{justify-content:center;gap:6px;padding:0 16px;bottom:60px;}.hbadge{min-width:calc(50% - 6px);flex:1 1 calc(50% - 6px);padding:8px 10px;gap:8px;}.hbadge-score{font-size:17px;}.hbadge-name{font-size:11px;}.hbadge:last-child{flex-basis:100%;justify-content:center;}}
-@media(max-width:600px){.hbadges{bottom:90px;}.hbadge{padding:7px 8px;gap:6px;}.hbadge-score{font-size:15px;}.hbadge-stars{font-size:9px;letter-spacing:.5px;}.hbadge-name{font-size:9px;}.hbadge svg{width:22px;height:22px;}}
+@media(max-width:900px){.hbadges{bottom:60px;}.hbadges-track{gap:10px;animation-duration:28s;}.hbadge{min-width:160px;padding:8px 10px;gap:8px;}.hbadge-score{font-size:17px;}.hbadge-name{font-size:11px;}}
+@media(max-width:600px){.hbadges{bottom:90px;}.hbadges-track{gap:8px;animation-duration:24s;}.hbadge{min-width:140px;padding:7px 8px;gap:6px;}.hbadge-score{font-size:15px;}.hbadge-stars{font-size:9px;letter-spacing:.5px;}.hbadge-name{font-size:9px;}.hbadge svg{width:22px;height:22px;}}
+@media (prefers-reduced-motion: reduce){.hbadges-track{animation:none;}}
 .hscr{position:absolute;bottom:22px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:5px;color:rgba(255,255,255,.38);font-size:10px;letter-spacing:2px;}
 .hsl{width:1px;height:28px;background:rgba(255,255,255,.28);animation:sp 2s infinite;}
 @keyframes sp{0%,100%{opacity:1}50%{opacity:.25}}
@@ -265,14 +269,9 @@ footer{background:var(--dark);color:rgba(255,255,255,.44);padding:44px 48px 28px
 .bg:hover{box-shadow:0 10px 26px rgba(200,165,90,.45),0 0 0 1px rgba(200,165,90,.3);}
 .fsub{transition:background .3s,transform .3s,box-shadow .3s;}
 .mlink{transition:transform .3s,box-shadow .3s,background .3s;}
-/* 5. Hero badges — staggered fade-up po załadowaniu */
-.hbadge{opacity:0;transform:translateY(22px);animation:hbadgeUp .8s cubic-bezier(.22,1,.36,1) forwards;}
-.hbadge:nth-child(1){animation-delay:.55s;}
-.hbadge:nth-child(2){animation-delay:.7s;}
-.hbadge:nth-child(3){animation-delay:.85s;}
-.hbadge:nth-child(4){animation-delay:1.0s;}
-.hbadge:nth-child(5){animation-delay:1.15s;}
-@keyframes hbadgeUp{to{opacity:1;transform:translateY(0);}}
+/* 5. Hero badges — marquee track fade-in (cały rząd z dołu) */
+.hbadges-track{opacity:0;animation:badgeTrackIn 1.2s cubic-bezier(.22,1,.36,1) .4s forwards,badgeMarquee 32s linear infinite 1.4s;}
+@keyframes badgeTrackIn{from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:translateY(0);}}
 /* Bonus: hero text staggered fade-in (htag → h1 → hsub → buttons) */
 .hcon .htag,.hcon h1,.hcon .hsub,.hcon .hbtns{opacity:0;animation:heroIn 1s cubic-bezier(.22,1,.36,1) forwards;}
 .hcon .htag{animation-delay:.05s;}
@@ -415,7 +414,7 @@ section .rv.vis{transform:translateY(0) translateX(0);}
 }
 </style></head><body>
 <nav id="nav"><a href="#" class="logo">Gaj&#xF3;wka<small>i Apartamenty &middot; W&#x119;gorzewo, Mazury</small></a><ul class="nl" id="navlinks"><li><a href="#obiekty">Obiekty</a></li><li><a href="#teren">Teren</a></li><li><a href="#relax">Relaks</a></li><li><a href="#jedzenie">Jedzenie</a></li><li><a href="#atrakcje">Atrakcje</a></li><li><a href="#place">Pla&#380;e</a></li><li><a href="#restauracje">Restauracje</a></li><li><a href="/blog/">Blog</a></li><li><a href="#dojazd">Dojazd</a></li><li><a href="#kontakt">Kontakt</a></li><li><a href="#rezerwacja" class="ncta">Zarezerwuj</a></li></ul><div class="hbg" onclick="toggleNav()"><span></span><span></span><span></span></div></nav>
-<div class="hero"><img class="hbg2" src="img/zdjecie_001.jpg" alt="Gaj&#xF3;wka"><div class="hov"></div><div class="hcon"><div class="htag">&#127807; Mazury &middot; W&#x119;gorzewo &middot; XIX-wieczna Le&#x15B;niczówka</div><h1 class="htit">Gaj&#xF3;wka<br><em>i Apartamenty</em></h1><p class="hsub">Trzy wyj&#x105;tkowe obiekty w sercu mazurskiej przyrody</p><div class="hbtns"><a href="#rezerwacja" class="btn bg">Zarezerwuj pobyt</a><a href="#obiekty" class="btn bw">Poznaj miejsce</a></div></div><div class="hbadges">
+<div class="hero"><img class="hbg2" src="img/zdjecie_001.jpg" alt="Gaj&#xF3;wka"><div class="hov"></div><div class="hcon"><div class="htag">&#127807; Mazury &middot; W&#x119;gorzewo &middot; XIX-wieczna Le&#x15B;niczówka</div><h1 class="htit">Gaj&#xF3;wka<br><em>i Apartamenty</em></h1><p class="hsub">Trzy wyj&#x105;tkowe obiekty w sercu mazurskiej przyrody</p><div class="hbtns"><a href="#rezerwacja" class="btn bg">Zarezerwuj pobyt</a><a href="#obiekty" class="btn bw">Poznaj miejsce</a></div></div><div class="hbadges"><div class="hbadges-track">
 <div class="hbadge">
 <svg width="28" height="28" viewBox="0 0 40 40" fill="none"><rect width="40" height="40" rx="8" fill="#003580"/><text x="20" y="26" text-anchor="middle" fill="white" font-size="11" font-family="Arial" font-weight="bold">booking</text></svg>
 <div><div class="hbadge-score">9,8/10</div><div class="hbadge-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><div class="hbadge-name">Booking.com</div></div>
@@ -436,7 +435,28 @@ section .rv.vis{transform:translateY(0) translateX(0);}
 <svg width="28" height="28" viewBox="0 0 40 40" fill="none"><rect width="40" height="40" rx="8" fill="#ff6b35"/><text x="20" y="27" text-anchor="middle" fill="white" font-size="20">&#128062;</text></svg>
 <div><div class="hbadge-score">&#127942; 5/5</div><div class="hbadge-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><div class="hbadge-name" style="font-size:10px">Miejscówka Roku 2024<br>Z psyjacielem</div><div class="hbadge-label">Aloha Camp</div></div>
 </div>
+<!-- Duplikat dla seamless marquee loop -->
+<div class="hbadge" aria-hidden="true">
+<svg width="28" height="28" viewBox="0 0 40 40" fill="none"><rect width="40" height="40" rx="8" fill="#003580"/><text x="20" y="26" text-anchor="middle" fill="white" font-size="11" font-family="Arial" font-weight="bold">booking</text></svg>
+<div><div class="hbadge-score">9,8/10</div><div class="hbadge-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><div class="hbadge-name">Booking.com</div></div>
 </div>
+<div class="hbadge" aria-hidden="true">
+<svg width="28" height="28" viewBox="0 0 40 40" fill="none"><rect width="40" height="40" rx="8" fill="#fff"/><text x="8" y="26" fill="#4285F4" font-size="16" font-family="Arial" font-weight="bold">G</text><text x="20" y="26" fill="#EA4335" font-size="16" font-family="Arial" font-weight="bold">o</text><text x="28" y="26" fill="#FBBC05" font-size="16" font-family="Arial" font-weight="bold">o</text></svg>
+<div><div class="hbadge-score">4,9/5</div><div class="hbadge-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><div class="hbadge-name">Google</div></div>
+</div>
+<div class="hbadge" aria-hidden="true">
+<svg width="28" height="28" viewBox="0 0 40 40" fill="none"><rect width="40" height="40" rx="8" fill="#2d6a4f"/><text x="20" y="24" text-anchor="middle" fill="white" font-size="9" font-family="Arial" font-weight="bold">slow</text><text x="20" y="34" text-anchor="middle" fill="white" font-size="9" font-family="Arial" font-weight="bold">hop</text></svg>
+<div><div class="hbadge-score">4,8/5</div><div class="hbadge-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><div class="hbadge-name">Slowhop</div></div>
+</div>
+<div class="hbadge" aria-hidden="true">
+<svg width="28" height="28" viewBox="0 0 40 40" fill="none"><rect width="40" height="40" rx="8" fill="#FF5A5F"/><text x="20" y="27" text-anchor="middle" fill="white" font-size="10" font-family="Arial" font-weight="bold">airbnb</text></svg>
+<div><div class="hbadge-score">4,86/5</div><div class="hbadge-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><div class="hbadge-name">Airbnb</div></div>
+</div>
+<div class="hbadge" aria-hidden="true">
+<svg width="28" height="28" viewBox="0 0 40 40" fill="none"><rect width="40" height="40" rx="8" fill="#ff6b35"/><text x="20" y="27" text-anchor="middle" fill="white" font-size="20">&#128062;</text></svg>
+<div><div class="hbadge-score">&#127942; 5/5</div><div class="hbadge-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><div class="hbadge-name" style="font-size:10px">Miejscówka Roku 2024<br>Z psyjacielem</div><div class="hbadge-label">Aloha Camp</div></div>
+</div>
+</div></div>
 <div class="hscr"><div class="hsl"></div>Przewi&#x144;</div></div>
 <div class="strip"><span class="si">&#127754; Jezioro Mamry 5 min</span><span class="si">&#127794; Las dooko&#322;a</span><span class="si">&#128709; Balia z kinem</span><span class="si">&#129443; Sauna beczkowa</span><span class="si">&#127946; Basen letni</span><span class="si">&#128293; Ognisko z kijkami</span><span class="si">&#127868; W&#322;asne jeziorko</span></div>
 <section id="o-nas"><div class="con"><div class="ig rv"><div><div class="stag">O miejscu</div><h2 class="stitle">Le&#x15B;niczówka z dusz&#x105; <em>od 1880 roku</em></h2><p class="stxt">Gaj&#xF3;wka to zabytkowa XIX-wieczna le&#x15B;niczówka s&#322;u&#380;&#x105;ca od zawsze jako siedziba le&#x15B;niczego. Na &#x15B;cianach wisz&#x105; zdj&#x119;cia od rodzin niemieckich, kt&#xF3;re odwiedzi&#322;y nas w poszukiwaniu swoich przodkow &mdash; pierwsze wzmianki o budynku si&#x119;gaj&#x105; oko&#322;o 1880 roku. Cztery obiekty noclegowe, ka&#380;dy z w&#322;asnym charakterem, otoczone lasem, &#322;&#x105;kami i ciszk&#x105; kilka minut od jeziora Mamry.</p><div class="iff"><div class="feat"><span class="fic">&#127968;</span><div class="ftx"><b>4 obiekty</b><span>Gaj&#xF3;wka + 3 apartamenty</span></div></div><div class="feat"><span class="fic">&#128101;</span><div class="ftx"><b>Do 30 os&#xF3;b</b><span>12+6+6+6 os&#xF3;b</span></div></div><div class="feat"><span class="fic">&#127754;</span><div class="ftx"><b>Jezioro Mamry</b><span>5 minut jazdy</span></div></div><div class="feat"><span class="fic">&#127946;</span><div class="ftx"><b>Basen sezonowy</b><span>4,3 x 2,5 m</span></div></div><div class="feat"><span class="fic">&#127868;</span><div class="ftx"><b>W&#322;asne jeziorko</b><span>Bezp&#322;atne &#322;owienie</span></div></div><div class="feat"><span class="fic">&#127881;</span><div class="ftx"><b>9,8/10 Booking</b><span>Nagrody 2017 i 2018</span></div></div></div></div><div class="ii"><img class="im" src="img/zdjecie_002.jpg" alt="" onclick="openlb(this.src,this)"><img class="ia" src="img/zdjecie_003.jpg" alt="" onclick="openlb(this.src,this)"></div></div></div></section>
