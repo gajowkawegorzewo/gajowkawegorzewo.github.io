@@ -31,7 +31,15 @@ const CAL_DIR = path.join(ROOT, 'calendar');
 const FETCH_TIMEOUT_MS = 15000;
 const SITE_DOMAIN = 'gajowkawegorzewo.github.io';
 
-// SUMMARY values we treat as "blocked" (case-insensitive contains)
+// SUMMARY values we treat as "blocked" (case-insensitive contains).
+// Sources we know:
+//   Airbnb:   "Reserved", "Airbnb (Not available)"
+//   Booking:  "CLOSED - Not available"
+//   Slowhop:  "airbnb - 1221520 finalized", "Airbnbb - 1266952 finalized",
+//             "Oskar - 1268257 finalized"  (← guest name leaks via SUMMARY)
+// Any SUMMARY not matching is still kept (marked source=unknown) so an unusual
+// upstream format never silently drops a real block. Our own ICS output
+// re-writes SUMMARY to "Reserved" unconditionally — guest names never leak.
 const BLOCKED_SUMMARY_PATTERNS = [
   /reserved/i,
   /not available/i,
@@ -41,6 +49,8 @@ const BLOCKED_SUMMARY_PATTERNS = [
   /blocked/i,
   /busy/i,
   /unavailable/i,
+  /finalized/i,
+  /airbnb/i,
 ];
 
 // -------------------- HTTP fetch (built-in https, timeout, redirects) --------------------
@@ -318,22 +328,33 @@ async function main() {
         const text = await httpGet(url);
         const events = parseIcs(text);
         let kept = 0;
+        let keptUnknown = 0;
         for (const ev of events) {
-          if (!isBlockedSummary(ev.summary)) continue;
           const fromIso = ymdToIso(ev.dtstart);
           const toIso = ymdToIso(ev.dtend);
           if (!fromIso || !toIso) continue;
           if (toIso <= fromIso) continue;
+          // Defensive: if SUMMARY doesn't match any known "blocked" pattern, we
+          // still keep the event (treat as block) but tag source=unknown so
+          // someone reviewing availability.json can spot an unfamiliar format.
+          // We never trust upstream SUMMARY in our output — buildIcs() rewrites
+          // every event to "SUMMARY:Reserved" unconditionally.
+          const matched = isBlockedSummary(ev.summary);
+          const sourceLabel = matched
+            ? key.charAt(0).toUpperCase() + key.slice(1)
+            : 'unknown';
           ranges.push({
             from: fromIso,
             to: toIso,
-            source: key.charAt(0).toUpperCase() + key.slice(1),
-            // NOTE: deliberately NOT storing original UID/description — those contain
-            // Airbnb-private data (last4 phone, reservation URL). Scrubbed by design.
+            source: sourceLabel,
+            // NOTE: deliberately NOT storing original UID / SUMMARY / DESCRIPTION —
+            // those leak guest names (Slowhop "Oskar - 1268257 finalized"),
+            // reservation IDs, and Airbnb last4 phone / URL. Scrubbed by design.
           });
-          kept++;
+          if (matched) kept++; else keptUnknown++;
         }
-        console.error(`[ok] ${objectName} <- ${key}: ${kept} events kept`);
+        const tag = keptUnknown > 0 ? `${kept} kept, ${keptUnknown} unknown-format kept` : `${kept} events kept`;
+        console.error(`[ok] ${objectName} <- ${key}: ${tag}`);
       } catch (err) {
         hadError = true;
         console.error(`[err] ${objectName} <- ${key}: ${err.message}`);

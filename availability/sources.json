@@ -1,15 +1,19 @@
 {
   "Gajówka": {
     "slug": "gajowka",
-    "airbnb": "https://www.airbnb.pl/calendar/ical/1523749688583205773.ics?t=7286c1c83e2544e1ac44a89a7e975dd0"
+    "airbnb": "https://www.airbnb.pl/calendar/ical/1523749688583205773.ics?t=7286c1c83e2544e1ac44a89a7e975dd0",
+    "slowhop": "https://slowhop.com/icalendar-export/api-v1/027e6ac401953bf418c67b0b101397ee.ics"
   },
   "Wilcza Polana": {
     "slug": "wilcza-polana",
-    "airbnb": "https://www.airbnb.pl/calendar/ical/666465823606986664.ics?t=78787df04d0e4fab942fde8e2b21cbe2"
+    "airbnb": "https://www.airbnb.pl/calendar/ical/666465823606986664.ics?t=78787df04d0e4fab942fde8e2b21cbe2",
+    "booking": "https://ical.booking.com/v1/export?t=27df3463-a42f-4d7f-a1fb-4a1828f3c3c3",
+    "slowhop": "https://slowhop.com/icalendar-export/api-v1/29d717146f26028a2f3cc0042b7f1dca.ics"
   },
   "Sen Gajowego": {
     "slug": "sen-gajowego",
-    "airbnb": "https://www.airbnb.pl/calendar/ical/666508859348825214.ics?t=7987550c7b3a4cc293e7f045297bb438"
+    "airbnb": "https://www.airbnb.pl/calendar/ical/666508859348825214.ics?t=7987550c7b3a4cc293e7f045297bb438",
+    "slowhop": "https://slowhop.com/icalendar-export/api-v1/5c43fec46fa95c162bb60a754e2e3958.ics"
   },
   "Leśne pogaduchy": {
     "slug": "lesne-pogaduchy"
