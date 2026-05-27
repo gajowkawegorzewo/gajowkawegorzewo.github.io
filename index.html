@@ -355,9 +355,12 @@ section[id]{scroll-margin-top:80px;}
 @keyframes freeListIn{from{opacity:0;transform:translateX(-12px);}to{opacity:1;transform:translateX(0);}}
 .avail-free-list b{color:var(--forest);font-weight:700;display:block;margin-bottom:10px;font-size:16px;letter-spacing:.3px;}
 .avail-free-list ul{list-style:none;padding:0;margin:0;}
-.avail-free-list li{padding:7px 10px;border-radius:4px;transition:background .25s,transform .25s,padding-left .25s;cursor:default;font-size:15px;}
-.avail-free-list li:hover{background:rgba(200,165,90,.18);transform:translateX(4px);padding-left:14px;}
-.avail-free-list .nights{color:var(--wd);font-weight:700;font-size:13px;margin-left:6px;}
+.avail-free-list li{padding:9px 12px;border-radius:5px;transition:background .25s,transform .25s,padding-left .25s,box-shadow .25s;cursor:pointer;font-size:14px;display:grid;grid-template-columns:130px 1fr auto;gap:12px;align-items:center;border:1px solid transparent;}
+.avail-free-list li:hover{background:rgba(200,165,90,.22);transform:translateX(4px);padding-left:16px;border-color:rgba(200,165,90,.4);box-shadow:0 2px 8px rgba(200,165,90,.15);}
+.avail-free-list .free-apt{color:var(--forest);font-weight:700;font-size:13px;letter-spacing:.3px;}
+.avail-free-list .free-date{color:var(--text);font-weight:500;}
+.avail-free-list .nights{color:var(--wd);font-weight:700;font-size:12px;background:rgba(122,92,56,.1);padding:3px 8px;border-radius:3px;white-space:nowrap;}
+@media(max-width:540px){.avail-free-list li{grid-template-columns:1fr;gap:4px;}.avail-free-list .nights{justify-self:start;}}
 /* ============ Animation pack (2026-05-27) — interactive hover wszędzie ============ */
 /* Obiekty w formularzu rezerwacji */
 .aopt{transition:all .3s cubic-bezier(.22,1,.36,1);position:relative;overflow:hidden;}
@@ -415,6 +418,14 @@ section .rv.vis{transform:translateY(0) translateX(0);}
   .avail-free-list{animation:none;}
   .feat:hover .fic,.spec:hover,.aopt:hover,.bkst:hover{transform:none;}
 }
+/* Route links (trasa pieszo/autem do Google Maps) — auto-injected dla .atcard/.pcard/.rcard */
+.route-links{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0 4px;}
+.route-btn{display:inline-flex;align-items:center;gap:5px;padding:6px 11px;font-size:12px;font-weight:600;letter-spacing:.3px;border-radius:4px;text-decoration:none;transition:all .25s cubic-bezier(.22,1,.36,1);border:1px solid transparent;background:rgba(61,90,52,.06);color:var(--forest);cursor:pointer;}
+.route-btn.walk{border-color:rgba(61,90,52,.25);}
+.route-btn.drive{background:rgba(122,92,56,.06);color:var(--wd);border-color:rgba(122,92,56,.25);}
+.route-btn:hover{transform:translateY(-2px);box-shadow:0 4px 10px rgba(0,0,0,.1);}
+.route-btn.walk:hover{background:var(--forest);color:#fff;border-color:var(--forest);}
+.route-btn.drive:hover{background:var(--wd);color:#fff;border-color:var(--wd);}
 </style></head><body>
 <nav id="nav"><a href="#" class="logo">Gaj&#xF3;wka<small>i Apartamenty &middot; W&#x119;gorzewo, Mazury</small></a><ul class="nl" id="navlinks"><li><a href="#obiekty">Obiekty</a></li><li><a href="#teren">Teren</a></li><li><a href="#relax">Relaks</a></li><li><a href="#jedzenie">Jedzenie</a></li><li><a href="#atrakcje">Atrakcje</a></li><li><a href="#place">Pla&#380;e</a></li><li><a href="#restauracje">Restauracje</a></li><li><a href="/blog/">Blog</a></li><li><a href="#dojazd">Dojazd</a></li><li><a href="#kontakt">Kontakt</a></li><li><a href="#rezerwacja" class="ncta">Zarezerwuj</a></li></ul><div class="hbg" onclick="toggleNav()"><span></span><span></span><span></span></div></nav>
 <div class="hero"><img class="hbg2" src="img/zdjecie_001.jpg" alt="Gaj&#xF3;wka"><div class="hov"></div><div class="hcon"><div class="htag">&#127807; Mazury &middot; W&#x119;gorzewo &middot; XIX-wieczna Le&#x15B;niczówka</div><h1 class="htit">Gaj&#xF3;wka<br><em>i Apartamenty</em></h1><p class="hsub">Trzy wyj&#x105;tkowe obiekty w sercu mazurskiej przyrody</p><div class="hbtns"><a href="#rezerwacja" class="btn bg">Zarezerwuj pobyt</a><a href="#obiekty" class="btn bw">Poznaj miejsce</a></div></div><div class="hbadges"><div class="hbadges-track">
@@ -605,23 +616,76 @@ function findFreeWindows(ranges, minNights, horizonDays){
   return windows;
 }
 function renderFreeList(ranges){
+  // ranges nieu&#380;ywane — bierzemy z global __availability multi-obiekt
   var box=document.getElementById('avail-free-list');
   if(!box)return;
-  var windows = findFreeWindows(ranges, 2, 180);
-  if(!windows.length){
-    box.innerHTML='<b>📅 Najbliższe wolne terminy:</b><div style="padding:4px 0;color:var(--muted);">Brak wolnych terminów w najbliższych 6 miesiącach &mdash; zadzwoń do Kamili pod <a href="tel:+48574753831" style="color:var(--forest);font-weight:700;">574 753 831</a>, czasem zwalniają się terminy.</div>';
+  var avail = window.__availability || {};
+  var APTS=['Gajówka','Wilcza Polana','Sen Gajowego','Leśne pogaduchy'];
+  var SLUGS={'Gajówka':'g','Wilcza Polana':'wp','Sen Gajowego':'sg','Leśne pogaduchy':'lp'};
+  var allWindows=[];
+  APTS.forEach(function(name){
+    var aptRanges=(avail[name]||[]).map(function(r){return {from:r.from,to:r.to};});
+    var windows=findFreeWindows(aptRanges,2,180);
+    windows.forEach(function(w){w.apt=name;allWindows.push(w);});
+  });
+  if(!allWindows.length){
+    box.innerHTML='<b>📅 Najbliższe wolne terminy:</b><div style="padding:4px 0;color:var(--text);">Brak wolnych terminów w najbliższych 6 miesiącach &mdash; zadzwoń do Kamili pod <a href="tel:+48574753831" style="color:var(--forest);font-weight:700;">574 753 831</a>.</div>';
     box.style.display='block';
     return;
   }
-  var top = windows.slice(0,3);
-  var html='<b>📅 Najbliższe wolne terminy:</b><ul>';
+  // Sortuj wszystkie po dacie from rosn&#x105;co, top 6
+  allWindows.sort(function(a,b){return a.from<b.from?-1:1;});
+  var top=allWindows.slice(0,6);
+  var html='<b>📅 Najbliższe wolne terminy:</b><div style="font-size:13px;color:var(--text);opacity:.85;margin:-4px 0 8px;">Kliknij termin &mdash; wybierzemy obiekt i wype&#322;nimy daty automatycznie.</div><ul>';
   top.forEach(function(w){
     var label = w.openEnd ? formatPLDate(w.from)+' &rarr; dalej' : formatPLDate(w.from)+' &mdash; '+formatPLDate(w.to);
-    html+='<li>'+label+' <span class="nights">('+w.nights+' '+(w.nights===1?'noc':(w.nights<5?'noce':'nocy'))+' wolne)</span></li>';
+    var nightsLabel = w.nights===1?'noc':(w.nights<5?'noce':'nocy');
+    html+='<li class="free-item" data-apt="'+w.apt+'" data-slug="'+SLUGS[w.apt]+'" data-from="'+w.from+'" data-to="'+w.to+'" data-open="'+(w.openEnd?1:0)+'" onclick="pickFreeTerm(this)" onmouseenter="highlightApt(\''+w.apt+'\',true)" onmouseleave="highlightApt(\''+w.apt+'\',false)" style="cursor:pointer;">'+
+      '<span class="free-apt">'+w.apt+'</span>'+
+      '<span class="free-date">'+label+'</span>'+
+      '<span class="nights">'+w.nights+' '+nightsLabel+'</span>'+
+      '</li>';
   });
   html+='</ul>';
   box.innerHTML=html;
   box.style.display='block';
+}
+function pickFreeTerm(el){
+  var apt=el.getAttribute('data-apt');
+  var from=el.getAttribute('data-from');
+  var to=el.getAttribute('data-to');
+  var isOpen=el.getAttribute('data-open')==='1';
+  // 1. Wybierz obiekt (uniesie odpowiednio kafelek + ustawi #fapt)
+  if(typeof pickApt==='function')pickApt(apt);
+  // 2. Pre-fill datepicker (cin=from, cout=to lub from+3 dla openEnd)
+  setTimeout(function(){
+    try{
+      if(window.__fpCin&&window.__fpCout){
+        var coutDate;
+        if(isOpen){
+          // openEnd: domy&#x15B;lnie 3 noce
+          var d=new Date(from);d.setDate(d.getDate()+3);coutDate=d.toISOString().slice(0,10);
+        }else{
+          coutDate=to;
+        }
+        window.__fpCin.setDate(from,true);
+        window.__fpCout.set('minDate',from);
+        window.__fpCout.setDate(coutDate,true);
+      }
+    }catch(e){}
+  },300);
+}
+function highlightApt(name,on){
+  var map={'Gajówka':'opt-g','Wilcza Polana':'opt-wp','Sen Gajowego':'opt-sg','Leśne pogaduchy':'opt-lp'};
+  var el=document.getElementById(map[name]);
+  if(!el)return;
+  if(on){
+    el.style.boxShadow='0 0 0 3px var(--gold),0 8px 18px rgba(200,165,90,.3)';
+    el.style.transform='translateY(-3px)';
+  }else{
+    el.style.boxShadow='';
+    el.style.transform='';
+  }
 }
 function initDatepickers(){
   if(typeof flatpickr==='undefined'){
@@ -675,6 +739,26 @@ function refreshDatepickers(){
 document.addEventListener('DOMContentLoaded',function(){
   loadAvailability().then(initDatepickers);
 });
+
+function injectRouteLinks(){
+  // Dla ka&#380;dej karty atrakcji/pla&#380;y/restauracji dorzu&#x107; linki "trasa pieszo / autem"
+  // do Google Maps directions. Destination = tytu&#x142; h3, origin = Le&#x15B;niewo (Gaj&#xF3;wka).
+  var origin = encodeURIComponent('Le&#x15B;niewo 13, W&#x119;gorzewo');
+  var cards = document.querySelectorAll('.atcard, .pcard, .rcard');
+  cards.forEach(function(card){
+    var dist = card.querySelector('.dist');
+    var h3 = card.querySelector('h3');
+    if(!dist || !h3 || card.querySelector('.route-links')) return;
+    var name = h3.textContent.trim();
+    var dest = encodeURIComponent(name + ', mazury');
+    var html = '<div class="route-links">' +
+      '<a class="route-btn walk" href="https://www.google.com/maps/dir/?api=1&origin=' + origin + '&destination=' + dest + '&travelmode=walking" target="_blank" rel="noopener" title="Trasa pieszo z Gaj&#xF3;wki do ' + name + '">&#x1F6B6; Trasa pieszo</a>' +
+      '<a class="route-btn drive" href="https://www.google.com/maps/dir/?api=1&origin=' + origin + '&destination=' + dest + '&travelmode=driving" target="_blank" rel="noopener" title="Trasa autem z Gaj&#xF3;wki do ' + name + '">&#x1F697; Trasa autem</a>' +
+      '</div>';
+    dist.insertAdjacentHTML('afterend', html);
+  });
+}
+document.addEventListener('DOMContentLoaded', injectRouteLinks);
 
 function updateGuestsWithExtra(mainApt){
   var extraCbs=document.querySelectorAll('#extra-apts input:checked');
