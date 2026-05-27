@@ -21,6 +21,7 @@
     "alohacamp": "https://api.alohacamp.com/icals/export/78f883f8fef7dc8ba1def801d469774a.ccbea227-f540-42ae-9340-35f9efaadbb0.ics"
   },
   "Leśne pogaduchy": {
-    "slug": "lesne-pogaduchy"
+    "slug": "lesne-pogaduchy",
+    "booking": "https://ical.booking.com/v1/export?t=27dbc07b-764e-466d-9719-43a9c8be029c"
   }
 }
