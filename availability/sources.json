@@ -2,26 +2,26 @@
   "Gajówka": {
     "slug": "gajowka",
     "airbnb": "https://www.airbnb.pl/calendar/ical/1523749688583205773.ics?t=7286c1c83e2544e1ac44a89a7e975dd0",
-    "booking": "https://ical.booking.com/v1/export?t=f96a1b70-e477-4048-a3b3-247b7b40c9d5",
+    "booking": "https://ical.booking.com/v1/export?t=7cd6d253-2007-4655-ad1f-5c7e79c56b75",
     "slowhop": "https://slowhop.com/icalendar-export/api-v1/027e6ac401953bf418c67b0b101397ee.ics",
     "alohacamp": "https://api.alohacamp.com/icals/export/060f413cf0565910a3b8e7a038189d2a.3d501602-75fd-43cf-ae16-9d6c50500874.ics"
   },
   "Wilcza Polana": {
     "slug": "wilcza-polana",
     "airbnb": "https://www.airbnb.pl/calendar/ical/666465823606986664.ics?t=78787df04d0e4fab942fde8e2b21cbe2",
-    "booking": "https://ical.booking.com/v1/export?t=677713c3-01ed-460d-8792-97dd46f26c86",
+    "booking": "https://ical.booking.com/v1/export?t=6a601808-679b-468e-ab1a-5972cf4e98f1",
     "slowhop": "https://slowhop.com/icalendar-export/api-v1/29d717146f26028a2f3cc0042b7f1dca.ics",
     "alohacamp": "https://api.alohacamp.com/icals/export/590d2f907ab85b0dff692d3626930ee8.00ca5df3-ef77-46d9-9eb0-3154e4715273.ics"
   },
   "Sen Gajowego": {
     "slug": "sen-gajowego",
     "airbnb": "https://www.airbnb.pl/calendar/ical/666508859348825214.ics?t=7987550c7b3a4cc293e7f045297bb438",
-    "booking": "https://ical.booking.com/v1/export?t=2d5cf303-4592-4c90-98b9-9cec2708a353",
+    "booking": "https://ical.booking.com/v1/export?t=29389b5a-b880-45ca-8008-091961e67adc",
     "slowhop": "https://slowhop.com/icalendar-export/api-v1/5c43fec46fa95c162bb60a754e2e3958.ics",
     "alohacamp": "https://api.alohacamp.com/icals/export/78f883f8fef7dc8ba1def801d469774a.ccbea227-f540-42ae-9340-35f9efaadbb0.ics"
   },
   "Leśne pogaduchy": {
     "slug": "lesne-pogaduchy",
-    "booking": "https://ical.booking.com/v1/export?t=27dbc07b-764e-466d-9719-43a9c8be029c"
+    "booking": "https://ical.booking.com/v1/export?t=e5eb2043-3bb3-4a69-a6e1-dc2db8d75055"
   }
 }
