@@ -606,9 +606,25 @@ function getBlockedRanges(aptName,extraApts){
   });
   return out;
 }
-function blockedToFpDisable(ranges){
-  // flatpickr expects [{from:'YYYY-MM-DD',to:'YYYY-MM-DD'}]
-  return ranges.map(function(r){return {from:r.from,to:r.to};});
+function addDaysIso(iso,delta){
+  // 'YYYY-MM-DD' + delta dni -> 'YYYY-MM-DD'
+  var p=String(iso).split('-');
+  var d=new Date(Date.UTC(parseInt(p[0],10),parseInt(p[1],10)-1,parseInt(p[2],10)));
+  d.setUTCDate(d.getUTCDate()+delta);
+  return d.toISOString().slice(0,10);
+}
+function disableForArrival(ranges){
+  // Zajete noce = polprzedzial [from, to). flatpickr disable {from,to} jest
+  // inclusive po obu stronach, wiec blokujemy [from, to-1]: gosc MOZE przyjechac
+  // w dniu wyjazdu poprzedniego goscia (changeover) — tak samo jak Booking.
+  return ranges.map(function(r){return {from:r.from,to:addDaysIso(r.to,-1)};})
+               .filter(function(r){return r.from<=r.to;});
+}
+function disableForCheckout(ranges){
+  // Wyjazd: nie mozna wyjechac w dniu, ktory jest juz zajety noca. Blokujemy
+  // [from+1, to]: gosc MOZE wyjechac w dniu rozpoczecia kolejnej rezerwacji.
+  return ranges.map(function(r){return {from:addDaysIso(r.from,1),to:r.to};})
+               .filter(function(r){return r.from<=r.to;});
 }
 function getCurrentExtras(){
   return Array.from(document.querySelectorAll('#extra-apts input:checked')).map(function(c){
@@ -616,8 +632,10 @@ function getCurrentExtras(){
   });
 }
 function rangesOverlap(aStart,aEnd,bStart,bEnd){
-  // dates as 'YYYY-MM-DD' strings — string compare works
-  return aStart<=bEnd&&bStart<=aEnd;
+  // Polprzedzialy [aStart,aEnd) i [bStart,bEnd) jako 'YYYY-MM-DD' (string compare OK).
+  // Koliduja tylko gdy sciśle zachodza — dzien wyjazdu == dzien przyjazdu nastepnego
+  // NIE jest konfliktem.
+  return aStart<bEnd&&bStart<aEnd;
 }
 function findConflict(cinStr,coutStr,ranges){
   if(!cinStr||!coutStr)return null;
@@ -747,7 +765,8 @@ function initDatepickers(){
   var apt=document.getElementById('fapt').value||'Gajówka';
   var extras=getCurrentExtras();
   var ranges=getBlockedRanges(apt,extras);
-  var disable=blockedToFpDisable(ranges);
+  var disableIn=disableForArrival(ranges);
+  var disableOut=disableForCheckout(ranges);
   var localePl=(window.flatpickr&&window.flatpickr.l10ns&&window.flatpickr.l10ns.pl)?'pl':'default';
   window.__fpCin=flatpickr('#fcin',{
     locale:localePl,
@@ -755,7 +774,7 @@ function initDatepickers(){
     dateFormat:'Y-m-d',
     altInput:true,
     altFormat:'d.m.Y',
-    disable:disable,
+    disable:disableIn,
     onChange:function(selectedDates){
       if(selectedDates&&selectedDates[0]&&window.__fpCout){
         var d=new Date(selectedDates[0].getTime());
@@ -770,7 +789,7 @@ function initDatepickers(){
     dateFormat:'Y-m-d',
     altInput:true,
     altFormat:'d.m.Y',
-    disable:disable
+    disable:disableOut
   });
   renderFreeList(ranges);
 }
@@ -779,10 +798,11 @@ function refreshDatepickers(){
   var apt=document.getElementById('fapt').value||'Gajówka';
   var extras=getCurrentExtras();
   var ranges=getBlockedRanges(apt,extras);
-  var disable=blockedToFpDisable(ranges);
+  var disableIn=disableForArrival(ranges);
+  var disableOut=disableForCheckout(ranges);
   try{
-    window.__fpCin.set('disable',disable);
-    window.__fpCout.set('disable',disable);
+    window.__fpCin.set('disable',disableIn);
+    window.__fpCout.set('disable',disableOut);
     window.__fpCin.redraw();
     window.__fpCout.redraw();
   }catch(e){console.warn('[datepicker] refresh err',e);}
