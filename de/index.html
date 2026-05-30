@@ -22,6 +22,9 @@
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/flatpickr.min.css">
+<script src="https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/flatpickr.min.js" defer></script>
+<script src="https://npmcdn.com/flatpickr/dist/l10n/de.js" defer></script>
 <style>
 :root{--forest:#2d4a3e;--gold:#c5a059;--text:#2c2c2c;--muted:#6b6b6b;--light:#f9f7f2;--white:#fff;}
 *{margin:0;padding:0;box-sizing:border-box;}
@@ -82,6 +85,12 @@ nav .logo{font-family:'Playfair Display',serif;font-size:23px;color:var(--forest
 .form button:hover{transform:translateY(-2px);}
 .form .note{font-size:11px;color:var(--muted);margin-top:12px;line-height:1.5;}
 .form .note a{color:var(--gold);}
+.extras{display:flex;flex-direction:column;gap:8px;margin-top:6px;}
+.extras label{display:flex;align-items:center;gap:9px;font-size:14px;font-weight:500;color:var(--text);text-transform:none;letter-spacing:0;margin:0;padding:9px 12px;border:1px solid #d8d2c4;border-radius:6px;cursor:pointer;}
+.extras input{width:auto;}
+.flatpickr-day.flatpickr-disabled,.flatpickr-day.flatpickr-disabled:hover{text-decoration:line-through;color:#c66!important;background:rgba(200,60,60,.06)!important;}
+.flatpickr-day.selected,.flatpickr-day.startRange,.flatpickr-day.endRange{background:var(--gold)!important;border-color:var(--gold)!important;color:#1a1a1a!important;}
+.availnote{font-size:12px;color:var(--muted);margin-top:6px;}
 .ok{display:none;background:#eef5ee;border:1px solid var(--forest);border-radius:10px;padding:24px;margin-top:18px;color:var(--forest);text-align:center;font-size:16px;}
 .contact{text-align:center;}
 .contact .pill{display:inline-flex;flex-direction:column;gap:4px;background:var(--white);border-radius:10px;padding:18px 26px;margin:8px;box-shadow:0 4px 14px rgba(0,0,0,.05);}
@@ -161,8 +170,14 @@ footer a{color:var(--gold);text-decoration:none;}
       <select id="d_apt"><option>Gajówka (12 Pers.)</option><option>Wilcza Polana (6+2)</option><option>Sen Gajowego (6+2)</option><option>Leśne pogaduchy (6+2)</option><option>Noch unentschieden</option></select>
       <div class="row"><div><label>Name</label><input type="text" id="d_name" placeholder="Max Mustermann"></div><div><label>Telefon (optional)</label><input type="tel" id="d_phone" placeholder="+49 …"></div></div>
       <label>E-Mail</label><input type="email" id="d_email" placeholder="ihre@email.de">
-      <div class="row"><div><label>Anreise</label><input type="date" id="d_in"></div><div><label>Abreise</label><input type="date" id="d_out"></div></div>
-      <label>Personen / Nachricht</label><textarea id="d_msg" rows="3" placeholder="z. B. 4 Erwachsene, 2 Kinder; Interesse an Hot Tub und Sauna"></textarea>
+      <div class="row"><div><label>Anreise</label><input type="text" id="d_in" autocomplete="off" placeholder="Datum wählen"></div><div><label>Abreise</label><input type="text" id="d_out" autocomplete="off" placeholder="Datum wählen"></div></div>
+      <div class="availnote" id="d_avail">📅 Verfügbarkeit live mit Booking, Airbnb, Slowhop &amp; Aloha Camp synchronisiert — belegte Tage sind durchgestrichen und nicht wählbar.</div>
+      <label>Extras (optional)</label>
+      <div class="extras">
+        <label><input type="checkbox" class="d_extra" value="Hot Tub mit Outdoor-Kino (250 zł/Tag)"> 🛁 Hot Tub mit Outdoor-Kino — 250 zł/Tag</label>
+        <label><input type="checkbox" class="d_extra" value="Fasssauna (150 zł/Session)"> 🧖 Fasssauna — 150 zł/Session (~2h)</label>
+      </div>
+      <label>Personen / Nachricht</label><textarea id="d_msg" rows="3" placeholder="z. B. 4 Erwachsene, 2 Kinder"></textarea>
       <button type="submit">Anfrage senden →</button>
       <p class="note">Mit dem Absenden akzeptieren Sie unsere <a href="/polityka-prywatnosci.html">Datenschutzerklärung</a>. Wir verarbeiten Ihre Daten ausschließlich zur Bearbeitung dieser Anfrage (Art. 6 Abs. 1 lit. f DSGVO).</p>
     </form>
@@ -187,22 +202,56 @@ footer a{color:var(--gold);text-decoration:none;}
 </footer>
 
 <script>
+// ===== Verfügbarkeits-Sync (gleiche availability.json wie PL — Objektschlüssel identisch) =====
+window.__avail=null;
+function deAptKey(){var v=(document.getElementById('d_apt').value||'').split(' (')[0].trim();return (v==='Noch unentschieden')?null:v;}
+function addDaysIso(iso,delta){var p=String(iso).split('-');var d=new Date(Date.UTC(+p[0],+p[1]-1,+p[2]));d.setUTCDate(d.getUTCDate()+delta);return d.toISOString().slice(0,10);}
+function deRanges(){var k=deAptKey();if(!k||!window.__avail)return [];return (window.__avail[k]||[]).filter(function(r){return r&&r.from&&r.to;});}
+function disForArrival(rs){return rs.map(function(r){return {from:r.from,to:addDaysIso(r.to,-1)};}).filter(function(r){return r.from<=r.to;});}
+function disForCheckout(rs){return rs.map(function(r){return {from:addDaysIso(r.from,1),to:r.to};}).filter(function(r){return r.from<=r.to;});}
+function deOverlap(aS,aE,bS,bE){return aS<bE&&bS<aE;}
+function deConflict(cin,cout){if(!cin||!cout)return null;var rs=deRanges();for(var i=0;i<rs.length;i++){if(deOverlap(cin,cout,rs[i].from,rs[i].to))return rs[i];}return null;}
+function deInitPickers(){
+  if(typeof flatpickr==='undefined'){return setTimeout(deInitPickers,300);}
+  var loc=(window.flatpickr&&window.flatpickr.l10ns&&window.flatpickr.l10ns.de)?'de':'default';
+  var rs=deRanges();
+  window.__dpIn=flatpickr('#d_in',{locale:loc,minDate:'today',dateFormat:'Y-m-d',altInput:true,altFormat:'d.m.Y',disable:disForArrival(rs),
+    onChange:function(sel){if(sel&&sel[0]&&window.__dpOut){var d=new Date(sel[0].getTime());d.setDate(d.getDate()+1);window.__dpOut.set('minDate',d);}}});
+  window.__dpOut=flatpickr('#d_out',{locale:loc,minDate:'today',dateFormat:'Y-m-d',altInput:true,altFormat:'d.m.Y',disable:disForCheckout(rs)});
+}
+function deRefreshPickers(){
+  if(!window.__dpIn||!window.__dpOut)return deInitPickers();
+  var rs=deRanges();
+  try{window.__dpIn.set('disable',disForArrival(rs));window.__dpOut.set('disable',disForCheckout(rs));window.__dpIn.redraw();window.__dpOut.redraw();}catch(e){}
+}
+document.addEventListener('DOMContentLoaded',function(){
+  var s=document.getElementById('d_apt');if(s)s.addEventListener('change',deRefreshPickers);
+  fetch('/availability.json',{cache:'no-cache'}).then(function(r){return r.ok?r.json():{};}).then(function(d){window.__avail=d;deRefreshPickers();}).catch(function(){window.__avail={};});
+  deInitPickers();
+});
+
 function deSubmit(e){
   e.preventDefault();
   var name=document.getElementById('d_name').value.trim();
   var email=document.getElementById('d_email').value.trim();
   if(!name||!email||email.indexOf('@')<0){alert('Bitte Name und gültige E-Mail angeben.');return false;}
+  var cin=document.getElementById('d_in').value, cout=document.getElementById('d_out').value;
+  if(cin&&cout&&cout<=cin){alert('Das Abreisedatum muss nach dem Anreisedatum liegen.');return false;}
+  var conf=deConflict(cin,cout);
+  if(conf){alert('Die gewählten Tage sind bereits belegt ('+conf.from+' – '+conf.to+').\n\nBitte einen anderen Zeitraum wählen oder anrufen: +48 574 753 831');return false;}
   var apt=document.getElementById('d_apt').value;
+  var extras=Array.prototype.map.call(document.querySelectorAll('.d_extra:checked'),function(c){return c.value;}).join(', ')||'—';
   var payload={
     access_key:'704579ff-c17a-4f9f-8ee8-bd9512de7b9d',
-    subject:'Anfrage (DE): '+apt+' '+(document.getElementById('d_in').value||'')+' – '+(document.getElementById('d_out').value||''),
+    subject:'Anfrage (DE): '+apt+' '+(cin||'')+' – '+(cout||''),
     from_name:'Gajówka Website (DE)',
     Unterkunft:apt,
     Name:name,
     Email:email,
     Telefon:document.getElementById('d_phone').value.trim()||'—',
-    Anreise:document.getElementById('d_in').value||'—',
-    Abreise:document.getElementById('d_out').value||'—',
+    Anreise:cin||'—',
+    Abreise:cout||'—',
+    Extras:extras,
     Nachricht:document.getElementById('d_msg').value.trim()||'—'
   };
   var btn=e.target.querySelector('button');btn.disabled=true;btn.textContent='Senden…';

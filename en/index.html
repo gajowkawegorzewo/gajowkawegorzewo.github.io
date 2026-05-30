@@ -22,6 +22,8 @@
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/flatpickr.min.css">
+<script src="https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/flatpickr.min.js" defer></script>
 <style>
 :root{--forest:#2d4a3e;--gold:#c5a059;--text:#2c2c2c;--muted:#6b6b6b;--light:#f9f7f2;--white:#fff;}
 *{margin:0;padding:0;box-sizing:border-box;}
@@ -81,6 +83,12 @@ nav .logo{font-family:'Playfair Display',serif;font-size:23px;color:var(--forest
 .form button:hover{transform:translateY(-2px);}
 .form .note{font-size:11px;color:var(--muted);margin-top:12px;line-height:1.5;}
 .form .note a{color:var(--gold);}
+.extras{display:flex;flex-direction:column;gap:8px;margin-top:6px;}
+.extras label{display:flex;align-items:center;gap:9px;font-size:14px;font-weight:500;color:var(--text);text-transform:none;letter-spacing:0;margin:0;padding:9px 12px;border:1px solid #d8d2c4;border-radius:6px;cursor:pointer;}
+.extras input{width:auto;}
+.flatpickr-day.flatpickr-disabled,.flatpickr-day.flatpickr-disabled:hover{text-decoration:line-through;color:#c66!important;background:rgba(200,60,60,.06)!important;}
+.flatpickr-day.selected,.flatpickr-day.startRange,.flatpickr-day.endRange{background:var(--gold)!important;border-color:var(--gold)!important;color:#1a1a1a!important;}
+.availnote{font-size:12px;color:var(--muted);margin-top:6px;}
 .ok{display:none;background:#eef5ee;border:1px solid var(--forest);border-radius:10px;padding:24px;margin-top:18px;color:var(--forest);text-align:center;font-size:16px;}
 .contact{text-align:center;}
 .contact .pill{display:inline-flex;flex-direction:column;gap:4px;background:var(--white);border-radius:10px;padding:18px 26px;margin:8px;box-shadow:0 4px 14px rgba(0,0,0,.05);}
@@ -160,8 +168,14 @@ footer a{color:var(--gold);text-decoration:none;}
       <select id="e_apt"><option>Gajówka (12 guests)</option><option>Wilcza Polana (6+2)</option><option>Sen Gajowego (6+2)</option><option>Leśne pogaduchy (6+2)</option><option>Not decided yet</option></select>
       <div class="row"><div><label>Name</label><input type="text" id="e_name" placeholder="John Smith"></div><div><label>Phone (optional)</label><input type="tel" id="e_phone" placeholder="+1 …"></div></div>
       <label>Email</label><input type="email" id="e_email" placeholder="you@email.com">
-      <div class="row"><div><label>Check-in</label><input type="date" id="e_in"></div><div><label>Check-out</label><input type="date" id="e_out"></div></div>
-      <label>Guests / message</label><textarea id="e_msg" rows="3" placeholder="e.g. 4 adults, 2 children; interested in the hot tub and sauna"></textarea>
+      <div class="row"><div><label>Check-in</label><input type="text" id="e_in" autocomplete="off" placeholder="Pick a date"></div><div><label>Check-out</label><input type="text" id="e_out" autocomplete="off" placeholder="Pick a date"></div></div>
+      <div class="availnote" id="e_avail">📅 Availability synced live with Booking, Airbnb, Slowhop &amp; Aloha Camp — booked days are struck through and cannot be selected.</div>
+      <label>Extras (optional)</label>
+      <div class="extras">
+        <label><input type="checkbox" class="e_extra" value="Hot tub with outdoor cinema (250 zł/day)"> 🛁 Hot tub with outdoor cinema — 250 zł/day</label>
+        <label><input type="checkbox" class="e_extra" value="Barrel sauna (150 zł/session)"> 🧖 Barrel sauna — 150 zł/session (~2h)</label>
+      </div>
+      <label>Guests / message</label><textarea id="e_msg" rows="3" placeholder="e.g. 4 adults, 2 children"></textarea>
       <button type="submit">Send enquiry →</button>
       <p class="note">By submitting you accept our <a href="/polityka-prywatnosci.html">privacy policy</a>. We process your data solely to handle this enquiry (Art. 6(1)(f) GDPR).</p>
     </form>
@@ -186,22 +200,55 @@ footer a{color:var(--gold);text-decoration:none;}
 </footer>
 
 <script>
+// ===== Availability sync (same availability.json as PL — object keys identical) =====
+window.__avail=null;
+function enAptKey(){var v=(document.getElementById('e_apt').value||'').split(' (')[0].trim();return (v==='Not decided yet')?null:v;}
+function addDaysIso(iso,delta){var p=String(iso).split('-');var d=new Date(Date.UTC(+p[0],+p[1]-1,+p[2]));d.setUTCDate(d.getUTCDate()+delta);return d.toISOString().slice(0,10);}
+function enRanges(){var k=enAptKey();if(!k||!window.__avail)return [];return (window.__avail[k]||[]).filter(function(r){return r&&r.from&&r.to;});}
+function disForArrival(rs){return rs.map(function(r){return {from:r.from,to:addDaysIso(r.to,-1)};}).filter(function(r){return r.from<=r.to;});}
+function disForCheckout(rs){return rs.map(function(r){return {from:addDaysIso(r.from,1),to:r.to};}).filter(function(r){return r.from<=r.to;});}
+function enOverlap(aS,aE,bS,bE){return aS<bE&&bS<aE;}
+function enConflict(cin,cout){if(!cin||!cout)return null;var rs=enRanges();for(var i=0;i<rs.length;i++){if(enOverlap(cin,cout,rs[i].from,rs[i].to))return rs[i];}return null;}
+function enInitPickers(){
+  if(typeof flatpickr==='undefined'){return setTimeout(enInitPickers,300);}
+  var rs=enRanges();
+  window.__dpIn=flatpickr('#e_in',{minDate:'today',dateFormat:'Y-m-d',altInput:true,altFormat:'d M Y',disable:disForArrival(rs),
+    onChange:function(sel){if(sel&&sel[0]&&window.__dpOut){var d=new Date(sel[0].getTime());d.setDate(d.getDate()+1);window.__dpOut.set('minDate',d);}}});
+  window.__dpOut=flatpickr('#e_out',{minDate:'today',dateFormat:'Y-m-d',altInput:true,altFormat:'d M Y',disable:disForCheckout(rs)});
+}
+function enRefreshPickers(){
+  if(!window.__dpIn||!window.__dpOut)return enInitPickers();
+  var rs=enRanges();
+  try{window.__dpIn.set('disable',disForArrival(rs));window.__dpOut.set('disable',disForCheckout(rs));window.__dpIn.redraw();window.__dpOut.redraw();}catch(e){}
+}
+document.addEventListener('DOMContentLoaded',function(){
+  var s=document.getElementById('e_apt');if(s)s.addEventListener('change',enRefreshPickers);
+  fetch('/availability.json',{cache:'no-cache'}).then(function(r){return r.ok?r.json():{};}).then(function(d){window.__avail=d;enRefreshPickers();}).catch(function(){window.__avail={};});
+  enInitPickers();
+});
+
 function enSubmit(e){
   e.preventDefault();
   var name=document.getElementById('e_name').value.trim();
   var email=document.getElementById('e_email').value.trim();
   if(!name||!email||email.indexOf('@')<0){alert('Please enter your name and a valid email.');return false;}
+  var cin=document.getElementById('e_in').value, cout=document.getElementById('e_out').value;
+  if(cin&&cout&&cout<=cin){alert('Check-out must be after check-in.');return false;}
+  var conf=enConflict(cin,cout);
+  if(conf){alert('The selected dates are already booked ('+conf.from+' – '+conf.to+').\n\nPlease pick another range or call us: +48 574 753 831');return false;}
   var apt=document.getElementById('e_apt').value;
+  var extras=Array.prototype.map.call(document.querySelectorAll('.e_extra:checked'),function(c){return c.value;}).join(', ')||'—';
   var payload={
     access_key:'704579ff-c17a-4f9f-8ee8-bd9512de7b9d',
-    subject:'Enquiry (EN): '+apt+' '+(document.getElementById('e_in').value||'')+' – '+(document.getElementById('e_out').value||''),
+    subject:'Enquiry (EN): '+apt+' '+(cin||'')+' – '+(cout||''),
     from_name:'Gajówka Website (EN)',
     Unit:apt,
     Name:name,
     Email:email,
     Phone:document.getElementById('e_phone').value.trim()||'—',
-    CheckIn:document.getElementById('e_in').value||'—',
-    CheckOut:document.getElementById('e_out').value||'—',
+    CheckIn:cin||'—',
+    CheckOut:cout||'—',
+    Extras:extras,
     Message:document.getElementById('e_msg').value.trim()||'—'
   };
   var btn=e.target.querySelector('button');btn.disabled=true;btn.textContent='Sending…';
