@@ -197,6 +197,11 @@
   ],
   "Leśne pogaduchy": [
     {
+      "from": "2026-05-30",
+      "to": "2026-06-01",
+      "source": "Booking"
+    },
+    {
       "from": "2026-07-25",
       "to": "2026-08-02",
       "source": "Booking"
