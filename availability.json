@@ -191,13 +191,8 @@
     },
     {
       "from": "2027-01-11",
-      "to": "2027-05-29",
-      "source": "Booking"
-    },
-    {
-      "from": "2027-05-30",
       "to": "2029-05-31",
-      "source": "Airbnb+Booking+Alohacamp"
+      "source": "Booking+Airbnb+Alohacamp"
     }
   ],
   "Leśne pogaduchy": [
