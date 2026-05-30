@@ -9,7 +9,10 @@ Disallow: /.env
 Disallow: /google-sa.json
 Disallow: /PROJECT_STATUS.md
 Disallow: /admin/
+Disallow: /blog/drafts/
 
 # Crawl-delay nie ustawiamy - GitHub Pages jest szybki
 
 Sitemap: https://gajowkawegorzewo.github.io/sitemap.xml
+Sitemap: https://gajowkawegorzewo.github.io/sitemap-de.xml
+Sitemap: https://gajowkawegorzewo.github.io/sitemap-en.xml
