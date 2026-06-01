@@ -8,9 +8,15 @@
   </url>
   <url>
     <loc>https://gajowkawegorzewo.github.io/blog/</loc>
-    <lastmod>2026-05-31</lastmod>
+    <lastmod>2026-06-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://gajowkawegorzewo.github.io/blog/nocleg-blisko-wilczego-szanca-2026.html</loc>
+    <lastmod>2026-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
   </url>
   <url>
     <loc>https://gajowkawegorzewo.github.io/blog/nocleg-blisko-sztynortu-marina-palac-2026.html</loc>
