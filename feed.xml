@@ -5,9 +5,16 @@
     <link>https://gajowkawegorzewo.github.io/blog/</link>
     <description>Praktyczne przewodniki po Mazurach i okolicach Węgorzewa: atrakcje, transport, domki, sezon, wydarzenia. Pisane lokalnie, bez clickbaitu.</description>
     <language>pl-PL</language>
-    <lastBuildDate>Tue, 02 Jun 2026 07:10:48 GMT</lastBuildDate>
-    <pubDate>Tue, 02 Jun 2026 10:00:00 GMT</pubDate>
+    <lastBuildDate>Wed, 03 Jun 2026 07:10:10 GMT</lastBuildDate>
+    <pubDate>Wed, 03 Jun 2026 10:00:00 GMT</pubDate>
     <atom:link href="https://gajowkawegorzewo.github.io/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Co robić na Mazurach gdy pada deszcz — okolica Węgorzewa 2026</title>
+      <link>https://gajowkawegorzewo.github.io/blog/co-robic-na-mazurach-gdy-pada-deszcz-wegorzewo-2026.html</link>
+      <guid isPermaLink="true">https://gajowkawegorzewo.github.io/blog/co-robic-na-mazurach-gdy-pada-deszcz-wegorzewo-2026.html</guid>
+      <pubDate>Wed, 03 Jun 2026 10:00:00 GMT</pubDate>
+      <description>Deszczowy dzień nad Mamry? Praktyczny plan w okolicy Węgorzewa: muzeum, baseny, zwiedzanie pod chmurami i deszczowy dzień w domku z sauną i balią. Godziny i ceny 2026.</description>
+    </item>
     <item>
       <title>Agroturystyka Węgorzewo — przewodnik 2026, dystanse, atrakcje</title>
       <link>https://gajowkawegorzewo.github.io/blog/agroturystyka-wegorzewo-przewodnik.html</link>
@@ -140,13 +147,6 @@
       <guid isPermaLink="true">https://gajowkawegorzewo.github.io/blog/mazury-z-dziecmi-atrakcje-2026.html</guid>
       <pubDate>Fri, 15 May 2026 10:00:00 GMT</pubDate>
       <description>Nocleg dla rodzin z dziećmi na Mazurach: leśna Gajówka pod Węgorzewem z basenem, własnym jeziorkiem do łowienia, ogrodzonym terenem i łóżeczkiem turystycznym. Atrakcje rodzinne z dystansami i plan na 3-7 dni.</description>
-    </item>
-    <item>
-      <title>Atrakcje wokół Węgorzewa 2026 — co zobaczyć z Leśniewa</title>
-      <link>https://gajowkawegorzewo.github.io/blog/atrakcje-wokol-wegorzewa-co-zobaczyc-2026.html</link>
-      <guid isPermaLink="true">https://gajowkawegorzewo.github.io/blog/atrakcje-wokol-wegorzewa-co-zobaczyc-2026.html</guid>
-      <pubDate>Thu, 14 May 2026 10:00:00 GMT</pubDate>
-      <description>Co zobaczyć podczas pobytu w Gajówce w Leśniewie: Mamerki 2 km, Sztynort 15 min, Wilczy Szaniec 30 km. Dystanse, kolejność zwiedzania i plan na 3 i 7 dni.</description>
     </item>
   </channel>
 </rss>
