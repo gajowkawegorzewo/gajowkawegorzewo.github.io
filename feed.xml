@@ -5,9 +5,16 @@
     <link>https://gajowkawegorzewo.github.io/blog/</link>
     <description>Praktyczne przewodniki po Mazurach i okolicach Węgorzewa: atrakcje, transport, domki, sezon, wydarzenia. Pisane lokalnie, bez clickbaitu.</description>
     <language>pl-PL</language>
-    <lastBuildDate>Fri, 05 Jun 2026 07:12:05 GMT</lastBuildDate>
-    <pubDate>Fri, 05 Jun 2026 10:00:00 GMT</pubDate>
+    <lastBuildDate>Sat, 06 Jun 2026 07:12:16 GMT</lastBuildDate>
+    <pubDate>Sat, 06 Jun 2026 10:00:00 GMT</pubDate>
     <atom:link href="https://gajowkawegorzewo.github.io/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Wyjazd integracyjny dla firmy na Mazurach — jak zorganizować w domku 2026</title>
+      <link>https://gajowkawegorzewo.github.io/blog/wyjazd-integracyjny-firma-mazury-2026.html</link>
+      <guid isPermaLink="true">https://gajowkawegorzewo.github.io/blog/wyjazd-integracyjny-firma-mazury-2026.html</guid>
+      <pubDate>Sat, 06 Jun 2026 10:00:00 GMT</pubDate>
+      <description>Wyjazd integracyjny dla małego zespołu na Mazurach 2026 — domek na wyłączność czy hotel, ile obiektów na grupę 10-24 osób, faktura i formalności, budżet na osobę, atrakcje do zorganizowania samemu i gotowy plan na 2-3 dni.</description>
+    </item>
     <item>
       <title>Mazury rowerem 2026 — trasy wokół Węgorzewa i Green Velo</title>
       <link>https://gajowkawegorzewo.github.io/blog/mazury-rowerem-trasy-wegorzewo-2026.html</link>
@@ -140,13 +147,6 @@
       <guid isPermaLink="true">https://gajowkawegorzewo.github.io/blog/apartament-nad-jeziorem-mamry-2026.html</guid>
       <pubDate>Wed, 20 May 2026 10:00:00 GMT</pubDate>
       <description>Apartament nad jeziorem Mamry 2026 — czym różni się od domku i pokoju hotelowego, ile kosztuje, co sprawdzić przed rezerwacją. Praktyczny przewodnik z konkretami z Węgorzewa.</description>
-    </item>
-    <item>
-      <title>Weekend na Mazurach 2026 — plan piątek-niedziela krok po kroku</title>
-      <link>https://gajowkawegorzewo.github.io/blog/weekend-na-mazurach-2026.html</link>
-      <guid isPermaLink="true">https://gajowkawegorzewo.github.io/blog/weekend-na-mazurach-2026.html</guid>
-      <pubDate>Sun, 17 May 2026 10:00:00 GMT</pubDate>
-      <description>Weekend na Mazurach 2026: plan piątek-niedziela godzina po godzinie, warianty dla par, rodzin i aktywnych, konkretne daty wydarzeń, dystanse z Węgorzewa.</description>
     </item>
   </channel>
 </rss>
