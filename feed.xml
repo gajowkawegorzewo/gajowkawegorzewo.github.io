@@ -5,9 +5,16 @@
     <link>https://gajowkawegorzewo.github.io/blog/</link>
     <description>Praktyczne przewodniki po Mazurach i okolicach Węgorzewa: atrakcje, transport, domki, sezon, wydarzenia. Pisane lokalnie, bez clickbaitu.</description>
     <language>pl-PL</language>
-    <lastBuildDate>Fri, 12 Jun 2026 07:14:24 GMT</lastBuildDate>
-    <pubDate>Fri, 12 Jun 2026 10:00:00 GMT</pubDate>
+    <lastBuildDate>Sat, 13 Jun 2026 07:11:01 GMT</lastBuildDate>
+    <pubDate>Sat, 13 Jun 2026 10:00:00 GMT</pubDate>
     <atom:link href="https://gajowkawegorzewo.github.io/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Kajaki na Mazurach 2026 — spływy wokół Węgorzewa: Sapina i Węgorapa</title>
+      <link>https://gajowkawegorzewo.github.io/blog/kajaki-na-mazurach-splywy-wokol-wegorzewa-2026.html</link>
+      <guid isPermaLink="true">https://gajowkawegorzewo.github.io/blog/kajaki-na-mazurach-splywy-wokol-wegorzewa-2026.html</guid>
+      <pubDate>Sat, 13 Jun 2026 10:00:00 GMT</pubDate>
+      <description>Spływy kajakowe wokół Węgorzewa: szlak Sapiny (Kruklin–Węgorzewo), Węgorapa prosto z jeziora Mamry i płaska woda Wielkich Jezior. Fakty, dystanse, trudność i baza w lesie nad Mamry.</description>
+    </item>
     <item>
       <title>Domek na Mazurach na wyłączność 2026 — cały obiekt dla grupy</title>
       <link>https://gajowkawegorzewo.github.io/blog/domek-na-mazurach-na-wylacznosc-2026.html</link>
@@ -140,13 +147,6 @@
       <guid isPermaLink="true">https://gajowkawegorzewo.github.io/blog/plaze-nad-jeziorem-mamry-2026.html</guid>
       <pubDate>Sat, 23 May 2026 10:00:00 GMT</pubDate>
       <description>Plaże nad Mamrami i Święcajtami: Leśniewo, Plaża Solecka Węgorzewo, Radzieje. Sezon ratowniczy 27.06–30.08.2026, jakość wody i gdzie nocować blisko plaż.</description>
-    </item>
-    <item>
-      <title>Agroturystyka na Mazurach 2026 — różnice z hotelem i pensjonatem</title>
-      <link>https://gajowkawegorzewo.github.io/blog/agroturystyka-na-mazurach-2026.html</link>
-      <guid isPermaLink="true">https://gajowkawegorzewo.github.io/blog/agroturystyka-na-mazurach-2026.html</guid>
-      <pubDate>Fri, 22 May 2026 10:00:00 GMT</pubDate>
-      <description>Agroturystyka na Mazurach a hotel czy pensjonat — czym różnią się obiekty, ile kosztują w 2026, dla kogo wybór ma sens. Praktyczny przewodnik z konkretami.</description>
     </item>
   </channel>
 </rss>
