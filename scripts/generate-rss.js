@@ -12,7 +12,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const BASE_URL = 'https://gajowkawegorzewo.github.io';
+const BASE_URL = 'https://gajowkawegorzewo.pl';
 const FEED_URL = `${BASE_URL}/feed.xml`;
 const BLOG_INDEX_URL = `${BASE_URL}/blog/`;
 const MAX_ITEMS = 20;

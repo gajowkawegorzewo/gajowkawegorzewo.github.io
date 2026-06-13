@@ -12,13 +12,13 @@ function blogPostTemplate({ title, description, content, slug, date, tags = [] }
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>${title} | Blog Gajówka Mazury</title>
     <meta name="description" content="${description}">
-    <link rel="canonical" href="https://gajowkawegorzewo.github.io/blog/${slug}">
+    <link rel="canonical" href="https://gajowkawegorzewo.pl/blog/${slug}">
     
     <!-- Open Graph -->
     <meta property="og:title" content="${title}">
     <meta property="og:description" content="${description}">
     <meta property="og:type" content="article">
-    <meta property="og:url" content="https://gajowkawegorzewo.github.io/blog/${slug}">
+    <meta property="og:url" content="https://gajowkawegorzewo.pl/blog/${slug}">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

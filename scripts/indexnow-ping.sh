@@ -7,12 +7,12 @@
 #
 # Limit per request: 10 000 URL. Limit dzienny per host: brak (Bing pozwala).
 #
-# Klucz publiczny widoczny na https://gajowkawegorzewo.github.io/825546c92685bdd377ae341979800263.txt
+# Klucz publiczny widoczny na https://gajowkawegorzewo.pl/825546c92685bdd377ae341979800263.txt
 # To bezpieczne: klucz nie daje nikomu uprawnień, jest tylko dowodem własności domeny.
 
 set -euo pipefail
 
-HOST="gajowkawegorzewo.github.io"
+HOST="gajowkawegorzewo.pl"
 KEY="825546c92685bdd377ae341979800263"
 KEY_LOCATION="https://${HOST}/${KEY}.txt"
 ENDPOINT="https://api.indexnow.org/IndexNow"

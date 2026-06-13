@@ -6,7 +6,7 @@ const path = require('path');
  * Scans index.html and blog/ directory to build sitemap.xml
  */
 
-const BASE_URL = 'https://gajowkawegorzewo.github.io';
+const BASE_URL = 'https://gajowkawegorzewo.pl';
 
 async function generateSitemap() {
   const urls = [BASE_URL + '/'];

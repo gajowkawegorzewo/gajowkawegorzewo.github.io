@@ -1,4 +1,4 @@
-# Robots.txt for gajowkawegorzewo.github.io
+# Robots.txt for gajowkawegorzewo.pl
 # https://www.robotstxt.org/robotstxt.html
 
 User-agent: *
@@ -13,6 +13,6 @@ Disallow: /blog/drafts/
 
 # Crawl-delay nie ustawiamy - GitHub Pages jest szybki
 
-Sitemap: https://gajowkawegorzewo.github.io/sitemap.xml
-Sitemap: https://gajowkawegorzewo.github.io/sitemap-de.xml
-Sitemap: https://gajowkawegorzewo.github.io/sitemap-en.xml
+Sitemap: https://gajowkawegorzewo.pl/sitemap.xml
+Sitemap: https://gajowkawegorzewo.pl/sitemap-de.xml
+Sitemap: https://gajowkawegorzewo.pl/sitemap-en.xml

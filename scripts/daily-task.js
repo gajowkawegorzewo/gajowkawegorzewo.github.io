@@ -41,7 +41,7 @@ async function runDaily() {
     const post = await generateProPost(topic);
     console.log(`[OK] Wygenerowano post: ${post.title}`);
     
-    const postUrl = `https://gajowkawegorzewo.github.io/blog/${post.slug}.html`;
+    const postUrl = `https://gajowkawegorzewo.pl/blog/${post.slug}.html`;
     
     // 3. Odświeżenie sitemapy
     await generateSitemap();

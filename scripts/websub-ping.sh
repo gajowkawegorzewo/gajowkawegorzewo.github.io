@@ -11,7 +11,7 @@
 set -euo pipefail
 
 HUB="https://pubsubhubbub.appspot.com/publish"
-FEED_URL="https://gajowkawegorzewo.github.io/feed.xml"
+FEED_URL="https://gajowkawegorzewo.pl/feed.xml"
 
 echo "WebSub ping: hub=${HUB}"
 echo "  feed=${FEED_URL}"
