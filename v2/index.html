@@ -49,8 +49,10 @@ nav.solid .btn-ghost{color:var(--green);border-color:var(--green)}
 nav.solid .navtoggle{color:var(--green)}
 
 /* HERO */
-.hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;padding:120px 24px 80px}
-.hero::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,32,25,.45),rgba(20,32,25,.62)),url('../img/zdjecie_001.jpg') center/cover no-repeat;z-index:-1}
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;padding:120px 24px 80px;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:-3%;background:url('../img/zdjecie_001.jpg') center/cover no-repeat;z-index:-2;animation:kenburns 28s ease-in-out infinite alternate}
+.hero::after{content:'';position:absolute;inset:0;z-index:-1;background:radial-gradient(125% 105% at 50% 30%,transparent 30%,rgba(18,28,22,.5) 100%),linear-gradient(180deg,rgba(18,28,22,.32) 0%,rgba(18,28,22,.4) 45%,rgba(18,28,22,.72) 100%)}
+@keyframes kenburns{from{transform:scale(1)}to{transform:scale(1.12)}}
 .hero .eyebrow{color:#f0d9b3}
 .hero h1{color:#fff;font-size:clamp(46px,8vw,104px);font-weight:500;margin:18px 0 8px;text-shadow:0 2px 30px rgba(0,0,0,.3)}
 .hero h1 em{font-style:italic;color:#f3dcb4;display:block;font-size:.55em}
@@ -142,7 +144,7 @@ footer a{color:var(--gold-lt)}
   .okrow{flex-wrap:wrap;gap:4px}
   .band::before{background-attachment:scroll}
 }
-@media(prefers-reduced-motion:reduce){.js .reveal,.js .stagger>*{opacity:1!important;transform:none!important;animation:none!important}.scrollcue{animation:none}}
+@media(prefers-reduced-motion:reduce){.js .reveal,.js .stagger>*{opacity:1!important;transform:none!important;animation:none!important}.scrollcue,.hero::before{animation:none}}
 </style>
 </head>
 <body>
