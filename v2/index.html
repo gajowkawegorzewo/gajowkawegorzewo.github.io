@@ -120,6 +120,22 @@ section{padding:106px 0}
 .band{position:relative;min-height:60vh;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;padding:90px 24px;background:linear-gradient(rgba(20,32,25,.4),rgba(20,32,25,.56)),url('../img/lesne_10.jpg') center/cover fixed}
 .band h2{color:#fff;font-size:clamp(32px,5vw,60px)}
 .band p{max-width:560px;margin:18px auto 0;font-size:18px;font-weight:300}
+/* CHWILE — mozaika dnia (jedno zdjęcie wycięte jak domek) */
+.moments{background:var(--cream);overflow:hidden}
+.mgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;max-width:1180px;margin:48px auto 0;padding:0 24px}
+.mtm{position:relative;aspect-ratio:4/3;overflow:hidden;border-radius:6px;background:var(--green)}
+.mtm img,.mtm video{width:100%;height:100%;object-fit:cover;display:block;transition:transform .9s cubic-bezier(.19,1,.22,1)}
+.mtm:hover img,.mtm:hover video{transform:scale(1.06)}
+.mtm .cap{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:30px 14px 13px;color:#fff;font-size:11.5px;letter-spacing:1.3px;text-transform:uppercase;font-weight:600;background:linear-gradient(transparent,rgba(15,24,18,.82))}
+.mtm.roof{margin-top:-50px;border-radius:0;clip-path:polygon(50% 0,100% 22%,100% 100%,0 100%,0 22%)}
+.mgoogle{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;background:var(--green);color:#fff;border-radius:6px;aspect-ratio:4/3;padding:16px}
+.mgoogle .gg{font-family:var(--serif);font-size:26px}
+.mgoogle .score{font-family:var(--serif);font-size:48px;line-height:1.05;color:#fff}
+.mgoogle .score small{font-size:22px;color:var(--gold-lt)}
+.mgoogle .stars{color:var(--gold);letter-spacing:3px;font-size:15px;margin:4px 0 6px}
+.mgoogle .gsub{font-size:12px;color:rgba(255,255,255,.72)}
+.mgoogle a{margin-top:12px;font-size:10.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold-lt);font-weight:600}
+@media(max-width:860px){.mgrid{grid-template-columns:repeat(2,1fr)}.mtm.roof{margin-top:0;clip-path:none;border-radius:6px}}
 /* OPINIE — elegancko, nie scoreboard */
 .opinie{background:var(--cream);text-align:center}
 .rateline{font-size:14px;letter-spacing:1px;color:var(--muted);margin-top:6px}
@@ -255,6 +271,28 @@ footer a{color:var(--gold-lt)}
 </section>
 
 <section class="band"><div class="reveal"><span class="eyebrow" style="color:#f0d9b3">300 metrów od progu</span><h2>Kanał Mazurski</h2><p>Leśne spacery w absolutnej ciszy, a pieszo do śluzy z parkiem linowym dla całej rodziny.</p></div></section>
+
+<section class="moments" id="chwile">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">W Gajówce</span><h2>Chwile z Twojego dnia</h2><p class="lead">Tak wygląda zwykły dzień u nas — od śniadania na tarasie po balię pod gwiazdami.</p></div>
+  </div>
+  <div class="mgrid reveal">
+    <div class="mtm"><img src="../img/lesne_04.jpg" alt="Śniadanie na tarasie" loading="lazy"><span class="cap">Śniadanie na tarasie</span></div>
+    <div class="mtm roof"><img src="../img/zdjecie_038.jpg" alt="Filmowy wieczór" loading="lazy"><span class="cap">Filmowy wieczór</span></div>
+    <div class="mtm"><img src="../img/zdjecie_031.jpg" alt="Sauna w beczce" loading="lazy"><span class="cap">Sauna w beczce</span></div>
+    <div class="mtm"><img src="../img/zdjecie_030.jpg" alt="Wieczory pod pergolą" loading="lazy"><span class="cap">Wieczory pod pergolą</span></div>
+    <div class="mtm"><img src="../img/zdjecie_039.jpg" alt="Poranek z widokiem na las" loading="lazy"><span class="cap">Poranek z widokiem na las</span></div>
+    <div class="mtm"><img src="../img/zdjecie_029.jpg" alt="Zmierzch w leśniczówce" loading="lazy"><span class="cap">Zmierzch w leśniczówce</span></div>
+    <div class="mtm"><img src="../img/zdjecie_052.jpg" alt="Zima w mazurskim lesie" loading="lazy"><span class="cap">Zima w mazurskim lesie</span></div>
+    <div class="mgoogle">
+      <div class="gg">Google</div>
+      <div class="score">4,9<small>/5</small></div>
+      <div class="stars">★★★★★</div>
+      <div class="gsub">na podstawie 95 opinii</div>
+      <a href="https://www.google.com/maps?cid=17323435715856764183" target="_blank" rel="noopener">Zobacz opinie →</a>
+    </div>
+  </div>
+</section>
 
 <section class="opinie" id="opinie">
   <div class="wrap">
