@@ -395,6 +395,15 @@ section:nth-of-type(odd) .rv{transition:opacity .9s cubic-bezier(.22,1,.36,1),tr
 section:nth-of-type(odd) .rv:not(.vis){transform:translateY(34px) translateX(-8px);}
 section:nth-of-type(even) .rv:not(.vis){transform:translateY(34px) translateX(8px);}
 section .rv.vis{transform:translateY(0) translateX(0);}
+/* Kaskadowe wejscie kart obiektow — pojawiaja sie PO KOLEI (jak na dobrych reveal-sajtach) */
+.ac.rv{opacity:1!important;transform:none!important;}
+.ac.rv>*{opacity:0;transform:translateY(28px);transition:opacity .75s cubic-bezier(.22,1,.36,1),transform .75s cubic-bezier(.22,1,.36,1);}
+.ac.rv.vis>*{opacity:1;transform:translateY(0);}
+.ac.rv.vis>*:nth-child(2){transition-delay:.1s;}
+.ac.rv.vis>*:nth-child(3){transition-delay:.2s;}
+.ac.rv.vis>*:nth-child(4){transition-delay:.3s;}
+.ac.rv.vis>*:nth-child(n+5){transition-delay:.4s;}
+@media(prefers-reduced-motion:reduce){.ac.rv>*{opacity:1!important;transform:none!important;transition:none!important;}}
 /* Mini gallery thumbnails hover — lift + brighten */
 .mini img{transition:all .3s cubic-bezier(.22,1,.36,1);}
 .mini img:hover{opacity:1!important;transform:scale(1.08);box-shadow:0 4px 12px rgba(0,0,0,.2);z-index:2;position:relative;}
