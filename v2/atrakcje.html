@@ -11,7 +11,18 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/v2.css">
-<style>.subhero::before{background:linear-gradient(rgba(20,32,25,.42),rgba(20,32,25,.6)),url('../img/lesne_10.jpg') center/cover no-repeat;z-index:-1}</style>
+<style>
+.subhero::before{background:linear-gradient(rgba(20,32,25,.42),rgba(20,32,25,.6)),url('../img/lesne_10.jpg') center/cover no-repeat;z-index:-1}
+.attile{padding:0;overflow:hidden;display:flex;flex-direction:column}
+.atph{aspect-ratio:16/10;overflow:hidden;background:var(--green)}
+.atph img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .7s cubic-bezier(.22,1,.36,1)}
+.attile:hover .atph img{transform:scale(1.06)}
+.atbody{padding:20px 22px 24px}
+.atbody .dist{margin-bottom:8px}
+.atbody h3{margin:0 0 6px}
+.atcredit{max-width:1160px;margin:34px auto 0;padding:0 28px;font-size:11.5px;color:var(--muted);line-height:1.7}
+.atcredit a{color:var(--muted);text-decoration:underline}
+</style>
 </head>
 <body class="sub">
 <div class="banner">Wersja PODGLĄDOWA (v2) do oceny stylu</div>
@@ -46,18 +57,20 @@
       <p class="lead">Od bunkrów w sąsiednim lesie po wielkie jeziora — bez długich dojazdów.</p>
     </div>
     <div class="grid stagger reveal">
-      <div class="attile"><div class="ic">🪖</div><div class="dist">2 km leśną drogą</div><h3>Bunkry w Mamerkach</h3><p>Ogromny kompleks niemieckich bunkrów (Mauerwald) — w tym samym lesie co Gajówka. Dojdziesz pieszo albo dojedziesz w kilka minut.</p></div>
-      <div class="attile"><div class="ic">🚶</div><div class="dist">300 m</div><h3>Kanał Mazurski &amp; śluza</h3><p>Leśne spacery w absolutnej ciszy, a pieszo do śluzy, gdzie czeka park linowy dla całej rodziny.</p></div>
-      <div class="attile"><div class="ic">🌊</div><div class="dist">5 min autem</div><h3>Jezioro Mamry</h3><p>Drugie co do wielkości jezioro w Polsce — kąpiele, żeglarstwo, widoki. Plaże nad różnymi jeziorami w okolicy.</p></div>
-      <div class="attile"><div class="ic">⛵</div><div class="dist">15 min autem</div><h3>Sztynort</h3><p>Serce żeglarstwa na Mazurach — zabytkowy port, pałac Lehndorffów i klimatyczna marina.</p></div>
-      <div class="attile"><div class="ic">🐺</div><div class="dist">ok. 30 km</div><h3>Wilczy Szaniec</h3><p>Dawna kwatera główna Hitlera (Wolfsschanze) — jedna z najważniejszych pamiątek II wojny. Krótka wyprawa autem.</p></div>
-      <div class="attile"><div class="ic">🛶</div><div class="dist">w okolicy</div><h3>Kajaki i szlaki wodne</h3><p>Spływy Kanałem Mazurskim i okolicznymi jeziorami — dla początkujących i wprawionych.</p></div>
-      <div class="attile"><div class="ic">🏰</div><div class="dist">Giżycko / Węgorzewo</div><h3>Twierdza Boyen</h3><p>Potężna XIX-wieczna twierdza w Giżycku — świetna na całodniową wycieczkę z dziećmi.</p></div>
-      <div class="attile"><div class="ic">🏖️</div><div class="dist">okoliczne jeziora</div><h3>Plaże</h3><p>Piaszczyste plaże nad jeziorami Mamry, Święcajty i Dargin — każda nieco inna, wszystkie w zasięgu auta.</p></div>
-      <div class="attile"><div class="ic">🍄</div><div class="dist">tuż za progiem</div><h3>Las i grzybobranie</h3><p>Największy atut — las zaczyna się przy domu. <a href="/v2/las-grzybobranie.html" style="color:var(--gold);font-weight:600">Zobacz przewodnik →</a></p></div>
+      <div class="attile"><div class="atph"><img src="../img/atrakcje/mamerki.jpg" alt="Bunkry Mamerki (Mauerwald) w lesie na Mazurach" loading="lazy"></div><div class="atbody"><div class="dist">2 km leśną drogą</div><h3>Bunkry w Mamerkach</h3><p>Ogromny kompleks niemieckich bunkrów (Mauerwald) — w tym samym lesie co Gajówka. Dojdziesz pieszo albo dojedziesz w kilka minut.</p></div></div>
+      <div class="attile"><div class="atph"><img src="../img/atrakcje/kanal.jpg" alt="Kanał Mazurski i śluza" loading="lazy"></div><div class="atbody"><div class="dist">300 m</div><h3>Kanał Mazurski &amp; śluza</h3><p>Leśne spacery w absolutnej ciszy, a pieszo do śluzy, gdzie czeka park linowy dla całej rodziny.</p></div></div>
+      <div class="attile"><div class="atph"><img src="../img/atrakcje/mamry.jpg" alt="Jezioro Mamry na Mazurach" loading="lazy"></div><div class="atbody"><div class="dist">5 min autem</div><h3>Jezioro Mamry</h3><p>Drugie co do wielkości jezioro w Polsce — kąpiele, żeglarstwo, widoki. Plaże nad różnymi jeziorami w okolicy.</p></div></div>
+      <div class="attile"><div class="atph"><img src="../img/atrakcje/sztynort.jpg" alt="Sztynort — pałac Lehndorffów i port" loading="lazy"></div><div class="atbody"><div class="dist">15 min autem</div><h3>Sztynort</h3><p>Serce żeglarstwa na Mazurach — zabytkowy port, pałac Lehndorffów i klimatyczna marina.</p></div></div>
+      <div class="attile"><div class="atph"><img src="../img/atrakcje/wilczy.jpg" alt="Wilczy Szaniec (Wolfsschanze) — bunkry" loading="lazy"></div><div class="atbody"><div class="dist">ok. 30 km</div><h3>Wilczy Szaniec</h3><p>Dawna kwatera główna Hitlera (Wolfsschanze) — jedna z najważniejszych pamiątek II wojny. Krótka wyprawa autem.</p></div></div>
+      <div class="attile"><div class="atph"><img src="../img/atrakcje/kajaki.jpg" alt="Spływ kajakowy Krutynią na Mazurach" loading="lazy"></div><div class="atbody"><div class="dist">w okolicy</div><h3>Kajaki i szlaki wodne</h3><p>Spływy Kanałem Mazurskim, Krutynią i okolicznymi jeziorami — dla początkujących i wprawionych.</p></div></div>
+      <div class="attile"><div class="atph"><img src="../img/atrakcje/boyen.jpg" alt="Twierdza Boyen w Giżycku" loading="lazy"></div><div class="atbody"><div class="dist">Giżycko / Węgorzewo</div><h3>Twierdza Boyen</h3><p>Potężna XIX-wieczna twierdza w Giżycku — świetna na całodniową wycieczkę z dziećmi.</p></div></div>
+      <div class="attile"><div class="atph"><img src="../img/atrakcje/plaze.jpg" alt="Plaże nad mazurskimi jeziorami" loading="lazy"></div><div class="atbody"><div class="dist">okoliczne jeziora</div><h3>Plaże</h3><p>Piaszczyste plaże nad jeziorami Mamry, Święcajty i Dargin — każda nieco inna, wszystkie w zasięgu auta.</p></div></div>
+      <div class="attile"><div class="atph"><img src="../img/lesne_03.jpg" alt="Las wokół Gajówki" loading="lazy"></div><div class="atbody"><div class="dist">tuż za progiem</div><h3>Las i grzybobranie</h3><p>Największy atut — las zaczyna się przy domu. <a href="/v2/las-grzybobranie.html" style="color:var(--gold);font-weight:600">Zobacz przewodnik →</a></p></div></div>
     </div>
   </div>
 </section>
+
+<div class="atcredit">Zdjęcia atrakcji: <a href="https://commons.wikimedia.org/" target="_blank" rel="noopener">Wikimedia Commons</a> (licencje CC / domena publiczna) — Mamerki: Honza Groh (CC BY-SA 3.0) · Wilczy Szaniec: A. Teicher (CC BY-SA 3.0) · Sztynort i Kanał Mazurski: Janericloebe (dom. publiczna) · Jezioro Mamry i Niegocin: Ludwig Schneider (CC BY-SA 3.0) · Twierdza Boyen: Semu (CC BY-SA 4.0) · Krutynia: „Pit" (CC BY-SA 2.5). Zdjęcia lasu i obiektów — własne.</div>
 
 <section class="band" style="background:linear-gradient(rgba(20,32,25,.4),rgba(20,32,25,.55)),url('../img/lesne_10.jpg') center/cover">
   <div class="reveal">
