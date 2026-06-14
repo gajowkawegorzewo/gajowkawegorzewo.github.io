@@ -295,7 +295,7 @@ footer a{color:var(--gold-lt)}
     <div class="mtm"><img src="../img/zdjecie_025.jpg" alt="Basen sezonowy" loading="lazy"><span class="cap">Basen sezonowy</span></div>
     <div class="mtm"><img src="../img/zdjecie_039.jpg" alt="Poranek z widokiem na las" loading="lazy"><span class="cap">Poranek z widokiem na las</span></div>
     <div class="mtm"><img src="../img/zdjecie_029.jpg" alt="Zima w leśniczówce" loading="lazy"><span class="cap">Zima w leśniczówce</span></div>
-    <div class="mtm"><img src="../img/lesne_03.jpg" alt="Las tuż za progiem" loading="lazy"><span class="cap">Las tuż za progiem</span></div>
+    <div class="mtm"><video class="mv" muted loop playsinline preload="none" poster="../img/lesne_03.jpg" data-src="../img/video/natura.mp4"></video><span class="cap">Dzika natura tuż za progiem</span></div>
     <div class="mgoogle">
       <div class="gg">Google</div>
       <div class="score">4,9<small>/5</small></div>
@@ -451,6 +451,11 @@ if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es
   document.querySelectorAll('.djlist li').forEach(function(li){li.addEventListener('click',function(){var c=li.getAttribute('data-c').split(','),n=li.querySelector('.c').textContent;document.getElementById('djfrom').value=n;drawRoute([parseFloat(c[0]),parseFloat(c[1])],n);});});
   if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){setTimeout(function(){map.invalidateSize();},150);}});});io.observe(document.getElementById('dojazd'));}
   window.addEventListener('resize',function(){map.invalidateSize();});
+})();
+// lazy autoplay wideo w mozaice (start gdy w kadrze, pauza poza)
+(function(){var vids=document.querySelectorAll('video.mv');if(!vids.length)return;
+  if('IntersectionObserver' in window){var vio=new IntersectionObserver(function(es){es.forEach(function(x){var v=x.target;if(x.isIntersecting){if(!v.src&&v.dataset.src)v.src=v.dataset.src;var p=v.play();if(p&&p.catch)p.catch(function(){});}else{v.pause();}});},{threshold:.25});vids.forEach(function(v){vio.observe(v);});}
+  else{vids.forEach(function(v){if(v.dataset.src)v.src=v.dataset.src;v.play();});}
 })();
 </script>
 </body>
