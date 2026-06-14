@@ -195,6 +195,8 @@ footer a{color:var(--gold-lt)}
 .djbottom button:hover{transform:scale(1.08)}
 .djresult{margin-top:10px;float:right;clear:both;color:#fff;font-size:13px;background:rgba(18,28,22,.82);padding:7px 13px;border-radius:6px;backdrop-filter:blur(4px)}
 .djresult b{color:var(--gold-lt)}
+.djresult a{color:var(--gold-lt);text-decoration:underline;font-weight:600}
+.djnote{margin-top:16px;max-width:380px;color:rgba(255,255,255,.72);font-size:12px;line-height:1.6}
 .dojazd .leaflet-control-attribution{font-size:9px!important;background:rgba(255,255,255,.6)!important}
 @media(max-width:760px){.dojazd{height:auto;min-height:0}.dojazd #djmap{position:relative;height:320px;z-index:1}.djov{position:relative;background:var(--green)}.djov::before{display:none}.djtop{position:relative;padding:34px 24px 6px;max-width:none}.djbottom{position:relative;bottom:auto;right:auto;width:auto;padding:14px 24px 34px}.djresult{float:none}}
 </style>
@@ -326,13 +328,14 @@ footer a{color:var(--gold-lt)}
       <span class="eyebrow">Dojazd</span>
       <h2>Jak do nas trafić</h2>
       <ul class="djlist">
-        <li data-c="52.2297,21.0122"><span class="c">Warszawa</span><span class="km">~4 h · 328 km</span></li>
-        <li data-c="54.352,18.6466"><span class="c">Gdańsk</span><span class="km">~3 h</span></li>
-        <li data-c="53.7784,20.4801"><span class="c">Olsztyn</span><span class="km">~1,5 h</span></li>
-        <li data-c="54.0388,21.7672"><span class="c">Giżycko</span><span class="km">~40 min</span></li>
-        <li data-c="54.0758,21.3753"><span class="c">Kętrzyn</span><span class="km">~50 min</span></li>
-        <li data-c="54.2155,21.7415"><span class="c">Węgorzewo</span><span class="km">~20 min</span></li>
+        <li data-c="52.2297,21.0122"><span class="c">Warszawa</span><span class="km">~3 h 40 min · 328 km</span></li>
+        <li data-c="54.352,18.6466"><span class="c">Gdańsk</span><span class="km">~2 h 50 min · 246 km</span></li>
+        <li data-c="53.7784,20.4801"><span class="c">Olsztyn</span><span class="km">~1 h 35 min · 115 km</span></li>
+        <li data-c="54.0388,21.7672"><span class="c">Giżycko</span><span class="km">~40 min · 37 km</span></li>
+        <li data-c="54.0758,21.3753"><span class="c">Kętrzyn</span><span class="km">~30 min · 27 km</span></li>
+        <li data-c="54.2155,21.7415"><span class="c">Węgorzewo</span><span class="km">~18 min · 13 km</span></li>
       </ul>
+      <p class="djnote">Czasy orientacyjne. Wpisz swoje miasto poniżej — dokładną trasę i czas policzy Google Maps.</p>
     </div>
     <div class="djbottom">
       <div class="row"><input id="djfrom" type="text" autocomplete="off" placeholder="Miejsce wyjazdu — skąd jedziesz?"><button id="djgo" aria-label="Pokaż trasę">➜</button></div>
@@ -400,6 +403,7 @@ if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es
   function st(t){res.style.display='inline-block';res.innerHTML=t;}
   function fetchT(u,ms,init){var c=new AbortController();var id=setTimeout(function(){c.abort();},ms||12000);init=init||{};init.signal=c.signal;return fetch(u,init).then(function(r){clearTimeout(id);return r;});}
   function clearRoute(){if(routeLayer){map.removeLayer(routeLayer);routeLayer=null;}if(lineLayer){map.removeLayer(lineLayer);lineLayer=null;}}
+  function gmaps(start){return 'https://www.google.com/maps/dir/?api=1&origin='+start[0]+','+start[1]+'&destination='+GAJ[0]+','+GAJ[1]+'&travelmode=driving';}
   async function drawRoute(start,label){st('Liczę trasę…');
     if(startMarker)map.removeLayer(startMarker);startMarker=L.marker(start,{icon:startIcon}).addTo(map);clearRoute();
     try{
@@ -407,12 +411,12 @@ if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es
       var r=await fetchT(u,12000),d=await r.json(),rt=d.routes[0];
       routeLayer=L.geoJSON(rt.geometry,{style:{color:'#d59c4e',weight:5,opacity:.92}}).addTo(map);
       map.fitBounds(routeLayer.getBounds(),{padding:[60,60]});
-      var km=Math.round(rt.distance/1000),mi=Math.round(rt.duration/60),h=Math.floor(mi/60),m=mi%60;
-      st('Z <b>'+(label||'wybranego miejsca')+'</b>: '+km+' km &middot; <b>'+(h?h+' h ':'')+m+' min</b>');
+      var km=Math.round(rt.distance/1000);
+      st('Z <b>'+(label||'wybranego miejsca')+'</b>: ~'+km+' km &middot; <a href="'+gmaps(start)+'" target="_blank" rel="noopener">dokładny czas w Google Maps →</a>');
     }catch(e){
       lineLayer=L.polyline([start,GAJ],{color:'#d59c4e',weight:3,opacity:.7,dashArray:'8 8'}).addTo(map);
       map.fitBounds(lineLayer.getBounds(),{padding:[60,60]});
-      st('Pokazujemy na mapie, skąd do nas jedziesz — orientacyjne czasy z większych miast masz na liście obok.');
+      st('Skąd do nas jedziesz pokazujemy na mapie — <a href="'+gmaps(start)+'" target="_blank" rel="noopener">dokładną trasę i czas policzy Google Maps →</a>');
     }
   }
   async function geocode(q){var r=await fetchT('https://nominatim.openstreetmap.org/search?format=json&limit=1&countrycodes=pl&q='+encodeURIComponent(q),12000,{headers:{'Accept-Language':'pl'}}),d=await r.json();if(!d.length)throw 0;return{coords:[parseFloat(d[0].lat),parseFloat(d[0].lon)],name:(d[0].display_name||q).split(',')[0]};}
