@@ -10,6 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 <style>
 :root{--green:#1d3227;--green2:#283c32;--gold:#d59c4e;--gold-lt:#e5ad60;--bg:#fff;--cream:#f6f2ea;--text:#33403a;--muted:#7a8580;--line:#e7e0d4;--serif:'Cormorant Garamond',Georgia,serif;--sans:'Montserrat',system-ui,sans-serif}
 *{margin:0;padding:0;box-sizing:border-box}
@@ -145,6 +146,30 @@ footer a{color:var(--gold-lt)}
 @media(max-width:820px){.mega{grid-template-columns:repeat(2,1fr)}.mega .mtile{min-height:25vh}}
 @media(max-width:600px){.kgrid{grid-template-columns:1fr}section{padding:70px 0}.okrow{flex-wrap:wrap;gap:4px}.band{background-attachment:scroll}}
 @media(prefers-reduced-motion:reduce){.js .seq{height:100vh}.pin .photo{animation:none}.scrollcue{animation:none}.reveal,.stagger>*{opacity:1!important;transform:none!important;animation:none!important}}
+/* DOJAZD — pelnoekranowa mapa */
+.dojazd{position:relative;height:90vh;min-height:620px;background:#141c16;overflow:hidden;padding:0}
+.dojazd #djmap{position:absolute;inset:0;z-index:1}
+.djov{position:absolute;inset:0;z-index:400;pointer-events:none}
+.djov::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(18,28,22,.85),rgba(18,28,22,.45) 30%,transparent 56%)}
+.djtop{position:absolute;top:0;left:0;padding:48px 0 0 clamp(24px,5vw,64px);max-width:440px;pointer-events:auto}
+.djtop .eyebrow{color:var(--gold)}
+.djtop h2{color:#fff;margin:8px 0 26px}
+.djlist{list-style:none;margin:0;padding:0}
+.djlist li{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.13);cursor:pointer;transition:padding-left .3s cubic-bezier(.19,1,.22,1)}
+.djlist li:hover{padding-left:9px}
+.djlist .c{font-family:var(--serif);font-size:22px;color:#fff;transition:color .3s}
+.djlist li:hover .c{color:var(--gold-lt)}
+.djlist .km{background:var(--gold);color:#241a08;font-size:11.5px;font-weight:700;letter-spacing:.3px;padding:4px 11px;border-radius:4px;white-space:nowrap}
+.djbottom{position:absolute;bottom:clamp(22px,5vh,46px);right:clamp(24px,5vw,64px);width:min(440px,84%);pointer-events:auto}
+.djbottom .row{display:flex;align-items:center;gap:8px;background:rgba(18,28,22,.92);border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:6px 6px 6px 22px;backdrop-filter:blur(6px)}
+.djbottom input{flex:1;background:none;border:0;outline:none;color:#fff;font-family:var(--sans);font-size:14px}
+.djbottom input::placeholder{color:rgba(255,255,255,.62);letter-spacing:1.5px;text-transform:uppercase;font-size:11.5px}
+.djbottom button{width:46px;height:46px;border-radius:50%;border:0;background:var(--gold);color:#fff;font-size:17px;cursor:pointer;flex:none;transition:transform .25s}
+.djbottom button:hover{transform:scale(1.08)}
+.djresult{margin-top:10px;float:right;clear:both;color:#fff;font-size:13px;background:rgba(18,28,22,.82);padding:7px 13px;border-radius:6px;backdrop-filter:blur(4px)}
+.djresult b{color:var(--gold-lt)}
+.dojazd .leaflet-control-attribution{font-size:9px!important;background:rgba(255,255,255,.6)!important}
+@media(max-width:760px){.dojazd{height:auto;min-height:0}.dojazd #djmap{position:relative;height:320px;z-index:1}.djov{position:relative;background:var(--green)}.djov::before{display:none}.djtop{position:relative;padding:34px 24px 6px;max-width:none}.djbottom{position:relative;bottom:auto;right:auto;width:auto;padding:14px 24px 34px}.djresult{float:none}}
 </style>
 </head>
 <body class="nojs">
@@ -164,7 +189,7 @@ footer a{color:var(--gold-lt)}
   <a class="mtile" href="/v2/atrakcje.html" style="--bg:url('../img/lesne_10.jpg')"><span>Okolica</span></a>
   <a class="mtile" href="/v2/las-grzybobranie.html" style="--bg:url('../img/lesne_03.jpg')"><span>Las &amp; grzyby</span></a>
   <a class="mtile" href="/v2/o-nas.html" style="--bg:url('../img/lesne_04.jpg')"><span>O nas</span></a>
-  <a class="mtile" href="/v2/dojazd.html" style="--bg:url('../img/lesne_06.jpg')"><span>Dojazd</span></a>
+  <a class="mtile" href="/v2/#dojazd" style="--bg:url('../img/lesne_06.jpg')"><span>Dojazd</span></a>
   <a class="mtile" href="#kontakt" style="--bg:url('../img/lesne_09.jpg')"><span>Kontakt</span></a>
 </div>
 
@@ -244,6 +269,28 @@ footer a{color:var(--gold-lt)}
   </div>
 </section>
 
+<section class="dojazd" id="dojazd">
+  <div id="djmap"></div>
+  <div class="djov">
+    <div class="djtop">
+      <span class="eyebrow">Dojazd</span>
+      <h2>Jak do nas trafić</h2>
+      <ul class="djlist">
+        <li data-c="52.2297,21.0122"><span class="c">Warszawa</span><span class="km">~4 h · 328 km</span></li>
+        <li data-c="54.352,18.6466"><span class="c">Gdańsk</span><span class="km">~3 h</span></li>
+        <li data-c="53.7784,20.4801"><span class="c">Olsztyn</span><span class="km">~1,5 h</span></li>
+        <li data-c="54.0388,21.7672"><span class="c">Giżycko</span><span class="km">~40 min</span></li>
+        <li data-c="54.0758,21.3753"><span class="c">Kętrzyn</span><span class="km">~50 min</span></li>
+        <li data-c="54.2155,21.7415"><span class="c">Węgorzewo</span><span class="km">~20 min</span></li>
+      </ul>
+    </div>
+    <div class="djbottom">
+      <div class="row"><input id="djfrom" type="text" autocomplete="off" placeholder="Miejsce wyjazdu — skąd jedziesz?"><button id="djgo" aria-label="Pokaż trasę">➜</button></div>
+      <div class="djresult" id="djresult" style="display:none"></div>
+    </div>
+  </div>
+</section>
+
 <section class="kontakt" id="kontakt">
   <div class="wrap">
     <div class="sec-head reveal"><span class="eyebrow">Zapraszamy</span><h2>Skontaktuj się z nami</h2></div>
@@ -287,6 +334,35 @@ function tick(){
 tick();window.addEventListener('scroll',function(){window.requestAnimationFrame(tick);},{passive:true});window.addEventListener('resize',tick);
 // reveal
 if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target);}});},{threshold:.12,rootMargin:'0px 0px -7% 0px'});document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});}else{document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('in');});}
+</script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+(function(){
+  if(typeof L==='undefined')return;
+  var GAJ=[54.1975,21.5968];
+  var map=L.map('djmap',{scrollWheelZoom:false}).setView([53.6,21.1],7);
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',{subdomains:'abcd',maxZoom:19,attribution:'&copy; OpenStreetMap, &copy; CARTO'}).addTo(map);
+  L.marker(GAJ,{icon:L.divIcon({className:'',html:'<div style="width:20px;height:20px;border-radius:50%;background:#d59c4e;border:3px solid #fff;box-shadow:0 0 0 5px rgba(213,156,78,.35)"></div>',iconSize:[20,20],iconAnchor:[10,10]})}).addTo(map).bindPopup('<b>Gajówka i Apartamenty</b><br>Leśniewo k. Węgorzewa');
+  var startIcon=L.divIcon({className:'',html:'<div style="width:14px;height:14px;border-radius:50%;background:#fff;border:2px solid #d59c4e"></div>',iconSize:[14,14],iconAnchor:[7,7]});
+  var routeLayer=null,startMarker=null,res=document.getElementById('djresult');
+  function st(t){res.style.display='inline-block';res.innerHTML=t;}
+  async function drawRoute(start,label){st('Liczę trasę…');try{
+    var u='https://router.project-osrm.org/route/v1/driving/'+start[1]+','+start[0]+';'+GAJ[1]+','+GAJ[0]+'?overview=full&geometries=geojson';
+    var r=await fetch(u),d=await r.json(),rt=d.routes[0];
+    if(routeLayer)map.removeLayer(routeLayer);routeLayer=L.geoJSON(rt.geometry,{style:{color:'#d59c4e',weight:5,opacity:.92}}).addTo(map);
+    if(startMarker)map.removeLayer(startMarker);startMarker=L.marker(start,{icon:startIcon}).addTo(map);
+    map.fitBounds(routeLayer.getBounds(),{padding:[60,60]});
+    var km=Math.round(rt.distance/1000),mi=Math.round(rt.duration/60),h=Math.floor(mi/60),m=mi%60;
+    st('Z <b>'+(label||'wybranego miejsca')+'</b>: '+km+' km &middot; <b>'+(h?h+' h ':'')+m+' min</b>');
+  }catch(e){st('Nie udało się policzyć trasy — spróbuj ponownie.');}}
+  async function geocode(q){var r=await fetch('https://nominatim.openstreetmap.org/search?format=json&limit=1&countrycodes=pl&q='+encodeURIComponent(q),{headers:{'Accept-Language':'pl'}}),d=await r.json();if(!d.length)throw 0;return{coords:[parseFloat(d[0].lat),parseFloat(d[0].lon)],name:(d[0].display_name||q).split(',')[0]};}
+  async function go(){var q=document.getElementById('djfrom').value.trim();if(!q)return;st('Szukam miejsca…');try{var g=await geocode(q);drawRoute(g.coords,g.name);}catch(e){st('Nie znalazłem takiego miejsca — wpisz samą nazwę miasta.');}}
+  document.getElementById('djgo').addEventListener('click',go);
+  document.getElementById('djfrom').addEventListener('keydown',function(e){if(e.key==='Enter')go();});
+  document.querySelectorAll('.djlist li').forEach(function(li){li.addEventListener('click',function(){var c=li.getAttribute('data-c').split(','),n=li.querySelector('.c').textContent;document.getElementById('djfrom').value=n;drawRoute([parseFloat(c[0]),parseFloat(c[1])],n);});});
+  if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){setTimeout(function(){map.invalidateSize();},150);}});});io.observe(document.getElementById('dojazd'));}
+  window.addEventListener('resize',function(){map.invalidateSize();});
+})();
 </script>
 </body>
 </html>
