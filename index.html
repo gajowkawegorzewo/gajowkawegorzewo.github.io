@@ -235,7 +235,7 @@ function findFreeWindows(ranges, minNights, horizonDays){
   horizonDays = horizonDays || 180;
   var today = new Date(); today.setHours(0,0,0,0);
   var horizon = new Date(today); horizon.setDate(horizon.getDate() + horizonDays);
-  function ymd(d){return d.toISOString().slice(0,10);}
+  function ymd(d){return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');}
   function parseYmd(s){var p=s.split('-');return new Date(parseInt(p[0],10),parseInt(p[1],10)-1,parseInt(p[2],10));}
   function nights(a,b){return Math.round((b.getTime()-a.getTime())/86400000);}
   // Sort + merge overlapping ranges
