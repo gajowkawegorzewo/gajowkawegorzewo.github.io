@@ -136,6 +136,16 @@ section{padding:106px 0}
 .mgoogle .gsub{font-size:12px;color:rgba(255,255,255,.72)}
 .mgoogle a{margin-top:12px;font-size:10.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold-lt);font-weight:600}
 @media(max-width:860px){.mgrid{grid-template-columns:repeat(2,1fr)}.mtm.roof{margin-top:0;clip-path:none;border-radius:6px}}
+/* SOCIAL / Instagram */
+.social{background:var(--cream);text-align:center}
+.igrow{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;max-width:920px;margin:42px auto 0}
+.igt{position:relative;aspect-ratio:1;border-radius:8px;background-image:var(--b);background-size:cover;background-position:center;overflow:hidden;transition:transform .45s cubic-bezier(.19,1,.22,1)}
+.igt::after{content:'';position:absolute;inset:0;background:rgba(20,32,25,0);transition:background .3s}
+.igt:hover{transform:translateY(-5px)}
+.igt:hover::after{background:rgba(20,32,25,.22)}
+.igcta{margin-top:36px}
+.igcta .btn svg{width:16px;height:16px;vertical-align:-3px;margin-right:8px}
+@media(max-width:760px){.igrow{grid-template-columns:repeat(3,1fr)}}
 /* OPINIE — elegancko, nie scoreboard */
 .opinie{background:var(--cream);text-align:center}
 .rateline{font-size:14px;letter-spacing:1px;color:var(--muted);margin-top:6px}
@@ -356,9 +366,24 @@ footer a{color:var(--gold-lt)}
   </div>
 </section>
 
+<section class="social">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">Instagram</span><h2>Codziennie w naszym lesie</h2><p class="lead">@sengajowego.mazury — zaglądaj po świeże kadry z Gajówki.</p></div>
+    <div class="igrow reveal">
+      <a class="igt" href="https://www.instagram.com/sengajowego.mazury/" target="_blank" rel="noopener" aria-label="Instagram Gajówki" style="--b:url('../img/zdjecie_030.jpg')"></a>
+      <a class="igt" href="https://www.instagram.com/sengajowego.mazury/" target="_blank" rel="noopener" aria-label="Instagram Gajówki" style="--b:url('../img/lesne_04.jpg')"></a>
+      <a class="igt" href="https://www.instagram.com/sengajowego.mazury/" target="_blank" rel="noopener" aria-label="Instagram Gajówki" style="--b:url('../img/zdjecie_025.jpg')"></a>
+      <a class="igt" href="https://www.instagram.com/sengajowego.mazury/" target="_blank" rel="noopener" aria-label="Instagram Gajówki" style="--b:url('../img/zdjecie_001.jpg')"></a>
+      <a class="igt" href="https://www.instagram.com/sengajowego.mazury/" target="_blank" rel="noopener" aria-label="Instagram Gajówki" style="--b:url('../img/zdjecie_011.jpg')"></a>
+    </div>
+    <div class="igcta reveal"><a href="https://www.instagram.com/sengajowego.mazury/" target="_blank" rel="noopener" class="btn btn-gold"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.1" fill="currentColor" stroke="none"/></svg>Obserwuj na Instagramie</a></div>
+  </div>
+</section>
+
 <footer>
   <div class="logo">Gajówka i Apartamenty</div>
   <p>Leśniczówka z XIX wieku · Leśniewo k. Węgorzewa · Mazury</p>
+  <p style="margin-top:8px"><a href="https://www.instagram.com/sengajowego.mazury/" target="_blank" rel="noopener" style="color:var(--gold-lt)">Instagram @sengajowego.mazury</a></p>
   <p style="margin-top:6px">PODGLĄD v2 · <a href="/">← obecna strona</a></p>
 </footer>
 

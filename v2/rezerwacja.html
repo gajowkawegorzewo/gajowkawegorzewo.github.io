@@ -40,6 +40,20 @@
 .rsubmit .btn{width:100%;border:0;font-size:14px;padding:17px}
 .rnote{font-size:12.5px;color:var(--muted);text-align:center;margin-top:14px;line-height:1.7}
 .rnote a{color:var(--green);font-weight:600}
+/* podsumowanie dat */
+.rsum{background:var(--green);color:#fff;border-radius:10px;padding:14px 18px;margin-bottom:22px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.rsum .rs-d{font-family:var(--serif);font-size:21px}
+.rsum .rs-n{margin-left:auto;background:var(--gold);color:#241a08;font-weight:700;font-size:13px;letter-spacing:.5px;padding:5px 13px;border-radius:999px}
+/* dodatki */
+.addons{display:grid;gap:10px}
+.addon{display:flex;align-items:center;gap:12px;border:1px solid var(--line);border-radius:10px;padding:12px 15px;cursor:pointer;background:#fdfcf9;transition:border-color .2s,background .2s,box-shadow .2s}
+.addon:hover{border-color:var(--gold)}
+.addon input{accent-color:var(--gold);width:18px;height:18px;flex:none}
+.addon>span{display:flex;flex-direction:column;line-height:1.32}
+.addon>span b{font-size:14.5px;color:var(--green);font-weight:600}
+.addon>span small{font-size:12px;color:var(--muted)}
+.addon em{margin-left:auto;font-style:normal;font-size:12px;font-weight:700;letter-spacing:.3px;color:var(--gold);white-space:nowrap}
+.addon:has(input:checked){border-color:var(--gold);background:#fff;box-shadow:0 0 0 2px rgba(213,156,78,.18)}
 /* wolne terminy */
 #avail-free-list{display:none;background:var(--cream);border-radius:10px;padding:20px 22px;margin-bottom:26px}
 #avail-free-list>b{display:block;font-family:var(--serif);font-size:21px;color:var(--green);font-weight:600;margin-bottom:4px}
@@ -117,6 +131,8 @@ span.flatpickr-weekday{color:var(--muted)}
         <div class="fld"><label for="fcout">Wyjazd</label><input type="text" id="fcout" placeholder="Wybierz datę" autocomplete="off"></div>
       </div>
 
+      <div class="rsum" id="rsum" style="display:none"></div>
+
       <div class="row2">
         <div class="fld"><label for="fname">Imię i nazwisko</label><input type="text" id="fname" placeholder="Jan Kowalski"></div>
         <div class="fld"><label for="fphone">Telefon</label><input type="tel" id="fphone" placeholder="np. 600 100 200"></div>
@@ -132,11 +148,17 @@ span.flatpickr-weekday{color:var(--muted)}
         </div>
       </div>
 
-      <div class="fld"><label for="fnotes">Uwagi (opcjonalnie)</label><textarea id="fnotes" placeholder="Pies, dieta, godzina przyjazdu, pytania…"></textarea></div>
-
-      <div class="fld" style="margin-bottom:24px">
-        <label class="crib"><input type="checkbox" id="fcrib"> Potrzebuję łóżeczka turystycznego dla dziecka</label>
+      <div class="fld">
+        <label>Dodatki (opcjonalnie)</label>
+        <div class="addons" id="addons">
+          <label class="addon"><input type="checkbox" data-x="Balia z kinem pod gwiazdami (250 zł/doba)"><span><b>Balia z kinem pod gwiazdami</b><small>gorąca balia opalana drewnem + ekran w ogrodzie</small></span><em>250 zł/doba</em></label>
+          <label class="addon"><input type="checkbox" data-x="Sauna beczkowa (150 zł/sesja)"><span><b>Sauna beczkowa</b><small>fińska sauna w beczce, ok. 2 h</small></span><em>150 zł/sesja</em></label>
+          <label class="addon"><input type="checkbox" data-x="Domowe jedzenie (chałka / chleb / pierogi / jajka)"><span><b>Domowe jedzenie</b><small>chałka, chleb z cebulką, pierogi, jajka od gospodyni</small></span><em>zapytaj o cenę</em></label>
+          <label class="addon"><input type="checkbox" data-x="Łóżeczko turystyczne dla dziecka"><span><b>Łóżeczko turystyczne</b><small>dla małego dziecka</small></span><em>gratis</em></label>
+        </div>
       </div>
+
+      <div class="fld" style="margin-bottom:24px"><label for="fnotes">Uwagi (opcjonalnie)</label><textarea id="fnotes" placeholder="Pies, dieta, godzina przyjazdu, pytania…"></textarea></div>
 
       <div class="rsubmit"><button class="btn btn-gold" onclick="dosubmit()">Wyślij zapytanie o rezerwację</button></div>
       <p class="rnote">To zapytanie, nie płatność online. Potwierdzimy dostępność i szczegóły.<br>Wolisz telefon? Zadzwoń do Kamili: <a href="tel:+48574753831">574&nbsp;753&nbsp;831</a>.</p>
@@ -219,16 +241,18 @@ function pickApt(name){var sel=document.getElementById('fapt');if(sel){sel.value
 function pickFreeTerm(el){
   var apt=el.getAttribute('data-apt'),from=el.getAttribute('data-from'),to=el.getAttribute('data-to'),isOpen=el.getAttribute('data-open')==='1';
   pickApt(apt);
-  setTimeout(function(){try{if(window.__fpCin&&window.__fpCout){var cout;if(isOpen){var d=new Date(from);d.setDate(d.getDate()+3);cout=d.toISOString().slice(0,10);}else{cout=to;}window.__fpCin.setDate(from,true);window.__fpCout.set('minDate',from);window.__fpCout.setDate(cout,true);}document.getElementById('fbox').scrollIntoView({behavior:'smooth',block:'center'});}catch(e){}},250);
+  setTimeout(function(){try{if(window.__fpCin&&window.__fpCout){var cout;if(isOpen){var d=new Date(from);d.setDate(d.getDate()+3);cout=d.toISOString().slice(0,10);}else{cout=to;}window.__fpCin.setDate(from,true);window.__fpCout.set('minDate',from);window.__fpCout.setDate(cout,true);}updateSummary();document.getElementById('fbox').scrollIntoView({behavior:'smooth',block:'center'});}catch(e){}},250);
 }
+function nightsBetween(a,b){var p1=a.split('-'),p2=b.split('-');var d1=new Date(p1[0],p1[1]-1,p1[2]),d2=new Date(p2[0],p2[1]-1,p2[2]);return Math.round((d2-d1)/86400000);}
+function updateSummary(){var cin=document.getElementById('fcin').value,cout=document.getElementById('fcout').value,box=document.getElementById('rsum');if(cin&&cout&&cout>cin){var n=nightsBetween(cin,cout);box.style.display='flex';box.innerHTML='<span class="rs-d">'+formatPLDate(cin)+' → '+formatPLDate(cout)+'</span><span class="rs-n">'+n+' '+(n===1?'noc':(n<5?'noce':'nocy'))+'</span>';}else{box.style.display='none';}}
 function initDatepickers(){
   if(typeof flatpickr==='undefined')return setTimeout(initDatepickers,250);
   var apt=document.getElementById('fapt').value||'Gajówka';
   var ranges=getBlockedRanges(apt,getCurrentExtras());
   var localePl=(window.flatpickr&&window.flatpickr.l10ns&&window.flatpickr.l10ns.pl)?'pl':'default';
   window.__fpCin=flatpickr('#fcin',{locale:localePl,minDate:'today',dateFormat:'Y-m-d',altInput:true,altFormat:'d.m.Y',disable:disableForArrival(ranges),
-    onChange:function(sel){if(sel&&sel[0]&&window.__fpCout){var d=new Date(sel[0].getTime());d.setDate(d.getDate()+1);window.__fpCout.set('minDate',d);}}});
-  window.__fpCout=flatpickr('#fcout',{locale:localePl,minDate:'today',dateFormat:'Y-m-d',altInput:true,altFormat:'d.m.Y',disable:disableForCheckout(ranges)});
+    onChange:function(sel){if(sel&&sel[0]&&window.__fpCout){var d=new Date(sel[0].getTime());d.setDate(d.getDate()+1);window.__fpCout.set('minDate',d);}updateSummary();}});
+  window.__fpCout=flatpickr('#fcout',{locale:localePl,minDate:'today',dateFormat:'Y-m-d',altInput:true,altFormat:'d.m.Y',disable:disableForCheckout(ranges),onChange:updateSummary});
   renderFreeList();
 }
 function refreshDatepickers(){
@@ -249,7 +273,7 @@ function dosubmit(){
   var cout=document.getElementById('fcout').value;
   var guests=document.getElementById('fguests').value;
   var notes=document.getElementById('fnotes').value.trim();
-  var crib=document.getElementById('fcrib').checked?'TAK':'NIE';
+  var addons=Array.from(document.querySelectorAll('#addons input:checked')).map(function(c){return c.getAttribute('data-x');});
   if(!nm||!em||!apt||!cin||!cout){alert('Uzupełnij wszystkie wymagane pola (obiekt, daty, imię, e-mail).');return;}
   if(!em.includes('@')||!em.includes('.')){alert('Podaj poprawny adres e-mail.');return;}
   if(cout<=cin){alert('Data wyjazdu musi być późniejsza niż data przyjazdu.');return;}
@@ -258,7 +282,7 @@ function dosubmit(){
     if(conflict){alert('Wybrane terminy są zajęte ('+conflict.source+(conflict.apt?' / '+conflict.apt:'')+') '+formatPLDate(conflict.from)+' – '+formatPLDate(conflict.to)+'.\n\nWybierz inny zakres lub zadzwoń pod 574 753 831.');return;}
   }catch(e){}
   var payload={access_key:'704579ff-c17a-4f9f-8ee8-bd9512de7b9d',subject:'Nowa rezerwacja: '+apt+' ('+cin+' - '+cout+')',from_name:'Formularz Gajówka (v2)',replyto:em,
-    'Imię i nazwisko':nm,Telefon:ph||'nie podano',Email:em,Obiekt:apt,Przyjazd:cin,Wyjazd:cout,'Liczba osób':guests,'Łóżeczko turystyczne':crib,Uwagi:notes||'brak'};
+    'Imię i nazwisko':nm,Telefon:ph||'nie podano',Email:em,Obiekt:apt,Przyjazd:cin,Wyjazd:cout,'Liczba osób':guests,Dodatki:addons.length?addons.join('; '):'brak',Uwagi:notes||'brak'};
   fetch('https://api.web3forms.com/submit',{method:'POST',body:JSON.stringify(payload),headers:{'Content-Type':'application/json',Accept:'application/json'}})
     .then(function(r){if(r.ok){document.getElementById('sname').innerText='Dziękujemy, '+nm+'!';document.getElementById('sbox').style.display='block';document.getElementById('fbox').style.display='none';window.scrollTo({top:0,behavior:'smooth'});}else{alert('Wystąpił błąd. Spróbuj ponownie lub zadzwoń pod 574 753 831.');}})
     .catch(function(){alert('Brak połączenia. Zadzwoń pod 574 753 831.');});
