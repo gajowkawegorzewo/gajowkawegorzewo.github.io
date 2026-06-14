@@ -1,0 +1,17 @@
+{
+  "name": "Gajówka i Apartamenty — Mazury",
+  "short_name": "Gajówka",
+  "description": "Leśniczówka z XIX wieku i trzy apartamenty w mazurskim lesie pod Leśniewem k. Węgorzewa. Balia, sauna, las dookoła.",
+  "lang": "pl",
+  "dir": "ltr",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "start_url": "/?source=pwa",
+  "scope": "/",
+  "background_color": "#1d3227",
+  "theme_color": "#1d3227",
+  "icons": [
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}
