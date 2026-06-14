@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pl" class="nojs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>O nas — historia leśniczówki | Gajówka (PODGLĄD v2)</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Historia Gajówki — XIX-wieczna leśniczówka w mazurskim lesie pod Leśniewem. Oryginalne niemieckie napisy, ślady wojny i rodzinna agroturystyka dziś.">
+<script>document.documentElement.className='js';</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/v2.css">
+<style>.subhero::before{background:linear-gradient(rgba(20,32,25,.45),rgba(20,32,25,.62)),url('../img/lesne_10.jpg') center/cover no-repeat;z-index:-1}</style>
+</head>
+<body class="sub">
+<div class="banner">Wersja PODGLĄDOWA (v2) do oceny stylu</div>
+
+<nav id="nav">
+  <a href="/v2/" class="logo">Gajówka</a>
+  <button class="navtoggle" onclick="document.getElementById('navlinks').classList.toggle('open')">☰</button>
+  <div class="links" id="navlinks">
+    <a href="/v2/obiekty.html">Obiekty</a>
+    <a href="/v2/atrakcje.html">Okolica</a>
+    <a href="/v2/las-grzybobranie.html">Las &amp; grzyby</a>
+    <a href="/v2/o-nas.html">O nas</a>
+    <a href="/v2/#kontakt">Kontakt</a>
+    <a href="/v2/#kontakt" class="btn btn-ghost">Rezerwuj</a>
+  </div>
+</nav>
+
+<header class="subhero">
+  <div>
+    <span class="eyebrow">O nas</span>
+    <h1>Dom, który pamięta</h1>
+    <p>Leśniczówka z XIX wieku, która przetrwała więcej, niż widać na pierwszy rzut oka.</p>
+  </div>
+</header>
+
+<section>
+  <div class="narrow prose">
+    <div class="reveal">
+      <p style="font-size:21px;color:var(--green2)">Gajówka to dawna leśniczówka z XIX wieku, ukryta w sercu mazurskiego lasu pod Leśniewem koło Węgorzewa. Nie budowaliśmy jej „pod Instagram" — ona po prostu tu stoi od ponad stu lat, a my staramy się, żeby goście poczuli ten spokój, który ma w sobie.</p>
+    </div>
+    <div class="reveal">
+      <h2>Ślady, których nie zamalowaliśmy</h2>
+      <p>Na froncie wciąż widać <strong>oryginalne, niemieckie napisy</strong> sprzed ponad wieku. Zostały też <strong>ślady po kulach z czasów Armii Czerwonej</strong> — celowo ich nie zakryliśmy. To nie dekoracja, tylko prawdziwa historia tego miejsca, którą można dotknąć.</p>
+      <p>W leśniczówce od <strong>lat 80. XIX wieku aż do lat 30. XX wieku</strong> mieszkały niemieckie rodziny. Część zdjęć z tamtych czasów wraca do nas dziś — przysyłają je ich potomkowie, którzy odnajdują dom przodków.</p>
+    </div>
+    <div class="reveal">
+      <h2>Dziś — cisza do wynajęcia</h2>
+      <p>Po gruntownym remoncie po 2000 roku miejsce odżyło jako rodzinna agroturystyka. Do wyboru jest <strong>dom „Gajówka" na wyłączność</strong> oraz <strong>trzy apartamenty w starej stodole</strong> — Wilcza Polana, Sen Gajowego i Leśne pogaduchy. Balia, sauna, latem basen, własne leśne jeziorko, a 300 metrów dalej Kanał Mazurski.</p>
+      <p>Prowadzimy to rodzinnie — bez korporacyjnej obsługi, za to z prawdziwą gościnnością. Chcemy, żebyś wyjechał z poczuciem, że na chwilę naprawdę zwolniłeś.</p>
+    </div>
+    <div class="callout reveal"><b>Zapraszamy o każdej porze roku</b> — wiosną na grzybobranie i spacery, latem nad wodę i do basenu, jesienią po ciszę i mgły, zimą po śnieg i balię pod gwiazdami.</div>
+    <div class="reveal" style="text-align:center;margin-top:48px">
+      <div class="kcta" style="margin-top:0"><a href="/v2/#kontakt" class="btn btn-gold">Sprawdź wolne terminy</a><a href="/v2/obiekty.html" class="btn btn-outline">Zobacz obiekty →</a></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="logo">Gajówka i Apartamenty</div>
+  <div class="fnav"><a href="/v2/">Start</a><a href="/v2/obiekty.html">Obiekty</a><a href="/v2/atrakcje.html">Okolica</a><a href="/v2/las-grzybobranie.html">Las &amp; grzyby</a><a href="/v2/o-nas.html">O nas</a><a href="/v2/#kontakt">Kontakt</a></div>
+  <p>Leśniczówka z XIX wieku · Leśniewo k. Węgorzewa · Mazury</p>
+  <p style="margin-top:6px">PODGLĄD v2 · <a href="/">← obecna strona</a></p>
+</footer>
+
+<script>
+document.querySelectorAll('#navlinks a').forEach(function(a){a.addEventListener('click',function(){document.getElementById('navlinks').classList.remove('open');});});
+if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target);}});},{threshold:.12,rootMargin:'0px 0px -7% 0px'});document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});}else{document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('in');});}
+</script>
+</body>
+</html>
