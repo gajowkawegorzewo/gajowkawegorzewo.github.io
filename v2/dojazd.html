@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pl" class="nojs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dojazd — jak trafić do Gajówki | Mazury (PODGLĄD v2)</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Jak dojechać do Gajówki pod Leśniewem k. Węgorzewa: wpisz skąd jedziesz i zobacz trasę oraz czas dojazdu. Warszawa ~3h, Gdańsk ~2,5h.">
+<script>document.documentElement.className='js';</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/v2.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<style>
+.subhero::before{background:linear-gradient(rgba(20,32,25,.45),rgba(20,32,25,.62)),url('../img/lesne_10.jpg') center/cover no-repeat;z-index:-1}
+.dojwrap{display:grid;grid-template-columns:1.5fr 1fr;gap:36px;max-width:1160px;margin:0 auto;padding:0 28px}
+.mapcard{position:relative;border-radius:10px;overflow:hidden;box-shadow:0 16px 40px rgba(29,50,39,.16)}
+#map{height:520px;width:100%;background:#1d2a22}
+.mapcard::after{content:'';position:absolute;inset:0;pointer-events:none;box-shadow:inset 0 0 90px rgba(18,28,22,.55);border-radius:10px} /* lekkie zaciemnienie krawędzi */
+.frombox{position:absolute;top:16px;left:16px;right:16px;z-index:500;background:rgba(255,255,255,.96);border-radius:8px;padding:12px;box-shadow:0 6px 20px rgba(0,0,0,.25);backdrop-filter:blur(4px)}
+.fromrow{display:flex;gap:8px}
+.fromrow input{flex:1;border:1px solid var(--line);border-radius:999px;padding:11px 16px;font-family:var(--sans);font-size:14px;outline:none}
+.fromrow input:focus{border-color:var(--gold)}
+.fromrow button{border:0;background:var(--gold);color:#fff;border-radius:999px;padding:0 22px;font-family:var(--sans);font-weight:600;font-size:13px;letter-spacing:.5px;cursor:pointer;white-space:nowrap}
+.chips{display:flex;gap:7px;flex-wrap:wrap;margin-top:9px}
+.chips button{border:1px solid var(--line);background:#fff;border-radius:999px;padding:6px 13px;font-size:12px;color:var(--green);cursor:pointer;font-family:var(--sans);transition:all .2s}
+.chips button:hover{background:var(--green);color:#fff;border-color:var(--green)}
+.result{margin-top:10px;font-size:14px;color:var(--green);min-height:20px}
+.result b{color:var(--gold)}
+.dojside h3{font-size:22px;margin-bottom:4px}
+.dojside .eyebrow{display:block;margin-bottom:14px}
+.distlist{list-style:none;margin:0 0 28px;padding:0}
+.distlist li{display:flex;justify-content:space-between;gap:14px;padding:13px 0;border-bottom:1px solid var(--line);font-size:15px}
+.distlist li:first-child{border-top:1px solid var(--line)}
+.distlist .city{font-family:var(--serif);font-size:19px;color:var(--green)}
+.distlist .t{color:var(--gold);font-weight:600;font-size:13px;letter-spacing:.5px;white-space:nowrap}
+.navbox{background:var(--cream);border-radius:10px;padding:22px 24px}
+.navbox h4{font-size:18px;margin-bottom:10px}
+.navbox p{font-size:14px;color:var(--muted);margin-bottom:12px}
+.navbox a.btn{margin-bottom:8px}
+.warn{background:#fbf3e3;border-left:3px solid var(--gold);border-radius:0 8px 8px 0;padding:14px 18px;margin-top:18px;font-size:13.5px;color:var(--green2)}
+.leaflet-routing-container{display:none}
+@media(max-width:820px){.dojwrap{grid-template-columns:1fr}#map{height:420px}}
+</style>
+</head>
+<body class="sub">
+<div class="banner">Wersja PODGLĄDOWA (v2) do oceny stylu</div>
+
+<nav id="nav">
+  <a href="/v2/" class="logo">Gajówka</a>
+  <button class="navtoggle" onclick="document.getElementById('navlinks').classList.toggle('open')">☰</button>
+  <div class="links" id="navlinks">
+    <a href="/v2/obiekty.html">Obiekty</a>
+    <a href="/v2/atrakcje.html">Okolica</a>
+    <a href="/v2/las-grzybobranie.html">Las &amp; grzyby</a>
+    <a href="/v2/dojazd.html">Dojazd</a>
+    <a href="/v2/o-nas.html">O nas</a>
+    <a href="/v2/#kontakt">Kontakt</a>
+    <a href="/v2/#kontakt" class="btn btn-ghost">Rezerwuj</a>
+  </div>
+</nav>
+
+<header class="subhero">
+  <div>
+    <span class="eyebrow">Dojazd</span>
+    <h1>Jak do nas trafić</h1>
+    <p>Wpisz, skąd jedziesz — pokażemy trasę i czas dojazdu prosto pod las.</p>
+  </div>
+</header>
+
+<section>
+  <div class="dojwrap">
+    <div class="mapcard reveal">
+      <div class="frombox">
+        <div class="fromrow">
+          <input id="from" type="text" placeholder="Skąd jedziesz? (np. Warszawa, ul. Marszałkowska)" autocomplete="off">
+          <button id="go">Pokaż trasę</button>
+        </div>
+        <div class="chips">
+          <button data-city="52.2297,21.0122">Warszawa</button>
+          <button data-city="54.352,18.6466">Gdańsk</button>
+          <button data-city="53.7784,20.4801">Olsztyn</button>
+          <button data-city="54.0388,21.7672">Giżycko</button>
+          <button data-city="54.0758,21.3753">Kętrzyn</button>
+        </div>
+        <div class="result" id="result"></div>
+      </div>
+      <div id="map"></div>
+    </div>
+
+    <div class="dojside reveal">
+      <span class="eyebrow">Czas dojazdu</span>
+      <h3>Z większych miast</h3>
+      <ul class="distlist">
+        <li><span class="city">Warszawa</span><span class="t">~3 h</span></li>
+        <li><span class="city">Gdańsk</span><span class="t">~2,5 h</span></li>
+        <li><span class="city">Olsztyn</span><span class="t">~1,5 h</span></li>
+        <li><span class="city">Giżycko</span><span class="t">~40 min</span></li>
+        <li><span class="city">Kętrzyn</span><span class="t">~40 min</span></li>
+        <li><span class="city">Węgorzewo</span><span class="t">~15 min</span></li>
+      </ul>
+      <div class="navbox">
+        <h4>Nawigacja</h4>
+        <p>Leśniewo k. Węgorzewa · Mazury<br>(adres: Kamień 1, 11-600 Węgorzewo)</p>
+        <a href="https://www.google.com/maps/dir/?api=1&destination=54.1975,21.5968" target="_blank" rel="noopener" class="btn btn-gold" style="display:block;text-align:center">Prowadź w Google Maps</a>
+        <a href="https://www.google.com/maps?cid=17323435715856764183" target="_blank" rel="noopener" class="btn btn-outline" style="display:block;text-align:center">Zobacz nas na mapie</a>
+      </div>
+      <p style="font-size:12px;color:var(--muted);margin-top:12px">Pociągiem: do Kętrzyna lub Giżycka, dalej ~taxi / odbiór po wcześniejszym ustaleniu.</p>
+      <div class="warn"><b>Ostatni odcinek leśną drogą.</b> Latem przejedzie każde auto. Wczesną wiosną / jesienią / zimą bywa błotnisto i kamieniście — niskim autom odradzamy, a zimą droga nie jest odśnieżana.</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="logo">Gajówka i Apartamenty</div>
+  <div class="fnav"><a href="/v2/">Start</a><a href="/v2/obiekty.html">Obiekty</a><a href="/v2/atrakcje.html">Okolica</a><a href="/v2/las-grzybobranie.html">Las &amp; grzyby</a><a href="/v2/dojazd.html">Dojazd</a><a href="/v2/o-nas.html">O nas</a><a href="/v2/#kontakt">Kontakt</a></div>
+  <p>Leśniczówka z XIX wieku · Leśniewo k. Węgorzewa · Mazury</p>
+  <p style="margin-top:6px">PODGLĄD v2 · <a href="/">← obecna strona</a></p>
+</footer>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+document.querySelectorAll('#navlinks a').forEach(function(a){a.addEventListener('click',function(){document.getElementById('navlinks').classList.remove('open');});});
+if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target);}});},{threshold:.1});document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});}else{document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('in');});}
+
+var GAJ=[54.1975,21.5968];
+var map=L.map('map',{scrollWheelZoom:false,zoomControl:true}).setView([53.85,21.0],8);
+L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',{subdomains:'abcd',maxZoom:19,attribution:'&copy; OpenStreetMap, &copy; CARTO'}).addTo(map);
+var gajIcon=L.divIcon({className:'',html:'<div style="width:18px;height:18px;border-radius:50%;background:#d59c4e;border:3px solid #fff;box-shadow:0 0 0 4px rgba(213,156,78,.35)"></div>',iconSize:[18,18],iconAnchor:[9,9]});
+L.marker(GAJ,{icon:gajIcon}).addTo(map).bindPopup('<b>Gajówka i Apartamenty</b><br>Leśniewo k. Węgorzewa').openPopup();
+var startIcon=L.divIcon({className:'',html:'<div style="width:14px;height:14px;border-radius:50%;background:#283c32;border:2px solid #fff"></div>',iconSize:[14,14],iconAnchor:[7,7]});
+var routeLayer=null,startMarker=null;
+function setStatus(t){document.getElementById('result').innerHTML=t;}
+async function drawRoute(start,label){
+  setStatus('Liczę trasę…');
+  var url='https://router.project-osrm.org/route/v1/driving/'+start[1]+','+start[0]+';'+GAJ[1]+','+GAJ[0]+'?overview=full&geometries=geojson';
+  var r=await fetch(url); var d=await r.json();
+  if(!d.routes||!d.routes.length)throw new Error('no route');
+  var rt=d.routes[0];
+  if(routeLayer)map.removeLayer(routeLayer);
+  routeLayer=L.geoJSON(rt.geometry,{style:{color:'#d59c4e',weight:5,opacity:.92}}).addTo(map);
+  if(startMarker)map.removeLayer(startMarker);
+  startMarker=L.marker(start,{icon:startIcon}).addTo(map).bindPopup(label||'Start');
+  map.fitBounds(routeLayer.getBounds(),{padding:[50,50]});
+  var km=Math.round(rt.distance/1000),mins=Math.round(rt.duration/60),h=Math.floor(mins/60),m=mins%60;
+  setStatus('Z <b>'+(label||'wybranego miejsca')+'</b>: '+km+' km &middot; <b>'+(h?h+' h ':'')+m+' min</b> jazdy');
+}
+async function geocode(q){
+  var url='https://nominatim.openstreetmap.org/search?format=json&limit=1&countrycodes=pl&q='+encodeURIComponent(q);
+  var r=await fetch(url,{headers:{'Accept-Language':'pl'}}); var d=await r.json();
+  if(!d||!d.length)throw new Error('not found');
+  return {coords:[parseFloat(d[0].lat),parseFloat(d[0].lon)],name:(d[0].display_name||q).split(',')[0]};
+}
+async function fromText(){
+  var q=document.getElementById('from').value.trim(); if(!q)return;
+  setStatus('Szukam miejsca…');
+  try{var g=await geocode(q); await drawRoute(g.coords,g.name);}
+  catch(e){setStatus('Nie znalazłem takiego miejsca w Polsce — spróbuj wpisać samą nazwę miasta.');}
+}
+document.getElementById('go').addEventListener('click',fromText);
+document.getElementById('from').addEventListener('keydown',function(e){if(e.key==='Enter')fromText();});
+document.querySelectorAll('.chips button').forEach(function(b){b.addEventListener('click',function(){
+  var c=b.getAttribute('data-city').split(',');
+  document.getElementById('from').value=b.textContent.trim();
+  drawRoute([parseFloat(c[0]),parseFloat(c[1])],b.textContent.trim()).catch(function(){setStatus('Nie udało się policzyć trasy — spróbuj ponownie.');});
+});});
+</script>
+</body>
+</html>
