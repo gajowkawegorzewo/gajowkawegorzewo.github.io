@@ -101,7 +101,8 @@ section{padding:106px 0}
 .atuty{background:var(--green);color:#fff}
 .atuty h2{color:#fff}.atuty .sec-head .lead{color:rgba(255,255,255,.7)}
 .feats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:34px 24px;text-align:center}
-.feat .ic{font-size:34px;margin-bottom:12px}
+.feat .ic{margin-bottom:14px;height:40px;display:flex;align-items:center;justify-content:center}
+.feat .ic svg{width:38px;height:38px;stroke:var(--gold);stroke-width:1.6;fill:none;stroke-linecap:round;stroke-linejoin:round}
 .feat b{display:block;font-weight:600;font-size:15px;margin-bottom:4px}
 .feat span{font-size:13px;color:rgba(255,255,255,.62)}
 .band{position:relative;min-height:60vh;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;padding:90px 24px;background:linear-gradient(rgba(20,32,25,.4),rgba(20,32,25,.56)),url('../img/lesne_10.jpg') center/cover fixed}
@@ -147,7 +148,7 @@ footer a{color:var(--gold-lt)}
 </style>
 </head>
 <body class="nojs">
-<div class="banner">⚙️ Wersja PODGLĄDOWA (v2) — obecna strona działa bez zmian na gajowkawegorzewo.pl</div>
+<div class="banner">Wersja PODGLĄDOWA (v2) — obecna strona działa bez zmian na gajowkawegorzewo.pl</div>
 
 <nav id="nav">
   <button class="menubtn" onclick="document.body.classList.add('menuopen')"><span class="bars"><span></span><span></span><span></span></span>Menu</button>
@@ -206,12 +207,12 @@ footer a{color:var(--gold-lt)}
   <div class="wrap">
     <div class="sec-head reveal"><span class="eyebrow">Co u nas znajdziesz</span><h2>Wszystko, czego trzeba do ciszy</h2></div>
     <div class="feats stagger reveal">
-      <div class="feat"><div class="ic">🔥</div><b>Balia &amp; sauna</b><span>cały rok</span></div>
-      <div class="feat"><div class="ic">💧</div><b>Basen</b><span>latem (VI–VIII)</span></div>
-      <div class="feat"><div class="ic">🌲</div><b>Las dookoła</b><span>cisza i prywatność</span></div>
-      <div class="feat"><div class="ic">🎣</div><b>Własne jeziorko</b><span>na wędkowanie</span></div>
-      <div class="feat"><div class="ic">🐕</div><b>Pet-friendly</b><span>pupil mile widziany</span></div>
-      <div class="feat"><div class="ic">🚶</div><b>Kanał Mazurski</b><span>300 m od progu</span></div>
+      <div class="feat"><div class="ic"><svg viewBox="0 0 32 32"><path d="M17 3c1 5 5 7 5 12a6 6 0 0 1-12 0c0-2.5 1.2-4 2.6-5C13 13 14 14.5 14 16c0-4 1-7 3-13z"/></svg></div><b>Balia &amp; sauna</b><span>cały rok</span></div>
+      <div class="feat"><div class="ic"><svg viewBox="0 0 32 32"><path d="M16 4c-5.5 6.5-8.5 10-8.5 13.8a8.5 8.5 0 0 0 17 0C24.5 14 21.5 10.5 16 4z"/></svg></div><b>Basen</b><span>latem (VI–VIII)</span></div>
+      <div class="feat"><div class="ic"><svg viewBox="0 0 32 32"><path d="M16 4l5.5 8.5H18l5.5 8.5H8.5L14 12.5h-3.5L16 4z"/><line x1="16" y1="21" x2="16" y2="27"/></svg></div><b>Las dookoła</b><span>cisza i prywatność</span></div>
+      <div class="feat"><div class="ic"><svg viewBox="0 0 32 32"><path d="M5 16c4.5-6.5 14.5-6.5 19 0-4.5 6.5-14.5 6.5-19 0z"/><path d="M24 16l4-3.5v7z"/><circle cx="11" cy="14" r="1.1"/></svg></div><b>Własne jeziorko</b><span>na wędkowanie</span></div>
+      <div class="feat"><div class="ic"><svg viewBox="0 0 32 32"><ellipse cx="11" cy="12" rx="2" ry="2.8"/><ellipse cx="16" cy="10.5" rx="2" ry="3"/><ellipse cx="21" cy="12" rx="2" ry="2.8"/><path d="M16 14.5c-3 0-5.5 2.2-5.5 4.8 0 2.3 2 3.2 5.5 3.2s5.5-.9 5.5-3.2c0-2.6-2.5-4.8-5.5-4.8z"/></svg></div><b>Pet-friendly</b><span>pupil mile widziany</span></div>
+      <div class="feat"><div class="ic"><svg viewBox="0 0 32 32"><path d="M3 12c3 0 3 2.6 6.5 2.6S13 12 16 12s3 2.6 6.5 2.6S26 12 29 12"/><path d="M3 19c3 0 3 2.6 6.5 2.6S13 19 16 19s3 2.6 6.5 2.6S26 19 29 19"/></svg></div><b>Kanał Mazurski</b><span>300 m od progu</span></div>
     </div>
   </div>
 </section>
@@ -247,10 +248,10 @@ footer a{color:var(--gold-lt)}
   <div class="wrap">
     <div class="sec-head reveal"><span class="eyebrow">Zapraszamy</span><h2>Skontaktuj się z nami</h2></div>
     <div class="kgrid reveal">
-      <div class="kcard"><div class="ic">👩</div><h3>Kamila</h3><div class="role">Rezerwacje</div><a href="tel:+48574753831" class="tel">574 753 831</a><a href="https://wa.me/48574753831" target="_blank" rel="noopener" class="btn btn-outline">WhatsApp</a></div>
-      <div class="kcard"><div class="ic">👨</div><h3>Pan Janusz</h3><div class="role">Na miejscu</div><a href="tel:+48608502327" class="tel">608 502 327</a><a href="https://wa.me/48608502327" target="_blank" rel="noopener" class="btn btn-outline">WhatsApp</a></div>
+      <div class="kcard"><h3>Kamila</h3><div class="role">Rezerwacje</div><a href="tel:+48574753831" class="tel">574 753 831</a><a href="https://wa.me/48574753831" target="_blank" rel="noopener" class="btn btn-outline">WhatsApp</a></div>
+      <div class="kcard"><h3>Pan Janusz</h3><div class="role">Na miejscu</div><a href="tel:+48608502327" class="tel">608 502 327</a><a href="https://wa.me/48608502327" target="_blank" rel="noopener" class="btn btn-outline">WhatsApp</a></div>
     </div>
-    <div class="kmeta reveal">✉️ <a href="mailto:luuretwitch@gmail.com">luuretwitch@gmail.com</a><br>📍 Leśniewo k. Węgorzewa · Mazury (Kamień 1, 11-600 Węgorzewo)</div>
+    <div class="kmeta reveal"><a href="mailto:luuretwitch@gmail.com">luuretwitch@gmail.com</a><br>Leśniewo k. Węgorzewa · Mazury · (Kamień 1, 11-600 Węgorzewo)</div>
     <div class="kcta reveal"><a href="tel:+48574753831" class="btn btn-gold">Zarezerwuj pobyt</a><a href="https://www.google.com/maps?cid=17323435715856764183" target="_blank" rel="noopener" class="btn btn-outline">⭐ Oceń nas w Google</a></div>
   </div>
 </section>

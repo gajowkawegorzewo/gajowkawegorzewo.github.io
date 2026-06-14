@@ -116,7 +116,7 @@ section{padding:96px 0}
 .okrow .ok-s{flex:1;font-size:14.5px;color:var(--muted)}
 .attile{background:#fff;border:1px solid var(--line);border-radius:8px;padding:26px 24px;transition:transform .4s cubic-bezier(.22,1,.36,1),box-shadow .4s}
 .attile:hover{transform:translateY(-5px);box-shadow:0 18px 38px rgba(29,50,39,.1)}
-.attile .ic{font-size:32px}
+.attile .ic{display:none}
 .attile h3{font-size:23px;margin:10px 0 6px}
 .attile .dist{font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:10px}
 .attile p{font-size:14.5px;color:var(--muted)}
