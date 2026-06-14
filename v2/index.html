@@ -344,18 +344,26 @@ if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es
   L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',{subdomains:'abcd',maxZoom:19,attribution:'&copy; OpenStreetMap, &copy; CARTO'}).addTo(map);
   L.marker(GAJ,{icon:L.divIcon({className:'',html:'<div style="width:20px;height:20px;border-radius:50%;background:#d59c4e;border:3px solid #fff;box-shadow:0 0 0 5px rgba(213,156,78,.35)"></div>',iconSize:[20,20],iconAnchor:[10,10]})}).addTo(map).bindPopup('<b>Gajówka i Apartamenty</b><br>Leśniewo k. Węgorzewa');
   var startIcon=L.divIcon({className:'',html:'<div style="width:14px;height:14px;border-radius:50%;background:#fff;border:2px solid #d59c4e"></div>',iconSize:[14,14],iconAnchor:[7,7]});
-  var routeLayer=null,startMarker=null,res=document.getElementById('djresult');
+  var routeLayer=null,lineLayer=null,startMarker=null,res=document.getElementById('djresult');
   function st(t){res.style.display='inline-block';res.innerHTML=t;}
-  async function drawRoute(start,label){st('Liczę trasę…');try{
-    var u='https://router.project-osrm.org/route/v1/driving/'+start[1]+','+start[0]+';'+GAJ[1]+','+GAJ[0]+'?overview=full&geometries=geojson';
-    var r=await fetch(u),d=await r.json(),rt=d.routes[0];
-    if(routeLayer)map.removeLayer(routeLayer);routeLayer=L.geoJSON(rt.geometry,{style:{color:'#d59c4e',weight:5,opacity:.92}}).addTo(map);
-    if(startMarker)map.removeLayer(startMarker);startMarker=L.marker(start,{icon:startIcon}).addTo(map);
-    map.fitBounds(routeLayer.getBounds(),{padding:[60,60]});
-    var km=Math.round(rt.distance/1000),mi=Math.round(rt.duration/60),h=Math.floor(mi/60),m=mi%60;
-    st('Z <b>'+(label||'wybranego miejsca')+'</b>: '+km+' km &middot; <b>'+(h?h+' h ':'')+m+' min</b>');
-  }catch(e){st('Nie udało się policzyć trasy — spróbuj ponownie.');}}
-  async function geocode(q){var r=await fetch('https://nominatim.openstreetmap.org/search?format=json&limit=1&countrycodes=pl&q='+encodeURIComponent(q),{headers:{'Accept-Language':'pl'}}),d=await r.json();if(!d.length)throw 0;return{coords:[parseFloat(d[0].lat),parseFloat(d[0].lon)],name:(d[0].display_name||q).split(',')[0]};}
+  function fetchT(u,ms,init){var c=new AbortController();var id=setTimeout(function(){c.abort();},ms||12000);init=init||{};init.signal=c.signal;return fetch(u,init).then(function(r){clearTimeout(id);return r;});}
+  function clearRoute(){if(routeLayer){map.removeLayer(routeLayer);routeLayer=null;}if(lineLayer){map.removeLayer(lineLayer);lineLayer=null;}}
+  async function drawRoute(start,label){st('Liczę trasę…');
+    if(startMarker)map.removeLayer(startMarker);startMarker=L.marker(start,{icon:startIcon}).addTo(map);clearRoute();
+    try{
+      var u='https://router.project-osrm.org/route/v1/driving/'+start[1]+','+start[0]+';'+GAJ[1]+','+GAJ[0]+'?overview=full&geometries=geojson';
+      var r=await fetchT(u,12000),d=await r.json(),rt=d.routes[0];
+      routeLayer=L.geoJSON(rt.geometry,{style:{color:'#d59c4e',weight:5,opacity:.92}}).addTo(map);
+      map.fitBounds(routeLayer.getBounds(),{padding:[60,60]});
+      var km=Math.round(rt.distance/1000),mi=Math.round(rt.duration/60),h=Math.floor(mi/60),m=mi%60;
+      st('Z <b>'+(label||'wybranego miejsca')+'</b>: '+km+' km &middot; <b>'+(h?h+' h ':'')+m+' min</b>');
+    }catch(e){
+      lineLayer=L.polyline([start,GAJ],{color:'#d59c4e',weight:3,opacity:.7,dashArray:'8 8'}).addTo(map);
+      map.fitBounds(lineLayer.getBounds(),{padding:[60,60]});
+      st('Pokazujemy na mapie, skąd do nas jedziesz — orientacyjne czasy z większych miast masz na liście obok.');
+    }
+  }
+  async function geocode(q){var r=await fetchT('https://nominatim.openstreetmap.org/search?format=json&limit=1&countrycodes=pl&q='+encodeURIComponent(q),12000,{headers:{'Accept-Language':'pl'}}),d=await r.json();if(!d.length)throw 0;return{coords:[parseFloat(d[0].lat),parseFloat(d[0].lon)],name:(d[0].display_name||q).split(',')[0]};}
   async function go(){var q=document.getElementById('djfrom').value.trim();if(!q)return;st('Szukam miejsca…');try{var g=await geocode(q);drawRoute(g.coords,g.name);}catch(e){st('Nie znalazłem takiego miejsca — wpisz samą nazwę miasta.');}}
   document.getElementById('djgo').addEventListener('click',go);
   document.getElementById('djfrom').addEventListener('keydown',function(e){if(e.key==='Enter')go();});
