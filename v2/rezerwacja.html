@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="pl" class="nojs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rezerwacja — sprawdź wolne terminy | Gajówka (PODGLĄD v2)</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Sprawdź dostępność i zarezerwuj pobyt w Gajówce — dom na wyłączność lub apartament w starej stodole. Kalendarz z aktualnymi wolnymi terminami.">
+<script>document.documentElement.className='js';</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/v2.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/flatpickr.min.css">
+<script src="https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/flatpickr.min.js" defer></script>
+<script src="https://npmcdn.com/flatpickr/dist/l10n/pl.js" defer></script>
+<link rel="manifest" href="/manifest.json">
+<meta name="theme-color" content="#1d3227">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<style>
+.subhero::before{background:linear-gradient(rgba(20,32,25,.45),rgba(20,32,25,.62)),url('../img/lesne_04.jpg') center/cover no-repeat;z-index:-1}
+.resv{max-width:760px;margin:0 auto;padding:0 24px}
+.rcard{background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:0 18px 50px rgba(29,50,39,.08);padding:36px 34px}
+.rcard .step{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:600;margin:0 0 14px}
+.fld{margin-bottom:20px}
+.fld>label{display:block;font-size:12px;letter-spacing:1.4px;text-transform:uppercase;color:var(--green);font-weight:600;margin-bottom:8px}
+.fld input[type=text],.fld input[type=tel],.fld input[type=email],.fld select,.fld textarea{
+  width:100%;font-family:var(--sans);font-size:15px;color:var(--text);background:#fdfcf9;
+  border:1px solid var(--line);border-radius:8px;padding:13px 14px;transition:border-color .25s,box-shadow .25s}
+.fld input:focus,.fld select:focus,.fld textarea:focus{outline:0;border-color:var(--gold);box-shadow:0 0 0 3px rgba(213,156,78,.18);background:#fff}
+.fld textarea{resize:vertical;min-height:84px}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.extras{display:flex;flex-wrap:wrap;gap:10px;margin-top:4px}
+.extras label{display:flex;align-items:center;gap:8px;font-size:13.5px;color:var(--text);background:#fdfcf9;border:1px solid var(--line);border-radius:999px;padding:8px 15px;cursor:pointer;transition:border-color .2s,background .2s}
+.extras label:hover{border-color:var(--gold)}
+.extras input{accent-color:var(--gold);width:16px;height:16px}
+.crib{display:flex;align-items:center;gap:10px;font-size:14.5px;color:var(--text);cursor:pointer}
+.crib input{accent-color:var(--gold);width:18px;height:18px}
+.rsubmit{margin-top:8px}
+.rsubmit .btn{width:100%;border:0;font-size:14px;padding:17px}
+.rnote{font-size:12.5px;color:var(--muted);text-align:center;margin-top:14px;line-height:1.7}
+.rnote a{color:var(--green);font-weight:600}
+/* wolne terminy */
+#avail-free-list{display:none;background:var(--cream);border-radius:10px;padding:20px 22px;margin-bottom:26px}
+#avail-free-list>b{display:block;font-family:var(--serif);font-size:21px;color:var(--green);font-weight:600;margin-bottom:4px}
+#avail-free-list ul{list-style:none;margin:8px 0 0;padding:0;display:grid;gap:8px}
+.free-item{display:grid;grid-template-columns:1fr auto auto;align-items:center;gap:14px;background:#fff;border:1px solid var(--line);border-radius:8px;padding:11px 15px;transition:border-color .2s,transform .2s,box-shadow .2s}
+.free-item:hover{border-color:var(--gold);transform:translateY(-2px);box-shadow:0 10px 22px rgba(29,50,39,.08)}
+.free-item .free-apt{font-family:var(--serif);font-size:18px;color:var(--green)}
+.free-item .free-date{font-size:13.5px;color:var(--text)}
+.free-item .nights{font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--gold);font-weight:600;white-space:nowrap}
+/* sukces */
+#sbox{display:none;text-align:center;padding:20px 10px}
+#sbox .ok{width:64px;height:64px;margin:0 auto 18px;border-radius:50%;background:rgba(213,156,78,.15);display:flex;align-items:center;justify-content:center}
+#sbox .ok svg{width:32px;height:32px;stroke:var(--gold);stroke-width:2.4;fill:none;stroke-linecap:round;stroke-linejoin:round}
+#sbox h3{font-size:30px;margin-bottom:8px}
+#sbox p{color:var(--muted);font-size:15.5px}
+/* flatpickr w odcieniu v2 */
+.flatpickr-day.selected,.flatpickr-day.startRange,.flatpickr-day.endRange{background:var(--gold);border-color:var(--gold)}
+.flatpickr-day.selected:hover{background:var(--gold-lt);border-color:var(--gold-lt)}
+.flatpickr-day:hover{background:var(--cream)}
+.flatpickr-day.today{border-color:var(--gold)}
+.flatpickr-months .flatpickr-month,.flatpickr-current-month{color:var(--green)}
+span.flatpickr-weekday{color:var(--muted)}
+@media(max-width:620px){.row2{grid-template-columns:1fr}.rcard{padding:28px 20px}.free-item{grid-template-columns:1fr auto}.free-item .nights{grid-column:1/-1}}
+</style>
+</head>
+<body class="sub">
+<div class="banner">Wersja PODGLĄDOWA (v2) do oceny stylu</div>
+
+<nav id="nav">
+  <a href="/v2/" class="logo">Gajówka</a>
+  <button class="navtoggle" onclick="document.getElementById('navlinks').classList.toggle('open')">☰</button>
+  <div class="links" id="navlinks">
+    <a href="/v2/obiekty.html">Obiekty</a>
+    <a href="/v2/atrakcje.html">Okolica</a>
+    <a href="/v2/las-grzybobranie.html">Las &amp; grzyby</a>
+    <a href="/v2/#dojazd">Dojazd</a>
+    <a href="/v2/o-nas.html">O nas</a>
+    <a href="/v2/rezerwacja.html" class="btn btn-ghost">Rezerwuj</a>
+  </div>
+</nav>
+
+<header class="subhero">
+  <div>
+    <span class="eyebrow">Rezerwacja</span>
+    <h1>Sprawdź wolne terminy</h1>
+    <p>Wybierz obiekt i daty — kalendarz pokaże aktualnie zajęte noce. Wyślemy potwierdzenie i odpowiemy na pytania.</p>
+  </div>
+</header>
+
+<section style="padding-top:70px">
+  <div class="resv reveal">
+    <div id="avail-free-list"></div>
+
+    <div class="rcard" id="fbox">
+      <p class="step">Twoja rezerwacja</p>
+
+      <div class="fld">
+        <label for="fapt">Obiekt</label>
+        <select id="fapt" onchange="refreshDatepickers()">
+          <option value="Gajówka">Gajówka — cały dom na wyłączność (do 12 osób)</option>
+          <option value="Wilcza Polana">Wilcza Polana — apartament w stodole (6+2)</option>
+          <option value="Sen Gajowego">Sen Gajowego — apartament w stodole (6+2)</option>
+          <option value="Leśne pogaduchy">Leśne pogaduchy — apartament w stodole (6+2)</option>
+        </select>
+        <div class="extras" id="extra-apts" style="margin-top:12px">
+          <span style="font-size:12.5px;color:var(--muted);width:100%">Większa grupa? Dorzuć kolejny obiekt:</span>
+          <label><input type="checkbox" value="Wilcza Polana" onchange="refreshDatepickers()"> Wilcza Polana</label>
+          <label><input type="checkbox" value="Sen Gajowego" onchange="refreshDatepickers()"> Sen Gajowego</label>
+          <label><input type="checkbox" value="Leśne pogaduchy" onchange="refreshDatepickers()"> Leśne pogaduchy</label>
+        </div>
+      </div>
+
+      <div class="row2">
+        <div class="fld"><label for="fcin">Przyjazd</label><input type="text" id="fcin" placeholder="Wybierz datę" autocomplete="off"></div>
+        <div class="fld"><label for="fcout">Wyjazd</label><input type="text" id="fcout" placeholder="Wybierz datę" autocomplete="off"></div>
+      </div>
+
+      <div class="row2">
+        <div class="fld"><label for="fname">Imię i nazwisko</label><input type="text" id="fname" placeholder="Jan Kowalski"></div>
+        <div class="fld"><label for="fphone">Telefon</label><input type="tel" id="fphone" placeholder="np. 600 100 200"></div>
+      </div>
+
+      <div class="row2">
+        <div class="fld"><label for="femail">E-mail</label><input type="email" id="femail" placeholder="ty@email.pl"></div>
+        <div class="fld"><label for="fguests">Liczba osób</label>
+          <select id="fguests">
+            <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option>
+            <option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="fld"><label for="fnotes">Uwagi (opcjonalnie)</label><textarea id="fnotes" placeholder="Pies, dieta, godzina przyjazdu, pytania…"></textarea></div>
+
+      <div class="fld" style="margin-bottom:24px">
+        <label class="crib"><input type="checkbox" id="fcrib"> Potrzebuję łóżeczka turystycznego dla dziecka</label>
+      </div>
+
+      <div class="rsubmit"><button class="btn btn-gold" onclick="dosubmit()">Wyślij zapytanie o rezerwację</button></div>
+      <p class="rnote">To zapytanie, nie płatność online. Potwierdzimy dostępność i szczegóły.<br>Wolisz telefon? Zadzwoń do Kamili: <a href="tel:+48574753831">574&nbsp;753&nbsp;831</a>.</p>
+    </div>
+
+    <div class="rcard" id="sbox">
+      <div class="ok"><svg viewBox="0 0 24 24"><path d="M20 6 L9 17 L4 12"/></svg></div>
+      <h3 id="sname">Dziękujemy!</h3>
+      <p>Zapytanie dotarło do nas. Odezwiemy się najszybciej, jak to możliwe — sprawdź też skrzynkę e-mail.</p>
+      <div class="kcta" style="margin-top:24px"><a href="/v2/" class="btn btn-outline">← Wróć na stronę główną</a></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="logo">Gajówka i Apartamenty</div>
+  <div class="fnav"><a href="/v2/">Start</a><a href="/v2/obiekty.html">Obiekty</a><a href="/v2/atrakcje.html">Okolica</a><a href="/v2/las-grzybobranie.html">Las &amp; grzyby</a><a href="/v2/o-nas.html">O nas</a></div>
+  <p>Leśniczówka z XIX wieku · Leśniewo k. Węgorzewa · Mazury</p>
+  <p style="margin-top:6px">PODGLĄD v2 · <a href="/">← obecna strona</a></p>
+</footer>
+
+<script>
+/* ===== Dostępność (iCal Airbnb/Alohacamp + ręczne bloki) — port z produkcji ===== */
+window.__availability=null;window.__fpCin=null;window.__fpCout=null;
+function loadAvailability(){
+  return fetch('/availability.json',{cache:'no-cache'})
+    .then(function(r){if(!r.ok)throw new Error('avail HTTP '+r.status);return r.json();})
+    .then(function(data){window.__availability=data;return data;})
+    .catch(function(err){console.warn('[avail] fallback bez blokowania:',err);window.__availability={};return {};});
+}
+function getBlockedRanges(aptName,extraApts){
+  var avail=window.__availability||{};var names=[];
+  if(aptName)names.push(aptName);
+  (extraApts||[]).forEach(function(a){if(a&&names.indexOf(a)<0)names.push(a);});
+  var out=[];
+  names.forEach(function(n){(avail[n]||[]).forEach(function(r){if(r&&r.from&&r.to)out.push({from:r.from,to:r.to,source:r.source||'Zarezerwowane',apt:n});});});
+  return out;
+}
+function addDaysIso(iso,delta){var p=String(iso).split('-');var d=new Date(Date.UTC(+p[0],+p[1]-1,+p[2]));d.setUTCDate(d.getUTCDate()+delta);return d.toISOString().slice(0,10);}
+function disableForArrival(ranges){return ranges.map(function(r){return {from:r.from,to:addDaysIso(r.to,-1)};}).filter(function(r){return r.from<=r.to;});}
+function disableForCheckout(ranges){return ranges.map(function(r){return {from:addDaysIso(r.from,1),to:r.to};}).filter(function(r){return r.from<=r.to;});}
+function getCurrentExtras(){return Array.from(document.querySelectorAll('#extra-apts input:checked')).map(function(c){return (c.value||'').split(' (')[0];});}
+function rangesOverlap(aS,aE,bS,bE){return aS<bE&&bS<aE;}
+function findConflict(cin,cout,ranges){if(!cin||!cout)return null;for(var i=0;i<ranges.length;i++){if(rangesOverlap(cin,cout,ranges[i].from,ranges[i].to))return ranges[i];}return null;}
+function formatPLDate(s){if(!s||s.length<10)return s||'';var p=s.split('-');return p[2]+'.'+p[1]+'.'+p[0];}
+function findFreeWindows(ranges,minNights,horizonDays){
+  minNights=minNights||2;horizonDays=horizonDays||180;
+  var today=new Date();today.setHours(0,0,0,0);
+  var horizon=new Date(today);horizon.setDate(horizon.getDate()+horizonDays);
+  function ymd(d){return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');}
+  function parseYmd(s){var p=s.split('-');return new Date(+p[0],+p[1]-1,+p[2]);}
+  function nights(a,b){return Math.round((b.getTime()-a.getTime())/86400000);}
+  var sorted=(ranges||[]).slice().sort(function(a,b){return a.from<b.from?-1:1;}).map(function(r){return {from:parseYmd(r.from),to:parseYmd(r.to)};});
+  var merged=[];
+  sorted.forEach(function(r){if(!merged.length||r.from>merged[merged.length-1].to){merged.push({from:r.from,to:r.to});}else if(r.to>merged[merged.length-1].to){merged[merged.length-1].to=r.to;}});
+  var windows=[],cursor=new Date(today);
+  for(var i=0;i<merged.length;i++){var r=merged[i];if(r.to<=cursor)continue;if(r.from>cursor){var n=nights(cursor,r.from);if(n>=minNights)windows.push({from:ymd(cursor),to:ymd(r.from),nights:n});}if(r.to>cursor)cursor=new Date(r.to);}
+  if(cursor<horizon){var n2=nights(cursor,horizon);if(n2>=minNights)windows.push({from:ymd(cursor),to:ymd(horizon),nights:n2,openEnd:true});}
+  return windows;
+}
+function renderFreeList(){
+  var box=document.getElementById('avail-free-list');if(!box)return;
+  var avail=window.__availability||{};
+  var APTS=['Gajówka','Wilcza Polana','Sen Gajowego','Leśne pogaduchy'];
+  var all=[];
+  APTS.forEach(function(name){findFreeWindows((avail[name]||[]).map(function(r){return {from:r.from,to:r.to};}),2,180).forEach(function(w){w.apt=name;all.push(w);});});
+  if(!all.length){box.innerHTML='<b>Najbliższe wolne terminy</b><div style="color:var(--text)">Brak wolnych terminów w najbliższych 6 miesiącach — zadzwoń pod <a href="tel:+48574753831" style="color:var(--green);font-weight:600">574 753 831</a>.</div>';box.style.display='block';return;}
+  all.sort(function(a,b){return a.from<b.from?-1:1;});
+  var top=all.slice(0,6);
+  var html='<b>Najbliższe wolne terminy</b><div style="font-size:13px;color:var(--muted);margin:-2px 0 10px">Kliknij termin — uzupełnimy obiekt i daty automatycznie.</div><ul>';
+  top.forEach(function(w){
+    var label=w.openEnd?formatPLDate(w.from)+' → dalej':formatPLDate(w.from)+' — '+formatPLDate(w.to);
+    var nl=w.nights===1?'noc':(w.nights<5?'noce':'nocy');
+    html+='<li class="free-item" data-apt="'+w.apt+'" data-from="'+w.from+'" data-to="'+w.to+'" data-open="'+(w.openEnd?1:0)+'" onclick="pickFreeTerm(this)">'+
+      '<span class="free-apt">'+w.apt+'</span><span class="free-date">'+label+'</span><span class="nights">'+w.nights+' '+nl+'</span></li>';
+  });
+  box.innerHTML=html+'</ul>';box.style.display='block';
+}
+function pickApt(name){var sel=document.getElementById('fapt');if(sel){sel.value=name;}refreshDatepickers();}
+function pickFreeTerm(el){
+  var apt=el.getAttribute('data-apt'),from=el.getAttribute('data-from'),to=el.getAttribute('data-to'),isOpen=el.getAttribute('data-open')==='1';
+  pickApt(apt);
+  setTimeout(function(){try{if(window.__fpCin&&window.__fpCout){var cout;if(isOpen){var d=new Date(from);d.setDate(d.getDate()+3);cout=d.toISOString().slice(0,10);}else{cout=to;}window.__fpCin.setDate(from,true);window.__fpCout.set('minDate',from);window.__fpCout.setDate(cout,true);}document.getElementById('fbox').scrollIntoView({behavior:'smooth',block:'center'});}catch(e){}},250);
+}
+function initDatepickers(){
+  if(typeof flatpickr==='undefined')return setTimeout(initDatepickers,250);
+  var apt=document.getElementById('fapt').value||'Gajówka';
+  var ranges=getBlockedRanges(apt,getCurrentExtras());
+  var localePl=(window.flatpickr&&window.flatpickr.l10ns&&window.flatpickr.l10ns.pl)?'pl':'default';
+  window.__fpCin=flatpickr('#fcin',{locale:localePl,minDate:'today',dateFormat:'Y-m-d',altInput:true,altFormat:'d.m.Y',disable:disableForArrival(ranges),
+    onChange:function(sel){if(sel&&sel[0]&&window.__fpCout){var d=new Date(sel[0].getTime());d.setDate(d.getDate()+1);window.__fpCout.set('minDate',d);}}});
+  window.__fpCout=flatpickr('#fcout',{locale:localePl,minDate:'today',dateFormat:'Y-m-d',altInput:true,altFormat:'d.m.Y',disable:disableForCheckout(ranges)});
+  renderFreeList();
+}
+function refreshDatepickers(){
+  if(!window.__fpCin||!window.__fpCout)return initDatepickers();
+  var apt=document.getElementById('fapt').value||'Gajówka';
+  var ranges=getBlockedRanges(apt,getCurrentExtras());
+  try{window.__fpCin.set('disable',disableForArrival(ranges));window.__fpCout.set('disable',disableForCheckout(ranges));window.__fpCin.redraw();window.__fpCout.redraw();}catch(e){}
+  renderFreeList();
+}
+function dosubmit(){
+  var nm=document.getElementById('fname').value.trim();
+  var ph=document.getElementById('fphone').value.trim();
+  var em=document.getElementById('femail').value.trim();
+  var apt=document.getElementById('fapt').value;
+  var extraCbs=document.querySelectorAll('#extra-apts input:checked');
+  if(extraCbs.length>0){apt+=', '+Array.from(extraCbs).map(function(c){return c.value;}).join(', ');}
+  var cin=document.getElementById('fcin').value;
+  var cout=document.getElementById('fcout').value;
+  var guests=document.getElementById('fguests').value;
+  var notes=document.getElementById('fnotes').value.trim();
+  var crib=document.getElementById('fcrib').checked?'TAK':'NIE';
+  if(!nm||!em||!apt||!cin||!cout){alert('Uzupełnij wszystkie wymagane pola (obiekt, daty, imię, e-mail).');return;}
+  if(!em.includes('@')||!em.includes('.')){alert('Podaj poprawny adres e-mail.');return;}
+  if(cout<=cin){alert('Data wyjazdu musi być późniejsza niż data przyjazdu.');return;}
+  try{
+    var conflict=findConflict(cin,cout,getBlockedRanges(document.getElementById('fapt').value,getCurrentExtras()));
+    if(conflict){alert('Wybrane terminy są zajęte ('+conflict.source+(conflict.apt?' / '+conflict.apt:'')+') '+formatPLDate(conflict.from)+' – '+formatPLDate(conflict.to)+'.\n\nWybierz inny zakres lub zadzwoń pod 574 753 831.');return;}
+  }catch(e){}
+  var payload={access_key:'704579ff-c17a-4f9f-8ee8-bd9512de7b9d',subject:'Nowa rezerwacja: '+apt+' ('+cin+' - '+cout+')',from_name:'Formularz Gajówka (v2)',replyto:em,
+    'Imię i nazwisko':nm,Telefon:ph||'nie podano',Email:em,Obiekt:apt,Przyjazd:cin,Wyjazd:cout,'Liczba osób':guests,'Łóżeczko turystyczne':crib,Uwagi:notes||'brak'};
+  fetch('https://api.web3forms.com/submit',{method:'POST',body:JSON.stringify(payload),headers:{'Content-Type':'application/json',Accept:'application/json'}})
+    .then(function(r){if(r.ok){document.getElementById('sname').innerText='Dziękujemy, '+nm+'!';document.getElementById('sbox').style.display='block';document.getElementById('fbox').style.display='none';window.scrollTo({top:0,behavior:'smooth'});}else{alert('Wystąpił błąd. Spróbuj ponownie lub zadzwoń pod 574 753 831.');}})
+    .catch(function(){alert('Brak połączenia. Zadzwoń pod 574 753 831.');});
+}
+document.addEventListener('DOMContentLoaded',function(){loadAvailability().then(initDatepickers);});
+document.querySelectorAll('#navlinks a').forEach(function(a){a.addEventListener('click',function(){document.getElementById('navlinks').classList.remove('open');});});
+if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target);}});},{threshold:.05,rootMargin:'0px 0px -5% 0px'});document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});}else{document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('in');});}
+</script>
+</body>
+</html>
