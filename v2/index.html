@@ -60,7 +60,7 @@ body.menuopen{overflow:hidden}
 
 /* HERO SEQUENCE — logo zjeżdża na biel */
 .seq{position:relative;height:100vh;padding:0}
-.js .seq{height:210vh}
+.js .seq{height:150vh}
 .pin{position:sticky;top:0;height:100vh;overflow:hidden;display:flex;align-items:center;justify-content:center;text-align:center}
 .pin .photo{position:absolute;inset:-3%;background:url('../img/zdjecie_001.jpg') center/cover no-repeat;z-index:1;animation:kb 30s ease-in-out infinite alternate}
 .pin .shade{position:absolute;inset:0;z-index:2;background:radial-gradient(125% 105% at 50% 32%,transparent 30%,rgba(18,28,22,.5)),linear-gradient(180deg,rgba(18,28,22,.34),rgba(18,28,22,.7))}
@@ -201,7 +201,6 @@ footer a{color:var(--gold-lt)}
       <h1 class="wm">Gajówka<em>i Apartamenty</em></h1>
       <div class="tag">Mazury · Leśniczówka z XIX wieku</div>
       <p class="sub">Są miejsca, w których czas zwalnia. Leśna cisza, balia pod gwiazdami i Kanał Mazurski 300 metrów za progiem.</p>
-      <div class="cta"><a href="#kontakt" class="btn btn-gold">Sprawdź wolne terminy</a><a href="#obiekty" class="btn btn-ghost">Poznaj miejsce</a></div>
     </div>
     <span class="scrollcue" id="cue">przewiń ↓</span>
   </div>
@@ -320,14 +319,14 @@ var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)
 function clamp(v){return v<0?0:v>1?1:v}
 function tick(){
   var sy=window.scrollY||window.pageYOffset;
-  nav.classList.toggle('solid',sy>window.innerHeight*0.7);
+  nav.classList.toggle('solid',sy>window.innerHeight*0.5);
   if(!reduce&&seq){
     var range=seq.offsetHeight-window.innerHeight;
     var p=clamp(range>0?sy/range:0);
     var e=p<.5?2*p*p:1-Math.pow(-2*p+2,2)/2; // easeInOut
-    white.style.opacity=e;
-    brand.style.transform='translateY('+(-p*46)+'px)';
-    brand.classList.toggle('onwhite',p>0.5);
+    white.style.opacity=clamp(e*1.12);
+    brand.style.transform='translateY('+(p*64)+'px)';
+    brand.classList.toggle('onwhite',p>0.42);
     if(cue)cue.style.opacity=clamp(1-p*2.2);
   }
 }
