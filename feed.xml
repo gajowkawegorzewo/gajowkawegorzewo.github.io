@@ -5,9 +5,16 @@
     <link>https://gajowkawegorzewo.pl/blog/</link>
     <description>Praktyczne przewodniki po Mazurach i okolicach Węgorzewa: atrakcje, transport, domki, sezon, wydarzenia. Pisane lokalnie, bez clickbaitu.</description>
     <language>pl-PL</language>
-    <lastBuildDate>Sun, 14 Jun 2026 07:12:33 GMT</lastBuildDate>
-    <pubDate>Sun, 14 Jun 2026 10:00:00 GMT</pubDate>
+    <lastBuildDate>Mon, 15 Jun 2026 07:12:06 GMT</lastBuildDate>
+    <pubDate>Mon, 15 Jun 2026 10:00:00 GMT</pubDate>
     <atom:link href="https://gajowkawegorzewo.pl/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Jezioro Mamry 2026 — rejsy statkiem, żeglarstwo i Wodna Oś Mazur z Węgorzewa</title>
+      <link>https://gajowkawegorzewo.pl/blog/jezioro-mamry-rejsy-zeglarstwo-wegorzewo-2026.html</link>
+      <guid isPermaLink="true">https://gajowkawegorzewo.pl/blog/jezioro-mamry-rejsy-zeglarstwo-wegorzewo-2026.html</guid>
+      <pubDate>Mon, 15 Jun 2026 10:00:00 GMT</pubDate>
+      <description>Co robić na dużej wodzie wokół Węgorzewa: rejsy statkiem Żeglugi Mazurskiej (trasy, czasy, ceny), żeglarstwo na Mamrach dla początkujących, Ekomarina, wiatr i bezpieczeństwo. Fakty i baza w lesie 5 minut od jeziora.</description>
+    </item>
     <item>
       <title>Domek na Mazurach na wakacje 2026 — jak złapać wolny termin latem</title>
       <link>https://gajowkawegorzewo.pl/blog/domek-na-mazurach-na-wakacje-lato-2026.html</link>
@@ -140,13 +147,6 @@
       <guid isPermaLink="true">https://gajowkawegorzewo.pl/blog/domek-nad-jeziorem-mamry-czego-szukac-2026.html</guid>
       <pubDate>Tue, 26 May 2026 10:00:00 GMT</pubDate>
       <description>Domek nad jeziorem Mamry — typy obiektów, strony jeziora, dostęp do wody, czerwone flagi w ogłoszeniach i checklista 16 punktów przed wpłatą zaliczki. Konkrety 2026.</description>
-    </item>
-    <item>
-      <title>Festiwale Mazury lato 2026 — daty i gdzie nocować | Gajówka</title>
-      <link>https://gajowkawegorzewo.pl/blog/festiwale-mazury-lato-2026-kalendarz.html</link>
-      <guid isPermaLink="true">https://gajowkawegorzewo.pl/blog/festiwale-mazury-lato-2026-kalendarz.html</guid>
-      <pubDate>Mon, 25 May 2026 10:00:00 GMT</pubDate>
-      <description>Festiwale na Mazurach lato 2026: daty, miejsca, line-upy i — co najważniejsze — gdzie nocować w okolicy Giżycka, Mrągowa i Węgorzewa. Praktyka noclegu z Leśniewa.</description>
     </item>
   </channel>
 </rss>
