@@ -191,8 +191,13 @@
     },
     {
       "from": "2026-07-17",
+      "to": "2026-08-01",
+      "source": "Alohacamp+Airbnb+Slowhop"
+    },
+    {
+      "from": "2026-08-03",
       "to": "2026-08-13",
-      "source": "Alohacamp+Airbnb+Slowhop+Booking"
+      "source": "Booking"
     },
     {
       "from": "2026-08-19",
