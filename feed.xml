@@ -5,9 +5,16 @@
     <link>https://gajowkawegorzewo.pl/blog/</link>
     <description>Praktyczne przewodniki po Mazurach i okolicach Węgorzewa: atrakcje, transport, domki, sezon, wydarzenia. Pisane lokalnie, bez clickbaitu.</description>
     <language>pl-PL</language>
-    <lastBuildDate>Sat, 20 Jun 2026 07:11:14 GMT</lastBuildDate>
-    <pubDate>Sat, 20 Jun 2026 10:00:00 GMT</pubDate>
+    <lastBuildDate>Fri, 26 Jun 2026 21:59:52 GMT</lastBuildDate>
+    <pubDate>Fri, 26 Jun 2026 10:00:00 GMT</pubDate>
     <atom:link href="https://gajowkawegorzewo.pl/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Domek na Mazurach blisko jeziora — co znaczy „nad jeziorem&quot; | Gajówka Węgorzewo</title>
+      <link>https://gajowkawegorzewo.pl/blog/domek-na-mazurach-blisko-jeziora-realna-odleglosc-2026.html</link>
+      <guid isPermaLink="true">https://gajowkawegorzewo.pl/blog/domek-na-mazurach-blisko-jeziora-realna-odleglosc-2026.html</guid>
+      <pubDate>Fri, 26 Jun 2026 10:00:00 GMT</pubDate>
+      <description>Co naprawdę znaczy „nad jeziorem</description>
+    </item>
     <item>
       <title>Domek na Mazurach dla dwóch rodzin — co sprawdzić przed rezerwacją | Gajówka Węgorzewo</title>
       <link>https://gajowkawegorzewo.pl/blog/domek-na-mazurach-dla-dwoch-rodzin-2026.html</link>
@@ -140,13 +147,6 @@
       <guid isPermaLink="true">https://gajowkawegorzewo.pl/blog/nocleg-blisko-wilczego-szanca-2026.html</guid>
       <pubDate>Mon, 01 Jun 2026 10:00:00 GMT</pubDate>
       <description>Gdzie spać blisko Wilczego Szańca? Leśniczówka z XIX wieku r. w Leśniewie, 30 km od Gierłoży i 2 km od Mamerek. Ceny biletów 2026, godziny, dojazd i plan dnia.</description>
-    </item>
-    <item>
-      <title>Nocleg blisko Sztynortu 2026 — 15 min od mariny i pałacu | Gajówka</title>
-      <link>https://gajowkawegorzewo.pl/blog/nocleg-blisko-sztynortu-marina-palac-2026.html</link>
-      <guid isPermaLink="true">https://gajowkawegorzewo.pl/blog/nocleg-blisko-sztynortu-marina-palac-2026.html</guid>
-      <pubDate>Sun, 31 May 2026 10:00:00 GMT</pubDate>
-      <description>Nocleg blisko Sztynortu na Mazurach: baza 15 minut od największego portu żeglarskiego i pałacu Lehndorffów. Historia zamachu 20 lipca 1944, remont pałacu, park, dojazd i co połączyć w jeden dzień.</description>
     </item>
   </channel>
 </rss>
