@@ -5,9 +5,16 @@
     <link>https://gajowkawegorzewo.pl/blog/</link>
     <description>Praktyczne przewodniki po Mazurach i okolicach Węgorzewa: atrakcje, transport, domki, sezon, wydarzenia. Pisane lokalnie, bez clickbaitu.</description>
     <language>pl-PL</language>
-    <lastBuildDate>Sat, 27 Jun 2026 18:51:28 GMT</lastBuildDate>
-    <pubDate>Sat, 27 Jun 2026 10:00:00 GMT</pubDate>
+    <lastBuildDate>Sun, 28 Jun 2026 07:32:49 GMT</lastBuildDate>
+    <pubDate>Sun, 28 Jun 2026 10:00:00 GMT</pubDate>
     <atom:link href="https://gajowkawegorzewo.pl/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Zaliczka i kaucja za domek na Mazurach — jak działa płatność</title>
+      <link>https://gajowkawegorzewo.pl/blog/zaliczka-kaucja-domek-na-mazurach-platnosc-2026.html</link>
+      <guid isPermaLink="true">https://gajowkawegorzewo.pl/blog/zaliczka-kaucja-domek-na-mazurach-platnosc-2026.html</guid>
+      <pubDate>Sun, 28 Jun 2026 10:00:00 GMT</pubDate>
+      <description>Zaliczka, zadatek czy kaucja — czym się różnią, ile wynoszą i co podlega zwrotowi przy rezygnacji. Jak bezpiecznie zapłacić za domek na Mazurach przed przyjazdem.</description>
+    </item>
     <item>
       <title>Jednodniowe wycieczki z Węgorzewa 2026 — 7 pomysłów na wypad autem</title>
       <link>https://gajowkawegorzewo.pl/blog/jednodniowe-wycieczki-z-wegorzewa-2026.html</link>
@@ -140,13 +147,6 @@
       <guid isPermaLink="true">https://gajowkawegorzewo.pl/blog/nocleg-z-psem-mazury-wegorzewo.html</guid>
       <pubDate>Tue, 02 Jun 2026 10:00:00 GMT</pubDate>
       <description>Nocleg z psem na Mazurach: jak wybrać pet-friendly domek koło Węgorzewa, dlaczego las i łąki są dobre na spacery z psem, jakie zasady obowiązują. Domek z psem w Leśniewie pod Węgorzewem.</description>
-    </item>
-    <item>
-      <title>Romantyczny weekend we dwoje na Mazurach — domek dla pary 2026</title>
-      <link>https://gajowkawegorzewo.pl/blog/domek-dla-par-romantyczny-weekend-mazury-2026.html</link>
-      <guid isPermaLink="true">https://gajowkawegorzewo.pl/blog/domek-dla-par-romantyczny-weekend-mazury-2026.html</guid>
-      <pubDate>Tue, 02 Jun 2026 10:00:00 GMT</pubDate>
-      <description>Romantyczny weekend we dwoje na Mazurach — ile kosztuje, kiedy jechać bez tłumów, co robić. Domek dla pary z balią i sauną w strefie ciszy pod Węgorzewem.</description>
     </item>
   </channel>
 </rss>
