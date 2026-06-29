@@ -182,16 +182,25 @@ footer a{color:var(--gold);text-decoration:none;}
     <form class="form" id="deForm" onsubmit="return deSubmit(event)">
       <label>Unterkunft</label>
       <select id="d_apt"><option>Gajówka (12 Pers.)</option><option>Wilcza Polana (6+2)</option><option>Sen Gajowego (6+2)</option><option>Leśne pogaduchy (6+2)</option><option>Noch unentschieden</option></select>
+      <div class="extras" id="d_extra_apts" style="margin-top:8px">
+        <span style="display:block;font-size:13px;opacity:.8;margin-bottom:4px">Größere Gruppe? Weitere Unterkunft dazubuchen:</span>
+        <label><input type="checkbox" class="d_xapt" value="Wilcza Polana"> Wilcza Polana (6+2)</label>
+        <label><input type="checkbox" class="d_xapt" value="Sen Gajowego"> Sen Gajowego (6+2)</label>
+        <label><input type="checkbox" class="d_xapt" value="Leśne pogaduchy"> Leśne pogaduchy (6+2)</label>
+      </div>
       <div class="row"><div><label>Name</label><input type="text" id="d_name" placeholder="Max Mustermann"></div><div><label>Telefon (optional)</label><input type="tel" id="d_phone" placeholder="+49 …"></div></div>
       <label>E-Mail</label><input type="email" id="d_email" placeholder="ihre@email.de">
       <div class="row"><div><label>Anreise</label><input type="text" id="d_in" autocomplete="off" placeholder="Datum wählen"></div><div><label>Abreise</label><input type="text" id="d_out" autocomplete="off" placeholder="Datum wählen"></div></div>
       <div class="availnote" id="d_avail">📅 Verfügbarkeit live mit Booking, Airbnb, Slowhop &amp; Aloha Camp synchronisiert — belegte Tage sind durchgestrichen und nicht wählbar.</div>
+      <label>Anzahl Personen</label>
+      <select id="d_guests"><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option></select>
       <label>Extras (optional)</label>
       <div class="extras">
         <label><input type="checkbox" class="d_extra" value="Hot Tub mit Outdoor-Kino (250 zł/Tag)"> 🛁 Hot Tub mit Outdoor-Kino — 250 zł/Tag</label>
         <label><input type="checkbox" class="d_extra" value="Fasssauna (150 zł/Session)"> 🧖 Fasssauna — 150 zł/Session (~2h)</label>
+        <label><input type="checkbox" id="d_crib"> 🛏️ Reisebett für ein Kleinkind</label>
       </div>
-      <label>Personen / Nachricht</label><textarea id="d_msg" rows="3" placeholder="z. B. 4 Erwachsene, 2 Kinder"></textarea>
+      <label>Nachricht (optional)</label><textarea id="d_msg" rows="3" placeholder="z. B. Ankunftszeit, Hund, Fragen …"></textarea>
       <button type="submit">Anfrage senden →</button>
       <p class="note">Mit dem Absenden akzeptieren Sie unsere <a href="/polityka-prywatnosci.html">Datenschutzerklärung</a>. Wir verarbeiten Ihre Daten ausschließlich zur Bearbeitung dieser Anfrage (Art. 6 Abs. 1 lit. f DSGVO).</p>
     </form>
@@ -280,7 +289,8 @@ footer a{color:var(--gold);text-decoration:none;}
 window.__avail=null;
 function deAptKey(){var v=(document.getElementById('d_apt').value||'').split(' (')[0].trim();return (v==='Noch unentschieden')?null:v;}
 function addDaysIso(iso,delta){var p=String(iso).split('-');var d=new Date(Date.UTC(+p[0],+p[1]-1,+p[2]));d.setUTCDate(d.getUTCDate()+delta);return d.toISOString().slice(0,10);}
-function deRanges(){var k=deAptKey();if(!k||!window.__avail)return [];return (window.__avail[k]||[]).filter(function(r){return r&&r.from&&r.to;});}
+function deAllKeys(){var keys=[];var m=deAptKey();if(m)keys.push(m);Array.prototype.forEach.call(document.querySelectorAll('.d_xapt:checked'),function(c){if(keys.indexOf(c.value)<0)keys.push(c.value);});return keys;}
+function deRanges(){if(!window.__avail)return [];var out=[];deAllKeys().forEach(function(k){(window.__avail[k]||[]).forEach(function(r){if(r&&r.from&&r.to)out.push(r);});});return out;}
 function disForArrival(rs){return rs.map(function(r){return {from:r.from,to:addDaysIso(r.to,-1)};}).filter(function(r){return r.from<=r.to;});}
 function disForCheckout(rs){return rs.map(function(r){return {from:addDaysIso(r.from,1),to:r.to};}).filter(function(r){return r.from<=r.to;});}
 function deOverlap(aS,aE,bS,bE){return aS<bE&&bS<aE;}
@@ -300,6 +310,7 @@ function deRefreshPickers(){
 }
 document.addEventListener('DOMContentLoaded',function(){
   var s=document.getElementById('d_apt');if(s)s.addEventListener('change',deRefreshPickers);
+  Array.prototype.forEach.call(document.querySelectorAll('.d_xapt'),function(c){c.addEventListener('change',deRefreshPickers);});
   fetch('/availability.json',{cache:'no-cache'}).then(function(r){return r.ok?r.json():{};}).then(function(d){window.__avail=d;deRefreshPickers();}).catch(function(){window.__avail={};});
   deInitPickers();
 });
@@ -314,7 +325,10 @@ function deSubmit(e){
   var conf=deConflict(cin,cout);
   if(conf){alert('Die gewählten Tage sind bereits belegt ('+conf.from+' – '+conf.to+').\n\nBitte einen anderen Zeitraum wählen oder anrufen: +48 574 753 831');return false;}
   var apt=document.getElementById('d_apt').value;
+  var xapts=Array.prototype.map.call(document.querySelectorAll('.d_xapt:checked'),function(c){return c.value;});
+  if(xapts.length) apt += ', ' + xapts.join(', ');
   var extras=Array.prototype.map.call(document.querySelectorAll('.d_extra:checked'),function(c){return c.value;}).join(', ')||'—';
+  var crib=document.getElementById('d_crib').checked?'Ja':'Nein';
   var payload={
     access_key:'704579ff-c17a-4f9f-8ee8-bd9512de7b9d',
     subject:'Anfrage (DE): '+apt+' '+(cin||'')+' – '+(cout||''),
@@ -325,6 +339,8 @@ function deSubmit(e){
     Telefon:document.getElementById('d_phone').value.trim()||'—',
     Anreise:cin||'—',
     Abreise:cout||'—',
+    Personen:document.getElementById('d_guests').value,
+    Reisebett:crib,
     Extras:extras,
     Nachricht:document.getElementById('d_msg').value.trim()||'—'
   };
