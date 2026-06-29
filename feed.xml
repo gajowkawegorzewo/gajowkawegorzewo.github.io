@@ -5,9 +5,16 @@
     <link>https://gajowkawegorzewo.pl/blog/</link>
     <description>Praktyczne przewodniki po Mazurach i okolicach Węgorzewa: atrakcje, transport, domki, sezon, wydarzenia. Pisane lokalnie, bez clickbaitu.</description>
     <language>pl-PL</language>
-    <lastBuildDate>Sun, 28 Jun 2026 07:32:49 GMT</lastBuildDate>
-    <pubDate>Sun, 28 Jun 2026 10:00:00 GMT</pubDate>
+    <lastBuildDate>Mon, 29 Jun 2026 07:13:41 GMT</lastBuildDate>
+    <pubDate>Mon, 29 Jun 2026 10:00:00 GMT</pubDate>
     <atom:link href="https://gajowkawegorzewo.pl/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Mazury we wrześniu — przewodnik po końcówce sezonu pod Węgorzewem</title>
+      <link>https://gajowkawegorzewo.pl/blog/mazury-we-wrzesniu-wokol-wegorzewa-2026.html</link>
+      <guid isPermaLink="true">https://gajowkawegorzewo.pl/blog/mazury-we-wrzesniu-wokol-wegorzewa-2026.html</guid>
+      <pubDate>Mon, 29 Jun 2026 10:00:00 GMT</pubDate>
+      <description>Wrzesień nad Mazurami pod Węgorzewem: jaka pogoda i temperatura wody, grzyby w lesie, mniej tłumów, niższe ceny noclegów i co zobaczyć w okolicy Leśniewa.</description>
+    </item>
     <item>
       <title>Zaliczka i kaucja za domek na Mazurach — jak działa płatność</title>
       <link>https://gajowkawegorzewo.pl/blog/zaliczka-kaucja-domek-na-mazurach-platnosc-2026.html</link>
@@ -140,13 +147,6 @@
       <guid isPermaLink="true">https://gajowkawegorzewo.pl/blog/nocleg-z-balia-i-sauna-mazury-wegorzewo.html</guid>
       <pubDate>Tue, 02 Jun 2026 10:00:00 GMT</pubDate>
       <description>Nocleg z balią i sauną na Mazurach pod Węgorzewem. Co daje balia opalana drewnem i sauna beczkowa, dla kogo, ile kosztuje, jak łączyć i w którym sezonie jechać.</description>
-    </item>
-    <item>
-      <title>Nocleg z psem na Mazurach — domek z psem Węgorzewo 2026</title>
-      <link>https://gajowkawegorzewo.pl/blog/nocleg-z-psem-mazury-wegorzewo.html</link>
-      <guid isPermaLink="true">https://gajowkawegorzewo.pl/blog/nocleg-z-psem-mazury-wegorzewo.html</guid>
-      <pubDate>Tue, 02 Jun 2026 10:00:00 GMT</pubDate>
-      <description>Nocleg z psem na Mazurach: jak wybrać pet-friendly domek koło Węgorzewa, dlaczego las i łąki są dobre na spacery z psem, jakie zasady obowiązują. Domek z psem w Leśniewie pod Węgorzewem.</description>
     </item>
   </channel>
 </rss>
