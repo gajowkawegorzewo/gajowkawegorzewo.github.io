@@ -5,9 +5,16 @@
     <link>https://gajowkawegorzewo.pl/blog/</link>
     <description>Praktyczne przewodniki po Mazurach i okolicach Węgorzewa: atrakcje, transport, domki, sezon, wydarzenia. Pisane lokalnie, bez clickbaitu.</description>
     <language>pl-PL</language>
-    <lastBuildDate>Tue, 30 Jun 2026 21:09:54 GMT</lastBuildDate>
-    <pubDate>Tue, 30 Jun 2026 10:00:00 GMT</pubDate>
+    <lastBuildDate>Wed, 01 Jul 2026 07:14:09 GMT</lastBuildDate>
+    <pubDate>Wed, 01 Jul 2026 10:00:00 GMT</pubDate>
     <atom:link href="https://gajowkawegorzewo.pl/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Punkty widokowe wokół Węgorzewa — wieże i panoramy Mazur</title>
+      <link>https://gajowkawegorzewo.pl/blog/punkty-widokowe-wokol-wegorzewa-2026.html</link>
+      <guid isPermaLink="true">https://gajowkawegorzewo.pl/blog/punkty-widokowe-wokol-wegorzewa-2026.html</guid>
+      <pubDate>Wed, 01 Jul 2026 10:00:00 GMT</pubDate>
+      <description>Wieże i punkty widokowe na Mazurach blisko Węgorzewa: Jägerhöhe nad Święcajtami, wieża ciśnień w Giżycku, kładka nad torami. Odległości z leśniczówki w Leśniewie.</description>
+    </item>
     <item>
       <title>Domek na Mazurach last minute 2026 — jak znaleźć wolny termin</title>
       <link>https://gajowkawegorzewo.pl/blog/domek-na-mazurach-last-minute-lato-2026.html</link>
@@ -140,13 +147,6 @@
       <guid isPermaLink="true">https://gajowkawegorzewo.pl/blog/agroturystyka-wegorzewo-przewodnik.html</guid>
       <pubDate>Tue, 02 Jun 2026 10:00:00 GMT</pubDate>
       <description>Agroturystyka Węgorzewo w praktyce: czym różni się od hotelu, na co zwrócić uwagę w okolicy, dystanse do atrakcji. Gajówka w lesie pod Mamerkami jako przykład.</description>
-    </item>
-    <item>
-      <title>Leśniczówka nocleg Mazury — pobyt w zabytkowej leśniczówce</title>
-      <link>https://gajowkawegorzewo.pl/blog/lesniczowka-nocleg-mazury.html</link>
-      <guid isPermaLink="true">https://gajowkawegorzewo.pl/blog/lesniczowka-nocleg-mazury.html</guid>
-      <pubDate>Tue, 02 Jun 2026 10:00:00 GMT</pubDate>
-      <description>Leśniczówka nocleg na Mazurach — co to jest leśniczówka, jej klimat i historia. Zabytkowa leśniczówka z ok. XIX w. w Leśniewie pod Węgorzewem, w lesie.</description>
     </item>
   </channel>
 </rss>
