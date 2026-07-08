@@ -26,9 +26,15 @@
   </url>
   <url>
     <loc>https://gajowkawegorzewo.pl/blog/</loc>
-    <lastmod>2026-07-07</lastmod>
+    <lastmod>2026-07-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://gajowkawegorzewo.pl/blog/domek-na-mazurach-dla-6-osob-2026.html</loc>
+    <lastmod>2026-07-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
   </url>
   <url>
     <loc>https://gajowkawegorzewo.pl/blog/nocleg-dla-wedkarzy-jezioro-mamry-wegorzewo-2026.html</loc>
