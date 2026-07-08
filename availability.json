@@ -118,6 +118,11 @@
       "source": "Airbnb+Slowhop"
     },
     {
+      "from": "2026-09-07",
+      "to": "2026-09-12",
+      "source": "Airbnb+Booking"
+    },
+    {
       "from": "2027-02-01",
       "to": "2027-05-28",
       "source": "Booking"
