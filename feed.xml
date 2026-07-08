@@ -5,9 +5,16 @@
     <link>https://gajowkawegorzewo.pl/blog/</link>
     <description>Praktyczne przewodniki po Mazurach i okolicach Węgorzewa: atrakcje, transport, domki, sezon, wydarzenia. Pisane lokalnie, bez clickbaitu.</description>
     <language>pl-PL</language>
-    <lastBuildDate>Tue, 07 Jul 2026 13:50:56 GMT</lastBuildDate>
-    <pubDate>Tue, 07 Jul 2026 10:00:00 GMT</pubDate>
+    <lastBuildDate>Wed, 08 Jul 2026 16:11:26 GMT</lastBuildDate>
+    <pubDate>Wed, 08 Jul 2026 10:00:00 GMT</pubDate>
     <atom:link href="https://gajowkawegorzewo.pl/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Domek na Mazurach dla 6 osób — jak wybrać nocleg | Gajówka</title>
+      <link>https://gajowkawegorzewo.pl/blog/domek-na-mazurach-dla-6-osob-2026.html</link>
+      <guid isPermaLink="true">https://gajowkawegorzewo.pl/blog/domek-na-mazurach-dla-6-osob-2026.html</guid>
+      <pubDate>Wed, 08 Jul 2026 10:00:00 GMT</pubDate>
+      <description>Domek na Mazurach dla 6 osób: ile osób naprawdę śpi wygodnie, jeden apartament czy cały obiekt, koszt na osobę i co sprawdzić przed rezerwacją. Baza w Leśniewie k. Węgorzewa.</description>
+    </item>
     <item>
       <title>Nocleg dla wędkarzy nad jeziorem Mamry — Węgorzewo 2026</title>
       <link>https://gajowkawegorzewo.pl/blog/nocleg-dla-wedkarzy-jezioro-mamry-wegorzewo-2026.html</link>
@@ -140,13 +147,6 @@
       <guid isPermaLink="true">https://gajowkawegorzewo.pl/blog/mazury-rowerem-trasy-wegorzewo-2026.html</guid>
       <pubDate>Fri, 05 Jun 2026 10:00:00 GMT</pubDate>
       <description>Trasy rowerowe wokół Węgorzewa: Green Velo, Mazurska Pętla Rowerowa, ścieżki nad Kanałem Mazurskim i przy Mamerkach. Fakty, dystanse i baza w lesie nad Mamry.</description>
-    </item>
-    <item>
-      <title>Cichy domek na Mazurach 2026 — agroturystyka w strefie ciszy | Gajówka Węgorzewo</title>
-      <link>https://gajowkawegorzewo.pl/blog/cichy-domek-na-mazurach-strefa-ciszy-2026.html</link>
-      <guid isPermaLink="true">https://gajowkawegorzewo.pl/blog/cichy-domek-na-mazurach-strefa-ciszy-2026.html</guid>
-      <pubDate>Thu, 04 Jun 2026 10:00:00 GMT</pubDate>
-      <description>Czym jest strefa ciszy na Mazurach, na których jeziorach nie pływają motorówki i jak znaleźć naprawdę cichy domek w lesie. Leśniczówka z XIX wieku r. pod Węgorzewem.</description>
     </item>
   </channel>
 </rss>
