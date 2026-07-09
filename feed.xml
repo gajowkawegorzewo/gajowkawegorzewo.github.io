@@ -5,9 +5,16 @@
     <link>https://gajowkawegorzewo.pl/blog/</link>
     <description>Praktyczne przewodniki po Mazurach i okolicach Węgorzewa: atrakcje, transport, domki, sezon, wydarzenia. Pisane lokalnie, bez clickbaitu.</description>
     <language>pl-PL</language>
-    <lastBuildDate>Wed, 08 Jul 2026 16:11:26 GMT</lastBuildDate>
-    <pubDate>Wed, 08 Jul 2026 10:00:00 GMT</pubDate>
+    <lastBuildDate>Thu, 09 Jul 2026 07:12:49 GMT</lastBuildDate>
+    <pubDate>Thu, 09 Jul 2026 10:00:00 GMT</pubDate>
     <atom:link href="https://gajowkawegorzewo.pl/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ile dni na Mazury? Jak zaplanować pobyt 2–7 dni | Gajówka</title>
+      <link>https://gajowkawegorzewo.pl/blog/ile-dni-na-mazury-pobyt-wegorzewo-2026.html</link>
+      <guid isPermaLink="true">https://gajowkawegorzewo.pl/blog/ile-dni-na-mazury-pobyt-wegorzewo-2026.html</guid>
+      <pubDate>Thu, 09 Jul 2026 10:00:00 GMT</pubDate>
+      <description>Ile dni na Mazury: weekend, 5 czy 7 dni? Konkretne rozpiski dzień po dniu z bazy pod Węgorzewem, realne dystanse z leśniczówki w Leśniewie i który sezon wybrać.</description>
+    </item>
     <item>
       <title>Domek na Mazurach dla 6 osób — jak wybrać nocleg | Gajówka</title>
       <link>https://gajowkawegorzewo.pl/blog/domek-na-mazurach-dla-6-osob-2026.html</link>
@@ -140,13 +147,6 @@
       <guid isPermaLink="true">https://gajowkawegorzewo.pl/blog/wyjazd-integracyjny-firma-mazury-2026.html</guid>
       <pubDate>Sat, 06 Jun 2026 10:00:00 GMT</pubDate>
       <description>Wyjazd integracyjny dla małego zespołu na Mazurach 2026 — domek na wyłączność czy hotel, ile obiektów na grupę 10-24 osób, faktura i formalności, budżet na osobę, atrakcje do zorganizowania samemu i gotowy plan na 2-3 dni.</description>
-    </item>
-    <item>
-      <title>Mazury rowerem 2026 — trasy wokół Węgorzewa i Green Velo</title>
-      <link>https://gajowkawegorzewo.pl/blog/mazury-rowerem-trasy-wegorzewo-2026.html</link>
-      <guid isPermaLink="true">https://gajowkawegorzewo.pl/blog/mazury-rowerem-trasy-wegorzewo-2026.html</guid>
-      <pubDate>Fri, 05 Jun 2026 10:00:00 GMT</pubDate>
-      <description>Trasy rowerowe wokół Węgorzewa: Green Velo, Mazurska Pętla Rowerowa, ścieżki nad Kanałem Mazurskim i przy Mamerkach. Fakty, dystanse i baza w lesie nad Mamry.</description>
     </item>
   </channel>
 </rss>
