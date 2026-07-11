@@ -5,9 +5,16 @@
     <link>https://gajowkawegorzewo.pl/blog/</link>
     <description>Praktyczne przewodniki po Mazurach i okolicach Węgorzewa: atrakcje, transport, domki, sezon, wydarzenia. Pisane lokalnie, bez clickbaitu.</description>
     <language>pl-PL</language>
-    <lastBuildDate>Fri, 10 Jul 2026 07:06:59 GMT</lastBuildDate>
-    <pubDate>Fri, 10 Jul 2026 10:00:00 GMT</pubDate>
+    <lastBuildDate>Sat, 11 Jul 2026 07:12:06 GMT</lastBuildDate>
+    <pubDate>Sat, 11 Jul 2026 10:00:00 GMT</pubDate>
     <atom:link href="https://gajowkawegorzewo.pl/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Szlak bunkrów na Mazurach — baza noclegowa pod Węgorzewem | Gajówka</title>
+      <link>https://gajowkawegorzewo.github.io/blog/szlak-bunkrow-mazury-nocleg-baza-wegorzewo-2026.html</link>
+      <guid isPermaLink="true">https://gajowkawegorzewo.github.io/blog/szlak-bunkrow-mazury-nocleg-baza-wegorzewo-2026.html</guid>
+      <pubDate>Sat, 11 Jul 2026 10:00:00 GMT</pubDate>
+      <description>Mamerki, Wilczy Szaniec i Twierdza Boyen z jednej bazy pod Węgorzewem. Godziny, ceny biletów, dystanse i gotowy 3-dniowy plan. Leśniczówka 2 km od bunkrów Mamerki.</description>
+    </item>
     <item>
       <title>Domek na Mazurach dla 8 osób — jak wybrać nocleg | Gajówka Węgorzewo</title>
       <link>https://gajowkawegorzewo.github.io/blog/domek-na-mazurach-dla-8-osob-2026.html</link>
@@ -140,13 +147,6 @@
       <guid isPermaLink="true">https://gajowkawegorzewo.pl/blog/tanie-noclegi-mazury-poza-sezonem-2026.html</guid>
       <pubDate>Fri, 12 Jun 2026 10:00:00 GMT</pubDate>
       <description>Tanie noclegi na Mazurach poza sezonem 2026: które miesiące są realnie tańsze i dlaczego, ile można zaoszczędzić, co zyskujesz poza wakacjami i jak wybrać domek. Konkrety, bez clickbaitu.</description>
-    </item>
-    <item>
-      <title>Wyjazd integracyjny dla firmy na Mazurach — jak zorganizować w domku 2026</title>
-      <link>https://gajowkawegorzewo.pl/blog/wyjazd-integracyjny-firma-mazury-2026.html</link>
-      <guid isPermaLink="true">https://gajowkawegorzewo.pl/blog/wyjazd-integracyjny-firma-mazury-2026.html</guid>
-      <pubDate>Sat, 06 Jun 2026 10:00:00 GMT</pubDate>
-      <description>Wyjazd integracyjny dla małego zespołu na Mazurach 2026 — domek na wyłączność czy hotel, ile obiektów na grupę 10-24 osób, faktura i formalności, budżet na osobę, atrakcje do zorganizowania samemu i gotowy plan na 2-3 dni.</description>
     </item>
   </channel>
 </rss>
