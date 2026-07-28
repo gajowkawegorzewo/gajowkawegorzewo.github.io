@@ -103,6 +103,11 @@
       "source": "Airbnb+Slowhop"
     },
     {
+      "from": "2026-08-22",
+      "to": "2026-08-29",
+      "source": "Booking"
+    },
+    {
       "from": "2026-09-07",
       "to": "2026-09-12",
       "source": "Airbnb"
