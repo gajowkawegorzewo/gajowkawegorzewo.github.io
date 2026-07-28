@@ -62,23 +62,8 @@
     },
     {
       "from": "2026-07-25",
-      "to": "2026-08-02",
-      "source": "Alohacamp+Airbnb+Booking"
-    },
-    {
-      "from": "2026-08-06",
-      "to": "2026-08-23",
-      "source": "Airbnb+Booking+Alohacamp"
-    },
-    {
-      "from": "2026-08-25",
-      "to": "2026-08-28",
-      "source": "Booking"
-    },
-    {
-      "from": "2026-09-01",
       "to": "2029-01-29",
-      "source": "Airbnb+Alohacamp"
+      "source": "Alohacamp+Airbnb+Booking"
     }
   ],
   "Wilcza Polana": [
