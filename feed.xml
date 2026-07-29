@@ -5,9 +5,16 @@
     <link>https://gajowkawegorzewo.pl/blog/</link>
     <description>Praktyczne przewodniki po Mazurach i okolicach Węgorzewa: atrakcje, transport, domki, sezon, wydarzenia. Pisane lokalnie, bez clickbaitu.</description>
     <language>pl-PL</language>
-    <lastBuildDate>Tue, 28 Jul 2026 18:20:53 GMT</lastBuildDate>
-    <pubDate>Tue, 28 Jul 2026 10:00:00 GMT</pubDate>
+    <lastBuildDate>Wed, 29 Jul 2026 07:15:42 GMT</lastBuildDate>
+    <pubDate>Wed, 29 Jul 2026 10:00:00 GMT</pubDate>
     <atom:link href="https://gajowkawegorzewo.pl/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Jezioro Oświn — ptaki, zasady wstępu, nocleg blisko | Gajówka</title>
+      <link>https://gajowkawegorzewo.pl/blog/rezerwat-jezioro-siedmiu-wysp-oswin-nocleg-2026.html</link>
+      <guid isPermaLink="true">https://gajowkawegorzewo.pl/blog/rezerwat-jezioro-siedmiu-wysp-oswin-nocleg-2026.html</guid>
+      <pubDate>Wed, 29 Jul 2026 10:00:00 GMT</pubDate>
+      <description>Rezerwat Jezioro Siedmiu Wysp nad Oświnem: jakie ptaki tu gniazdują, czego zabrania ustawa o ochronie przyrody, skąd realnie da się patrzeć i gdzie się zatrzymać pod Węgorzewem.</description>
+    </item>
     <item>
       <title>Domek na Mazurach z własnym jeziorkiem — co sprawdzić | Gajówka</title>
       <link>https://gajowkawegorzewo.pl/blog/domek-na-mazurach-z-wlasnym-jeziorkiem-2026.html</link>
@@ -140,13 +147,6 @@
       <guid isPermaLink="true">https://gajowkawegorzewo.pl/blog/nocleg-dla-wedkarzy-jezioro-mamry-wegorzewo-2026.html</guid>
       <pubDate>Tue, 07 Jul 2026 10:00:00 GMT</pubDate>
       <description>Nocleg dla wędkarzy pod Węgorzewem: leśniczówka 5 min od jeziora Mamry, blisko łowisk Święcajty, Dargin i Kanału Mazurskiego. E-zezwolenia WIR 2026, gatunki ryb, dojazd.</description>
-    </item>
-    <item>
-      <title>Punkty widokowe wokół Węgorzewa — wieże i panoramy Mazur</title>
-      <link>https://gajowkawegorzewo.pl/blog/punkty-widokowe-wokol-wegorzewa-2026.html</link>
-      <guid isPermaLink="true">https://gajowkawegorzewo.pl/blog/punkty-widokowe-wokol-wegorzewa-2026.html</guid>
-      <pubDate>Wed, 01 Jul 2026 10:00:00 GMT</pubDate>
-      <description>Wieże i punkty widokowe na Mazurach blisko Węgorzewa: Jägerhöhe nad Święcajtami, wieża ciśnień w Giżycku, kładka nad torami. Odległości z leśniczówki w Leśniewie.</description>
     </item>
   </channel>
 </rss>
