@@ -5,9 +5,23 @@
     <link>https://gajowkawegorzewo.pl/blog/</link>
     <description>Praktyczne przewodniki po Mazurach i okolicach Węgorzewa: atrakcje, transport, domki, sezon, wydarzenia. Pisane lokalnie, bez clickbaitu.</description>
     <language>pl-PL</language>
-    <lastBuildDate>Wed, 29 Jul 2026 07:15:42 GMT</lastBuildDate>
-    <pubDate>Wed, 29 Jul 2026 10:00:00 GMT</pubDate>
+    <lastBuildDate>Sun, 02 Aug 2026 10:56:34 GMT</lastBuildDate>
+    <pubDate>Sun, 02 Aug 2026 10:00:00 GMT</pubDate>
     <atom:link href="https://gajowkawegorzewo.pl/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Domek na Mazurach z basenem — o co pytać przed rezerwacją</title>
+      <link>https://gajowkawegorzewo.pl/blog/domek-na-mazurach-z-basenem-2026.html</link>
+      <guid isPermaLink="true">https://gajowkawegorzewo.pl/blog/domek-na-mazurach-z-basenem-2026.html</guid>
+      <pubDate>Sun, 02 Aug 2026 10:00:00 GMT</pubDate>
+      <description>To samo słowo „basen” w ogłoszeniu oznacza pięć różnych rzeczy: od stelaża 3 m po podgrzewaną nieckę. Typy basenów, temperatura wody, bezpieczeństwo dzieci i 9 pytań do gospodarza.</description>
+    </item>
+    <item>
+      <title>Domek na Mazurach z ogniskiem i grillem — zasady i praktyka</title>
+      <link>https://gajowkawegorzewo.pl/blog/domek-na-mazurach-z-ogniskiem-i-grillem-2026.html</link>
+      <guid isPermaLink="true">https://gajowkawegorzewo.pl/blog/domek-na-mazurach-z-ogniskiem-i-grillem-2026.html</guid>
+      <pubDate>Sun, 02 Aug 2026 10:00:00 GMT</pubDate>
+      <description>Ognisko przy domku w lesie to nie kwestia chęci, tylko przepisów: 100 m od granicy lasu, wyznaczone miejsce, stopnie zagrożenia pożarowego. Co sprawdzić i o co zapytać gospodarza.</description>
+    </item>
     <item>
       <title>Jezioro Oświn — ptaki, zasady wstępu, nocleg blisko | Gajówka</title>
       <link>https://gajowkawegorzewo.pl/blog/rezerwat-jezioro-siedmiu-wysp-oswin-nocleg-2026.html</link>
@@ -133,20 +147,6 @@
       <guid isPermaLink="true">https://gajowkawegorzewo.pl/blog/ile-dni-na-mazury-pobyt-wegorzewo-2026.html</guid>
       <pubDate>Thu, 09 Jul 2026 10:00:00 GMT</pubDate>
       <description>Ile dni na Mazury: weekend, 5 czy 7 dni? Konkretne rozpiski dzień po dniu z bazy pod Węgorzewem, realne dystanse z leśniczówki w Leśniewie i który sezon wybrać.</description>
-    </item>
-    <item>
-      <title>Domek na Mazurach dla 6 osób — jak wybrać nocleg | Gajówka</title>
-      <link>https://gajowkawegorzewo.pl/blog/domek-na-mazurach-dla-6-osob-2026.html</link>
-      <guid isPermaLink="true">https://gajowkawegorzewo.pl/blog/domek-na-mazurach-dla-6-osob-2026.html</guid>
-      <pubDate>Wed, 08 Jul 2026 10:00:00 GMT</pubDate>
-      <description>Domek na Mazurach dla 6 osób: ile osób naprawdę śpi wygodnie, jeden apartament czy cały obiekt, koszt na osobę i co sprawdzić przed rezerwacją. Baza w Leśniewie k. Węgorzewa.</description>
-    </item>
-    <item>
-      <title>Nocleg dla wędkarzy nad jeziorem Mamry — Węgorzewo 2026</title>
-      <link>https://gajowkawegorzewo.pl/blog/nocleg-dla-wedkarzy-jezioro-mamry-wegorzewo-2026.html</link>
-      <guid isPermaLink="true">https://gajowkawegorzewo.pl/blog/nocleg-dla-wedkarzy-jezioro-mamry-wegorzewo-2026.html</guid>
-      <pubDate>Tue, 07 Jul 2026 10:00:00 GMT</pubDate>
-      <description>Nocleg dla wędkarzy pod Węgorzewem: leśniczówka 5 min od jeziora Mamry, blisko łowisk Święcajty, Dargin i Kanału Mazurskiego. E-zezwolenia WIR 2026, gatunki ryb, dojazd.</description>
     </item>
   </channel>
 </rss>
