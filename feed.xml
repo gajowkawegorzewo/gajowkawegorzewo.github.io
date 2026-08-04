@@ -5,9 +5,16 @@
     <link>https://gajowkawegorzewo.pl/blog/</link>
     <description>Praktyczne przewodniki po Mazurach i okolicach Węgorzewa: atrakcje, transport, domki, sezon, wydarzenia. Pisane lokalnie, bez clickbaitu.</description>
     <language>pl-PL</language>
-    <lastBuildDate>Mon, 03 Aug 2026 16:33:35 GMT</lastBuildDate>
-    <pubDate>Mon, 03 Aug 2026 10:00:00 GMT</pubDate>
+    <lastBuildDate>Tue, 04 Aug 2026 07:12:18 GMT</lastBuildDate>
+    <pubDate>Tue, 04 Aug 2026 10:00:00 GMT</pubDate>
     <atom:link href="https://gajowkawegorzewo.pl/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Domek na Mazurach na tydzień i dłużej — co sprawdzić 2026</title>
+      <link>https://gajowkawegorzewo.pl/blog/domek-na-mazurach-na-tydzien-i-dluzej-2026.html</link>
+      <guid isPermaLink="true">https://gajowkawegorzewo.pl/blog/domek-na-mazurach-na-tydzien-i-dluzej-2026.html</guid>
+      <pubDate>Tue, 04 Aug 2026 10:00:00 GMT</pubDate>
+      <description>Tydzień w domku to inna decyzja niż weekend. Kuchnia, pralka, sprzątanie w trakcie, praca zdalna, koszty liczone na tydzień i logistyka bazy pod Węgorzewem.</description>
+    </item>
     <item>
       <title>Co zabrać na Mazury — lista pakowania do domku 2026</title>
       <link>https://gajowkawegorzewo.pl/blog/co-zabrac-na-mazury-lista-pakowania-domek-2026.html</link>
@@ -140,13 +147,6 @@
       <guid isPermaLink="true">https://gajowkawegorzewo.github.io/blog/szlak-bunkrow-mazury-nocleg-baza-wegorzewo-2026.html</guid>
       <pubDate>Sat, 11 Jul 2026 10:00:00 GMT</pubDate>
       <description>Mamerki, Wilczy Szaniec i Twierdza Boyen z jednej bazy pod Węgorzewem. Godziny, ceny biletów, dystanse i gotowy 3-dniowy plan. Leśniczówka 2 km od bunkrów Mamerki.</description>
-    </item>
-    <item>
-      <title>Domek na Mazurach dla 8 osób — jak wybrać nocleg | Gajówka Węgorzewo</title>
-      <link>https://gajowkawegorzewo.github.io/blog/domek-na-mazurach-dla-8-osob-2026.html</link>
-      <guid isPermaLink="true">https://gajowkawegorzewo.github.io/blog/domek-na-mazurach-dla-8-osob-2026.html</guid>
-      <pubDate>Fri, 10 Jul 2026 10:00:00 GMT</pubDate>
-      <description>Domek na Mazurach dla 8 osób: ile osób naprawdę śpi wygodnie, cały obiekt czy pokoje, koszt na osobę i co sprawdzić przed rezerwacją. Baza w Leśniewie k. Węgorzewa.</description>
     </item>
   </channel>
 </rss>
