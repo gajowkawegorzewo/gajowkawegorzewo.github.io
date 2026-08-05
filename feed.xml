@@ -5,9 +5,16 @@
     <link>https://gajowkawegorzewo.pl/blog/</link>
     <description>Praktyczne przewodniki po Mazurach i okolicach Węgorzewa: atrakcje, transport, domki, sezon, wydarzenia. Pisane lokalnie, bez clickbaitu.</description>
     <language>pl-PL</language>
-    <lastBuildDate>Tue, 04 Aug 2026 07:12:18 GMT</lastBuildDate>
-    <pubDate>Tue, 04 Aug 2026 10:00:00 GMT</pubDate>
+    <lastBuildDate>Wed, 05 Aug 2026 08:51:00 GMT</lastBuildDate>
+    <pubDate>Wed, 05 Aug 2026 10:00:00 GMT</pubDate>
     <atom:link href="https://gajowkawegorzewo.pl/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Mazury zimą wokół Węgorzewa — co robić i gdzie spać 2026/2027</title>
+      <link>https://gajowkawegorzewo.pl/blog/mazury-zima-co-robic-nocleg-wegorzewo-2027.html</link>
+      <guid isPermaLink="true">https://gajowkawegorzewo.pl/blog/mazury-zima-co-robic-nocleg-wegorzewo-2027.html</guid>
+      <pubDate>Wed, 05 Aug 2026 10:00:00 GMT</pubDate>
+      <description>Co zimą wokół Węgorzewa jest czynne, a co zamknięte: godziny Wilczego Szańca, muzeum, lód i bezpieczeństwo, spacery po lesie oraz czego wymagać od domku zimą.</description>
+    </item>
     <item>
       <title>Domek na Mazurach na tydzień i dłużej — co sprawdzić 2026</title>
       <link>https://gajowkawegorzewo.pl/blog/domek-na-mazurach-na-tydzien-i-dluzej-2026.html</link>
@@ -140,13 +147,6 @@
       <guid isPermaLink="true">https://gajowkawegorzewo.github.io/blog/domek-na-mazurach-dla-10-osob-2026.html</guid>
       <pubDate>Sun, 12 Jul 2026 10:00:00 GMT</pubDate>
       <description>Domek na Mazurach dla 10 osób pod Węgorzewem: jak grupa dziesięciu nocuje w leśniczówce z 1880 r. — łóżka, łazienki, kuchnia, balia, sauna, 2 km od Mamerek.</description>
-    </item>
-    <item>
-      <title>Szlak bunkrów na Mazurach — baza noclegowa pod Węgorzewem | Gajówka</title>
-      <link>https://gajowkawegorzewo.github.io/blog/szlak-bunkrow-mazury-nocleg-baza-wegorzewo-2026.html</link>
-      <guid isPermaLink="true">https://gajowkawegorzewo.github.io/blog/szlak-bunkrow-mazury-nocleg-baza-wegorzewo-2026.html</guid>
-      <pubDate>Sat, 11 Jul 2026 10:00:00 GMT</pubDate>
-      <description>Mamerki, Wilczy Szaniec i Twierdza Boyen z jednej bazy pod Węgorzewem. Godziny, ceny biletów, dystanse i gotowy 3-dniowy plan. Leśniczówka 2 km od bunkrów Mamerki.</description>
     </item>
   </channel>
 </rss>
