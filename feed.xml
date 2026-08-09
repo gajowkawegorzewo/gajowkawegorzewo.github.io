@@ -5,9 +5,16 @@
     <link>https://gajowkawegorzewo.pl/blog/</link>
     <description>Praktyczne przewodniki po Mazurach i okolicach Węgorzewa: atrakcje, transport, domki, sezon, wydarzenia. Pisane lokalnie, bez clickbaitu.</description>
     <language>pl-PL</language>
-    <lastBuildDate>Sat, 08 Aug 2026 07:15:23 GMT</lastBuildDate>
-    <pubDate>Sat, 08 Aug 2026 10:00:00 GMT</pubDate>
+    <lastBuildDate>Sun, 09 Aug 2026 07:12:35 GMT</lastBuildDate>
+    <pubDate>Sun, 09 Aug 2026 10:00:00 GMT</pubDate>
     <atom:link href="https://gajowkawegorzewo.pl/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Mazury czy morze z dziećmi 2026 — porównanie i nocleg</title>
+      <link>https://gajowkawegorzewo.pl/blog/mazury-czy-morze-z-dziecmi-2026.html</link>
+      <guid isPermaLink="true">https://gajowkawegorzewo.pl/blog/mazury-czy-morze-z-dziecmi-2026.html</guid>
+      <pubDate>Sun, 09 Aug 2026 10:00:00 GMT</pubDate>
+      <description>Woda, dojazd, sinice, plan na deszcz i koszty — rzeczowe porównanie wyjazdu z dziećmi nad Bałtyk i na Mazury w 2026 roku oraz baza noclegowa pod Węgorzewem.</description>
+    </item>
     <item>
       <title>Kiedy rezerwować domek na Mazurach — kalendarz 2026/2027</title>
       <link>https://gajowkawegorzewo.pl/blog/kiedy-rezerwowac-domek-na-mazurach-kalendarz-2026-2027.html</link>
@@ -140,13 +147,6 @@
       <guid isPermaLink="true">https://gajowkawegorzewo.github.io/blog/domek-caloroczny-na-mazurach-2026.html</guid>
       <pubDate>Sat, 18 Jul 2026 10:00:00 GMT</pubDate>
       <description>Domek całoroczny na Mazurach — czym różni się od letniskowego, jak jest ogrzewany, co sprawdzić przed rezerwacją na zimę i ile kosztuje poza sezonem. Praktyczny poradnik z bazy pod Węgorzewem.</description>
-    </item>
-    <item>
-      <title>Żubry w Puszczy Boreckiej — zagroda w Wolisku i nocleg obok | Gajówka Węgorzewo</title>
-      <link>https://gajowkawegorzewo.pl/blog/zubry-puszcza-borecka-wolisko-nocleg-2026.html</link>
-      <guid isPermaLink="true">https://gajowkawegorzewo.pl/blog/zubry-puszcza-borecka-wolisko-nocleg-2026.html</guid>
-      <pubDate>Wed, 15 Jul 2026 10:00:00 GMT</pubDate>
-      <description>Zagroda żubrów w Wolisku: sezon, dwa okna zwiedzania, dojazd i regulamin (uwaga na psy). Jak ułożyć dzień z bazy w lesie pod Węgorzewem, 5 min od jeziora Mamry.</description>
     </item>
   </channel>
 </rss>
