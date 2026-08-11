@@ -5,9 +5,16 @@
     <link>https://gajowkawegorzewo.pl/blog/</link>
     <description>Praktyczne przewodniki po Mazurach i okolicach Węgorzewa: atrakcje, transport, domki, sezon, wydarzenia. Pisane lokalnie, bez clickbaitu.</description>
     <language>pl-PL</language>
-    <lastBuildDate>Sun, 09 Aug 2026 07:12:35 GMT</lastBuildDate>
-    <pubDate>Sun, 09 Aug 2026 10:00:00 GMT</pubDate>
+    <lastBuildDate>Tue, 11 Aug 2026 07:10:47 GMT</lastBuildDate>
+    <pubDate>Tue, 11 Aug 2026 10:00:00 GMT</pubDate>
     <atom:link href="https://gajowkawegorzewo.pl/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>SUP na Mazurach wokół Węgorzewa 2026 — gdzie pływać, jak zacząć</title>
+      <link>https://gajowkawegorzewo.pl/blog/sup-i-wioslowanie-wegorzewo-jezioro-mamry-2026.html</link>
+      <guid isPermaLink="true">https://gajowkawegorzewo.pl/blog/sup-i-wioslowanie-wegorzewo-jezioro-mamry-2026.html</guid>
+      <pubDate>Tue, 11 Aug 2026 10:00:00 GMT</pubDate>
+      <description>Deska SUP nad jeziorem Mamry: gdzie pływać osłonięte od wiatru, różnica względem kajaka, bezpieczeństwo na dużym jeziorze i najlepsze pory dnia. Baza w lesie 5 min od wody.</description>
+    </item>
     <item>
       <title>Mazury czy morze z dziećmi 2026 — porównanie i nocleg</title>
       <link>https://gajowkawegorzewo.pl/blog/mazury-czy-morze-z-dziecmi-2026.html</link>
@@ -140,13 +147,6 @@
       <guid isPermaLink="true">https://gajowkawegorzewo.github.io/blog/szlaki-piesze-wokol-wegorzewa-spacery-2026.html</guid>
       <pubDate>Sun, 19 Jul 2026 10:00:00 GMT</pubDate>
       <description>Szlaki piesze i trasy spacerowe wokół Węgorzewa — konkretne pętle z długościami i czasem: promenada nad Mamry, pętla Węgorapy, leśna droga do Mamerek i Kanału Mazurskiego. Co spakować i kiedy iść. Z bazy w lesie pod Węgorzewem.</description>
-    </item>
-    <item>
-      <title>Domek całoroczny na Mazurach — co sprawdzić | Gajówka</title>
-      <link>https://gajowkawegorzewo.github.io/blog/domek-caloroczny-na-mazurach-2026.html</link>
-      <guid isPermaLink="true">https://gajowkawegorzewo.github.io/blog/domek-caloroczny-na-mazurach-2026.html</guid>
-      <pubDate>Sat, 18 Jul 2026 10:00:00 GMT</pubDate>
-      <description>Domek całoroczny na Mazurach — czym różni się od letniskowego, jak jest ogrzewany, co sprawdzić przed rezerwacją na zimę i ile kosztuje poza sezonem. Praktyczny poradnik z bazy pod Węgorzewem.</description>
     </item>
   </channel>
 </rss>
