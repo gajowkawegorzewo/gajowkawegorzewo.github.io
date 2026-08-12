@@ -5,9 +5,16 @@
     <link>https://gajowkawegorzewo.pl/blog/</link>
     <description>Praktyczne przewodniki po Mazurach i okolicach Węgorzewa: atrakcje, transport, domki, sezon, wydarzenia. Pisane lokalnie, bez clickbaitu.</description>
     <language>pl-PL</language>
-    <lastBuildDate>Tue, 11 Aug 2026 07:10:47 GMT</lastBuildDate>
-    <pubDate>Tue, 11 Aug 2026 10:00:00 GMT</pubDate>
+    <lastBuildDate>Wed, 12 Aug 2026 07:11:38 GMT</lastBuildDate>
+    <pubDate>Wed, 12 Aug 2026 10:00:00 GMT</pubDate>
     <atom:link href="https://gajowkawegorzewo.pl/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Praca zdalna na Mazurach — domek na workation koło Węgorzewa 2026</title>
+      <link>https://gajowkawegorzewo.pl/blog/praca-zdalna-mazury-workation-wegorzewo-2026.html</link>
+      <guid isPermaLink="true">https://gajowkawegorzewo.pl/blog/praca-zdalna-mazury-workation-wegorzewo-2026.html</guid>
+      <pubDate>Wed, 12 Aug 2026 10:00:00 GMT</pubDate>
+      <description>Workation na Mazurach: jak zorganizować tydzień pracy zdalnej w domku pod Węgorzewem, na co zwrócić uwagę przy łączu i biurku, ile to realnie kosztuje i jak połączyć pracę z odpoczynkiem w lesie nad Mamrami.</description>
+    </item>
     <item>
       <title>SUP na Mazurach wokół Węgorzewa 2026 — gdzie pływać, jak zacząć</title>
       <link>https://gajowkawegorzewo.pl/blog/sup-i-wioslowanie-wegorzewo-jezioro-mamry-2026.html</link>
@@ -140,13 +147,6 @@
       <guid isPermaLink="true">https://gajowkawegorzewo.github.io/blog/nocleg-blisko-mamerek-bunkry-2026.html</guid>
       <pubDate>Mon, 20 Jul 2026 10:00:00 GMT</pubDate>
       <description>Nocleg blisko Mamerek: leśniczówka 2 km leśną drogą od bunkrów Wehrmachtu i Kanału Mazurskiego. Realne dystanse, bilety, godziny i jak zaplanować dzień. Węgorzewo.</description>
-    </item>
-    <item>
-      <title>Szlaki piesze wokół Węgorzewa — trasy i spacery na Mazurach | Gajówka</title>
-      <link>https://gajowkawegorzewo.github.io/blog/szlaki-piesze-wokol-wegorzewa-spacery-2026.html</link>
-      <guid isPermaLink="true">https://gajowkawegorzewo.github.io/blog/szlaki-piesze-wokol-wegorzewa-spacery-2026.html</guid>
-      <pubDate>Sun, 19 Jul 2026 10:00:00 GMT</pubDate>
-      <description>Szlaki piesze i trasy spacerowe wokół Węgorzewa — konkretne pętle z długościami i czasem: promenada nad Mamry, pętla Węgorapy, leśna droga do Mamerek i Kanału Mazurskiego. Co spakować i kiedy iść. Z bazy w lesie pod Węgorzewem.</description>
     </item>
   </channel>
 </rss>
