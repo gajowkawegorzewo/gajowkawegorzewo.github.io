@@ -5,9 +5,16 @@
     <link>https://gajowkawegorzewo.pl/blog/</link>
     <description>Praktyczne przewodniki po Mazurach i okolicach Węgorzewa: atrakcje, transport, domki, sezon, wydarzenia. Pisane lokalnie, bez clickbaitu.</description>
     <language>pl-PL</language>
-    <lastBuildDate>Wed, 12 Aug 2026 07:11:38 GMT</lastBuildDate>
-    <pubDate>Wed, 12 Aug 2026 10:00:00 GMT</pubDate>
+    <lastBuildDate>Thu, 13 Aug 2026 14:00:07 GMT</lastBuildDate>
+    <pubDate>Thu, 13 Aug 2026 10:00:00 GMT</pubDate>
     <atom:link href="https://gajowkawegorzewo.pl/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Muzeum Kultury Ludowej w Węgorzewie — ceny, godziny i skansen (2026)</title>
+      <link>https://gajowkawegorzewo.pl/blog/muzeum-kultury-ludowej-wegorzewo-2026.html</link>
+      <guid isPermaLink="true">https://gajowkawegorzewo.pl/blog/muzeum-kultury-ludowej-wegorzewo-2026.html</guid>
+      <pubDate>Thu, 13 Aug 2026 10:00:00 GMT</pubDate>
+      <description>Skansen nad Węgorapą w centrum Węgorzewa: ceny biletów 2026, godziny otwarcia, co zobaczyć i jak dojechać z bazy w Leśniewie. Wydarzenia, warsztaty i praktyczne wskazówki przed wizytą.</description>
+    </item>
     <item>
       <title>Praca zdalna na Mazurach — domek na workation koło Węgorzewa 2026</title>
       <link>https://gajowkawegorzewo.pl/blog/praca-zdalna-mazury-workation-wegorzewo-2026.html</link>
@@ -140,13 +147,6 @@
       <guid isPermaLink="true">https://gajowkawegorzewo.github.io/blog/nocleg-blisko-swietej-lipki-mazury-2026.html</guid>
       <pubDate>Tue, 21 Jul 2026 10:00:00 GMT</pubDate>
       <description>Wybierasz się do Świętej Lipki? Realne dystanse z leśniczówki pod Węgorzewem, godziny pokazów organów, letnie koncerty, plan dnia z Reszlem i gdzie spać na Mazurach.</description>
-    </item>
-    <item>
-      <title>Nocleg blisko Mamerek — agroturystyka 2 km od bunkrów | Mazury</title>
-      <link>https://gajowkawegorzewo.github.io/blog/nocleg-blisko-mamerek-bunkry-2026.html</link>
-      <guid isPermaLink="true">https://gajowkawegorzewo.github.io/blog/nocleg-blisko-mamerek-bunkry-2026.html</guid>
-      <pubDate>Mon, 20 Jul 2026 10:00:00 GMT</pubDate>
-      <description>Nocleg blisko Mamerek: leśniczówka 2 km leśną drogą od bunkrów Wehrmachtu i Kanału Mazurskiego. Realne dystanse, bilety, godziny i jak zaplanować dzień. Węgorzewo.</description>
     </item>
   </channel>
 </rss>
