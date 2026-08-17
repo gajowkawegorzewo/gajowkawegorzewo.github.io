@@ -196,11 +196,6 @@
     },
     {
       "from": "2027-01-11",
-      "to": "2027-08-17",
-      "source": "Booking"
-    },
-    {
-      "from": "2027-08-18",
       "to": "2029-08-19",
       "source": "Booking+Alohacamp"
     }
