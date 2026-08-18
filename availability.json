@@ -104,8 +104,13 @@
     },
     {
       "from": "2026-08-11",
+      "to": "2026-08-19",
+      "source": "unknown+Airbnb"
+    },
+    {
+      "from": "2026-08-22",
       "to": "2026-08-29",
-      "source": "unknown+Airbnb+Booking"
+      "source": "Airbnb"
     },
     {
       "from": "2026-09-07",
