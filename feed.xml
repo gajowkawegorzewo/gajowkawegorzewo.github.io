@@ -5,9 +5,16 @@
     <link>https://gajowkawegorzewo.pl/blog/</link>
     <description>Praktyczne przewodniki po Mazurach i okolicach Węgorzewa: atrakcje, transport, domki, sezon, wydarzenia. Pisane lokalnie, bez clickbaitu.</description>
     <language>pl-PL</language>
-    <lastBuildDate>Mon, 17 Aug 2026 15:31:35 GMT</lastBuildDate>
-    <pubDate>Mon, 17 Aug 2026 10:00:00 GMT</pubDate>
+    <lastBuildDate>Tue, 18 Aug 2026 07:14:04 GMT</lastBuildDate>
+    <pubDate>Tue, 18 Aug 2026 10:00:00 GMT</pubDate>
     <atom:link href="https://gajowkawegorzewo.pl/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Domek czy apartament na Mazurach 2026 — co wybrać dla grupy</title>
+      <link>https://gajowkawegorzewo.pl/blog/domek-czy-apartament-na-mazurach-co-wybrac-2026.html</link>
+      <guid isPermaLink="true">https://gajowkawegorzewo.pl/blog/domek-czy-apartament-na-mazurach-co-wybrac-2026.html</guid>
+      <pubDate>Tue, 18 Aug 2026 10:00:00 GMT</pubDate>
+      <description>Domek na wyłączność czy samodzielny apartament na Mazurach? Realne liczby osób, ceny za dobę i na osobę, prywatność, plusy i minusy — na przykładzie 4 obiektów pod Węgorzewem.</description>
+    </item>
     <item>
       <title>Apteka i pomoc medyczna w Węgorzewie — co warto wiedzieć (2026)</title>
       <link>https://gajowkawegorzewo.pl/blog/apteka-pomoc-medyczna-wegorzewo-2026.html</link>
@@ -140,13 +147,6 @@
       <guid isPermaLink="true">https://gajowkawegorzewo.pl/blog/mazury-czy-bieszczady-gdzie-na-urlop-2026.html</guid>
       <pubDate>Thu, 23 Jul 2026 10:00:00 GMT</pubDate>
       <description>Mazury czy Bieszczady na urlop 2026? Uczciwe porównanie: dojazd z 6 miast, woda kontra góry, tłumy, wyjazd z dziećmi i psem. Pisane przez gospodarzy z Mazur.</description>
-    </item>
-    <item>
-      <title>Domek z kominkiem na Mazurach — co warto sprawdzić | Gajówka Węgorzewo</title>
-      <link>https://gajowkawegorzewo.github.io/blog/domek-z-kominkiem-na-mazurach-2026.html</link>
-      <guid isPermaLink="true">https://gajowkawegorzewo.github.io/blog/domek-z-kominkiem-na-mazurach-2026.html</guid>
-      <pubDate>Wed, 22 Jul 2026 10:00:00 GMT</pubDate>
-      <description>Domek z kominkiem na Mazurach: czym różni się kominek elektryczny od grzewczego, co sprawdzić przed rezerwacją i dlaczego jesień oraz zima nad Mamry mają swój klimat.</description>
     </item>
   </channel>
 </rss>
