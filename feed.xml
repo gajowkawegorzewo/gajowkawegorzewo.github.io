@@ -5,9 +5,16 @@
     <link>https://gajowkawegorzewo.pl/blog/</link>
     <description>Praktyczne przewodniki po Mazurach i okolicach Węgorzewa: atrakcje, transport, domki, sezon, wydarzenia. Pisane lokalnie, bez clickbaitu.</description>
     <language>pl-PL</language>
-    <lastBuildDate>Tue, 18 Aug 2026 07:14:04 GMT</lastBuildDate>
-    <pubDate>Tue, 18 Aug 2026 10:00:00 GMT</pubDate>
+    <lastBuildDate>Wed, 19 Aug 2026 14:37:21 GMT</lastBuildDate>
+    <pubDate>Wed, 19 Aug 2026 10:00:00 GMT</pubDate>
     <atom:link href="https://gajowkawegorzewo.pl/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Koncerty w Sztynorcie 2026 — nocleg 15 minut od portu | Gajówka</title>
+      <link>https://gajowkawegorzewo.pl/blog/koncerty-sztynort-nocleg-2026.html</link>
+      <guid isPermaLink="true">https://gajowkawegorzewo.pl/blog/koncerty-sztynort-nocleg-2026.html</guid>
+      <pubDate>Wed, 19 Aug 2026 10:00:00 GMT</pubDate>
+      <description>Latem w porcie Sztynort gra scena niemal codziennie, a w sierpniu odbywa się Szanty Festiwal. Gdzie nocować 15 minut od Sztynortu, jak wrócić bezpiecznie i co robić w dzień przed koncertem.</description>
+    </item>
     <item>
       <title>Domek czy apartament na Mazurach 2026 — co wybrać dla grupy</title>
       <link>https://gajowkawegorzewo.pl/blog/domek-czy-apartament-na-mazurach-co-wybrac-2026.html</link>
@@ -140,13 +147,6 @@
       <guid isPermaLink="true">https://gajowkawegorzewo.pl/blog/domek-na-mazurach-dla-grupy-8-12-osob-2026.html</guid>
       <pubDate>Fri, 24 Jul 2026 10:00:00 GMT</pubDate>
       <description>Domek na Mazurach dla grupy 8, 10 lub 12 osób? Jak dobrać nocleg dla większej ekipy: cała leśniczówka czy kilka domków, ile łazienek, kaucja, strefa ciszy.</description>
-    </item>
-    <item>
-      <title>Mazury czy Bieszczady — gdzie na urlop 2026? Porównanie | Gajówka Węgorzewo</title>
-      <link>https://gajowkawegorzewo.pl/blog/mazury-czy-bieszczady-gdzie-na-urlop-2026.html</link>
-      <guid isPermaLink="true">https://gajowkawegorzewo.pl/blog/mazury-czy-bieszczady-gdzie-na-urlop-2026.html</guid>
-      <pubDate>Thu, 23 Jul 2026 10:00:00 GMT</pubDate>
-      <description>Mazury czy Bieszczady na urlop 2026? Uczciwe porównanie: dojazd z 6 miast, woda kontra góry, tłumy, wyjazd z dziećmi i psem. Pisane przez gospodarzy z Mazur.</description>
     </item>
   </channel>
 </rss>
