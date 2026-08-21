@@ -5,9 +5,16 @@
     <link>https://gajowkawegorzewo.pl/blog/</link>
     <description>Praktyczne przewodniki po Mazurach i okolicach Węgorzewa: atrakcje, transport, domki, sezon, wydarzenia. Pisane lokalnie, bez clickbaitu.</description>
     <language>pl-PL</language>
-    <lastBuildDate>Thu, 20 Aug 2026 07:10:38 GMT</lastBuildDate>
-    <pubDate>Thu, 20 Aug 2026 10:00:00 GMT</pubDate>
+    <lastBuildDate>Fri, 21 Aug 2026 18:36:10 GMT</lastBuildDate>
+    <pubDate>Fri, 21 Aug 2026 10:00:00 GMT</pubDate>
     <atom:link href="https://gajowkawegorzewo.pl/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Bez auta po Węgorzewie — autobusy, statek i rowery 2026</title>
+      <link>https://gajowkawegorzewo.pl/blog/bez-auta-po-wegorzewie-transport-lokalny-2026.html</link>
+      <guid isPermaLink="true">https://gajowkawegorzewo.pl/blog/bez-auta-po-wegorzewie-transport-lokalny-2026.html</guid>
+      <pubDate>Fri, 21 Aug 2026 10:00:00 GMT</pubDate>
+      <description>Jak poruszać się po okolicy Węgorzewa bez samochodu: autobusy PKS, rejsy Żeglugi Mazurskiej, wypożyczalnie rowerów. Co da się zrobić bez auta, a gdzie się bez niego nie obejdzie.</description>
+    </item>
     <item>
       <title>Sylwester na Mazurach 2026 — domek bez balu w lesie</title>
       <link>https://gajowkawegorzewo.pl/blog/sylwester-na-mazurach-domek-2026.html</link>
@@ -140,13 +147,6 @@
       <guid isPermaLink="true">https://gajowkawegorzewo.pl/blog/mazury-w-sierpniu-2026-pogoda-woda-nocleg.html</guid>
       <pubDate>Tue, 28 Jul 2026 10:00:00 GMT</pubDate>
       <description>Sierpień na Mazurach: dane klimatyczne IMGW, temperatura wody, gdzie są tłumy, wydarzenia z oficjalnego kalendarza Węgorzewa i jak zarezerwować nocleg w szczycie sezonu.</description>
-    </item>
-    <item>
-      <title>Grzybobranie na Mazurach — nocleg w lesie pod Węgorzewem | Gajówka Węgorzewo</title>
-      <link>https://gajowkawegorzewo.pl/blog/grzybobranie-mazury-nocleg-w-lesie-wegorzewo-2026.html</link>
-      <guid isPermaLink="true">https://gajowkawegorzewo.pl/blog/grzybobranie-mazury-nocleg-w-lesie-wegorzewo-2026.html</guid>
-      <pubDate>Sat, 25 Jul 2026 10:00:00 GMT</pubDate>
-      <description>Gdzie pod Węgorzewem wolno zbierać grzyby, a gdzie obowiązuje zakaz: rezerwaty Nadleśnictwa Borki, przepisy, mapa zakazów wstępu, sezon. Baza w leśniczówce.</description>
     </item>
   </channel>
 </rss>
