@@ -5,9 +5,16 @@
     <link>https://gajowkawegorzewo.pl/blog/</link>
     <description>Praktyczne przewodniki po Mazurach i okolicach Węgorzewa: atrakcje, transport, domki, sezon, wydarzenia. Pisane lokalnie, bez clickbaitu.</description>
     <language>pl-PL</language>
-    <lastBuildDate>Sat, 22 Aug 2026 07:10:14 GMT</lastBuildDate>
-    <pubDate>Sat, 22 Aug 2026 10:00:00 GMT</pubDate>
+    <lastBuildDate>Sun, 23 Aug 2026 07:15:28 GMT</lastBuildDate>
+    <pubDate>Sun, 23 Aug 2026 10:00:00 GMT</pubDate>
     <atom:link href="https://gajowkawegorzewo.pl/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Nocleg blisko Stada Ogierów w Kętrzynie | Gajówka</title>
+      <link>https://gajowkawegorzewo.pl/blog/nocleg-blisko-stada-ogierow-ketrzyn-2026.html</link>
+      <guid isPermaLink="true">https://gajowkawegorzewo.pl/blog/nocleg-blisko-stada-ogierow-ketrzyn-2026.html</guid>
+      <pubDate>Sun, 23 Aug 2026 10:00:00 GMT</pubDate>
+      <description>Stado Ogierów w Kętrzynie: historia od 1877 roku, jazda konna, przejażdżki bryczką, godziny i rezerwacja. Realne dystanse z leśniczówki pod Węgorzewem i plan dnia z zamkiem w Kętrzynie.</description>
+    </item>
     <item>
       <title>Regulamin domku na Mazurach — co sprawdzić przed rezerwacją (2026)</title>
       <link>https://gajowkawegorzewo.pl/blog/regulamin-domku-na-mazurach-2026.html</link>
@@ -140,13 +147,6 @@
       <guid isPermaLink="true">https://gajowkawegorzewo.pl/blog/rezerwat-jezioro-siedmiu-wysp-oswin-nocleg-2026.html</guid>
       <pubDate>Wed, 29 Jul 2026 10:00:00 GMT</pubDate>
       <description>Rezerwat Jezioro Siedmiu Wysp nad Oświnem: jakie ptaki tu gniazdują, czego zabrania ustawa o ochronie przyrody, skąd realnie da się patrzeć i gdzie się zatrzymać pod Węgorzewem.</description>
-    </item>
-    <item>
-      <title>Domek na Mazurach z własnym jeziorkiem — co sprawdzić | Gajówka</title>
-      <link>https://gajowkawegorzewo.pl/blog/domek-na-mazurach-z-wlasnym-jeziorkiem-2026.html</link>
-      <guid isPermaLink="true">https://gajowkawegorzewo.pl/blog/domek-na-mazurach-z-wlasnym-jeziorkiem-2026.html</guid>
-      <pubDate>Tue, 28 Jul 2026 10:00:00 GMT</pubDate>
-      <description>„Własne jeziorko</description>
     </item>
   </channel>
 </rss>
