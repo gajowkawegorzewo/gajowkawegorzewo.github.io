@@ -72,8 +72,13 @@
     },
     {
       "from": "2026-08-22",
-      "to": "2029-02-24",
-      "source": "Alohacamp+Booking+Airbnb"
+      "to": "2026-08-23",
+      "source": "Alohacamp"
+    },
+    {
+      "from": "2026-08-24",
+      "to": "2029-02-25",
+      "source": "Booking+Airbnb+Alohacamp"
     }
   ],
   "Wilcza Polana": [
@@ -123,9 +128,9 @@
       "source": "Booking"
     },
     {
-      "from": "2027-08-23",
-      "to": "2029-08-24",
-      "source": "Airbnb+Alohacamp"
+      "from": "2027-08-25",
+      "to": "2029-08-25",
+      "source": "Alohacamp"
     }
   ],
   "Sen Gajowego": [
@@ -180,9 +185,9 @@
       "source": "Alohacamp"
     },
     {
-      "from": "2026-08-23",
+      "from": "2026-08-24",
       "to": "2026-08-29",
-      "source": "Booking+Airbnb"
+      "source": "Airbnb+Booking"
     },
     {
       "from": "2026-09-11",
@@ -196,13 +201,18 @@
     },
     {
       "from": "2027-01-11",
-      "to": "2029-08-24",
-      "source": "Booking+Airbnb+Alohacamp"
+      "to": "2027-08-23",
+      "source": "Booking"
+    },
+    {
+      "from": "2027-08-25",
+      "to": "2029-08-25",
+      "source": "Alohacamp"
     }
   ],
   "Leśne pogaduchy": [
     {
-      "from": "2026-08-23",
+      "from": "2026-08-24",
       "to": "2026-08-30",
       "source": "Booking"
     },
@@ -223,7 +233,7 @@
     },
     {
       "from": "2027-02-01",
-      "to": "2028-02-23",
+      "to": "2028-02-24",
       "source": "Booking"
     }
   ]
