@@ -5,9 +5,16 @@
     <link>https://gajowkawegorzewo.pl/blog/</link>
     <description>Praktyczne przewodniki po Mazurach i okolicach Węgorzewa: atrakcje, transport, domki, sezon, wydarzenia. Pisane lokalnie, bez clickbaitu.</description>
     <language>pl-PL</language>
-    <lastBuildDate>Sun, 23 Aug 2026 07:15:28 GMT</lastBuildDate>
-    <pubDate>Sun, 23 Aug 2026 10:00:00 GMT</pubDate>
+    <lastBuildDate>Mon, 24 Aug 2026 11:36:49 GMT</lastBuildDate>
+    <pubDate>Mon, 24 Aug 2026 10:00:00 GMT</pubDate>
     <atom:link href="https://gajowkawegorzewo.pl/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Domek na Mazurach na majówkę 2027 — kalendarz, pogoda, ceny</title>
+      <link>https://gajowkawegorzewo.pl/blog/domek-na-mazurach-na-majowke-2027.html</link>
+      <guid isPermaLink="true">https://gajowkawegorzewo.pl/blog/domek-na-mazurach-na-majowke-2027.html</guid>
+      <pubDate>Mon, 24 Aug 2026 10:00:00 GMT</pubDate>
+      <description>Majówka na Mazurach 2027: dokładne daty długiego weekendu, czego spodziewać się po pogodzie w maju, otwarcie sezonu wędkarskiego i realne ceny noclegu pod Węgorzewem.</description>
+    </item>
     <item>
       <title>Nocleg blisko Stada Ogierów w Kętrzynie | Gajówka</title>
       <link>https://gajowkawegorzewo.pl/blog/nocleg-blisko-stada-ogierow-ketrzyn-2026.html</link>
@@ -140,13 +147,6 @@
       <guid isPermaLink="true">https://gajowkawegorzewo.pl/blog/domek-na-mazurach-z-ogniskiem-i-grillem-2026.html</guid>
       <pubDate>Sun, 02 Aug 2026 10:00:00 GMT</pubDate>
       <description>Ognisko przy domku w lesie to nie kwestia chęci, tylko przepisów: 100 m od granicy lasu, wyznaczone miejsce, stopnie zagrożenia pożarowego. Co sprawdzić i o co zapytać gospodarza.</description>
-    </item>
-    <item>
-      <title>Jezioro Oświn — ptaki, zasady wstępu, nocleg blisko | Gajówka</title>
-      <link>https://gajowkawegorzewo.pl/blog/rezerwat-jezioro-siedmiu-wysp-oswin-nocleg-2026.html</link>
-      <guid isPermaLink="true">https://gajowkawegorzewo.pl/blog/rezerwat-jezioro-siedmiu-wysp-oswin-nocleg-2026.html</guid>
-      <pubDate>Wed, 29 Jul 2026 10:00:00 GMT</pubDate>
-      <description>Rezerwat Jezioro Siedmiu Wysp nad Oświnem: jakie ptaki tu gniazdują, czego zabrania ustawa o ochronie przyrody, skąd realnie da się patrzeć i gdzie się zatrzymać pod Węgorzewem.</description>
     </item>
   </channel>
 </rss>
