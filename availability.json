@@ -108,11 +108,6 @@
       "source": "Alohacamp"
     },
     {
-      "from": "2026-09-07",
-      "to": "2026-09-12",
-      "source": "Airbnb"
-    },
-    {
       "from": "2026-09-14",
       "to": "2026-09-18",
       "source": "Airbnb+Booking"
@@ -133,9 +128,9 @@
       "source": "Booking"
     },
     {
-      "from": "2027-09-15",
+      "from": "2027-09-14",
       "to": "2029-09-15",
-      "source": "Alohacamp"
+      "source": "Airbnb+Alohacamp"
     }
   ],
   "Sen Gajowego": [
@@ -201,13 +196,8 @@
     },
     {
       "from": "2027-01-11",
-      "to": "2027-09-13",
-      "source": "Booking"
-    },
-    {
-      "from": "2027-09-14",
       "to": "2029-09-15",
-      "source": "Booking+Alohacamp"
+      "source": "Booking+Airbnb+Alohacamp"
     }
   ],
   "Leśne pogaduchy": [
