@@ -437,6 +437,8 @@ section .rv.vis{transform:translateY(0) translateX(0);}
 .fnote{font-size:14px!important;color:var(--text)!important;line-height:1.7!important;font-weight:400!important;}
 /* Karty atrakcji/plaż/restauracji/kontaktu */
 .atcard p,.pcard p,.rcard p,.kcard p{font-size:15px!important;line-height:1.7!important;color:var(--text)!important;font-weight:400!important;}
+/* karty kontaktu są na ciemnym tle (.kts) — tekst musi być jasny, nie var(--text) */
+.kts .kcard p{color:rgba(255,255,255,.82)!important;}
 .atcard .dist,.pcard .dist,.rcard .loc{font-size:12px!important;color:var(--wd)!important;font-weight:700!important;}
 .atcard .tip,.pcard .tip,.rcard .tip{font-size:13px!important;color:var(--forest)!important;font-weight:500!important;}
 .atcard h3,.pcard h3,.rcard h3{font-size:19px!important;}
