@@ -445,7 +445,8 @@ if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es
   if(typeof L==='undefined')return;
   var GAJ=[54.1975,21.5968];
   var map=L.map('djmap',{scrollWheelZoom:false}).setView([53.6,21.1],7);
-  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',{subdomains:'abcd',maxZoom:19,attribution:'&copy; OpenStreetMap, &copy; CARTO'}).addTo(map);
+  L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}',{maxZoom:19,maxNativeZoom:16,attribution:'&copy; Esri, HERE, Garmin, &copy; OpenStreetMap'}).addTo(map);
+  L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Reference/MapServer/tile/{z}/{y}/{x}',{maxZoom:19,maxNativeZoom:16}).addTo(map);
   L.marker(GAJ,{icon:L.divIcon({className:'',html:'<div style="width:20px;height:20px;border-radius:50%;background:#d59c4e;border:3px solid #fff;box-shadow:0 0 0 5px rgba(213,156,78,.35)"></div>',iconSize:[20,20],iconAnchor:[10,10]})}).addTo(map).bindPopup('<b>Gajówka i Apartamenty</b><br>Leśniewo k. Węgorzewa');
   var startIcon=L.divIcon({className:'',html:'<div style="width:14px;height:14px;border-radius:50%;background:#fff;border:2px solid #d59c4e"></div>',iconSize:[14,14],iconAnchor:[7,7]});
   var routeLayer=null,lineLayer=null,startMarker=null,res=document.getElementById('djresult');
