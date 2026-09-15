@@ -5,9 +5,16 @@
     <link>https://gajowkawegorzewo.pl/blog/</link>
     <description>Praktyczne przewodniki po Mazurach i okolicach Węgorzewa: atrakcje, transport, domki, sezon, wydarzenia. Pisane lokalnie, bez clickbaitu.</description>
     <language>pl-PL</language>
-    <lastBuildDate>Mon, 14 Sep 2026 16:18:50 GMT</lastBuildDate>
-    <pubDate>Mon, 14 Sep 2026 10:00:00 GMT</pubDate>
+    <lastBuildDate>Tue, 15 Sep 2026 08:15:21 GMT</lastBuildDate>
+    <pubDate>Tue, 15 Sep 2026 10:00:00 GMT</pubDate>
     <atom:link href="https://gajowkawegorzewo.pl/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Łódka motorowa bez patentu na Mazurach 2026 — przepisy i ceny</title>
+      <link>https://gajowkawegorzewo.pl/blog/lodka-motorowa-bez-patentu-mazury-wegorzewo-2026.html</link>
+      <guid isPermaLink="true">https://gajowkawegorzewo.pl/blog/lodka-motorowa-bez-patentu-mazury-wegorzewo-2026.html</guid>
+      <pubDate>Tue, 15 Sep 2026 10:00:00 GMT</pubDate>
+      <description>Ile KM można prowadzić bez patentu, ile kosztuje wynajem motorówki i skąd wypłynąć znad Węgorzewa. Praktyczny przewodnik po czarterze bez uprawnień na Wielkich Jeziorach Mazurskich.</description>
+    </item>
     <item>
       <title>Domek na Mazurach na Wielkanoc 2027 — kiedy jechać i co otwarte</title>
       <link>https://gajowkawegorzewo.pl/blog/domek-na-mazurach-na-wielkanoc-2027.html</link>
@@ -140,13 +147,6 @@
       <guid isPermaLink="true">https://gajowkawegorzewo.pl/blog/kiedy-rezerwowac-domek-na-mazurach-kalendarz-2026-2027.html</guid>
       <pubDate>Sat, 08 Aug 2026 10:00:00 GMT</pubDate>
       <description>Z jakim wyprzedzeniem rezerwować domek na Mazurach: które terminy schodzą pierwsze, kalendarz dni wolnych i ferii zimowych 2027 oraz kiedy last minute ma sens.</description>
-    </item>
-    <item>
-      <title>Kętrzyn na pół dnia — zamek, bazylika, ceny i nocleg 2026</title>
-      <link>https://gajowkawegorzewo.pl/blog/ketrzyn-zamek-bazylika-plan-dnia-nocleg-2026.html</link>
-      <guid isPermaLink="true">https://gajowkawegorzewo.pl/blog/ketrzyn-zamek-bazylika-plan-dnia-nocleg-2026.html</guid>
-      <pubDate>Fri, 07 Aug 2026 10:00:00 GMT</pubDate>
-      <description>Kętrzyn w praktyce: godziny i ceny muzeum w zamku krzyżackim, wieża bazyliki św. Jerzego, basen Kętrzynianka, Wilczy Szaniec 9 km dalej i plan dnia z bazy nad Mamrami.</description>
     </item>
   </channel>
 </rss>
