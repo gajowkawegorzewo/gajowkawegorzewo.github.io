@@ -200,6 +200,11 @@
       "source": "Booking"
     },
     {
+      "from": "2026-12-30",
+      "to": "2027-01-03",
+      "source": "Booking"
+    },
+    {
       "from": "2027-01-11",
       "to": "2029-09-18",
       "source": "Booking+Airbnb+Alohacamp"
