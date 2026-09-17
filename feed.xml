@@ -5,9 +5,16 @@
     <link>https://gajowkawegorzewo.pl/blog/</link>
     <description>Praktyczne przewodniki po Mazurach i okolicach Węgorzewa: atrakcje, transport, domki, sezon, wydarzenia. Pisane lokalnie, bez clickbaitu.</description>
     <language>pl-PL</language>
-    <lastBuildDate>Wed, 16 Sep 2026 09:21:35 GMT</lastBuildDate>
-    <pubDate>Wed, 16 Sep 2026 10:00:00 GMT</pubDate>
+    <lastBuildDate>Thu, 17 Sep 2026 10:47:53 GMT</lastBuildDate>
+    <pubDate>Thu, 17 Sep 2026 10:00:00 GMT</pubDate>
     <atom:link href="https://gajowkawegorzewo.pl/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Rykowisko na Mazurach 2026 — jelenie i nocleg w leśniczówce</title>
+      <link>https://gajowkawegorzewo.pl/blog/rykowisko-jeleni-mazury-nocleg-lesniczowka-2026.html</link>
+      <guid isPermaLink="true">https://gajowkawegorzewo.pl/blog/rykowisko-jeleni-mazury-nocleg-lesniczowka-2026.html</guid>
+      <pubDate>Thu, 17 Sep 2026 10:00:00 GMT</pubDate>
+      <description>Kiedy trwa rykowisko jeleni na Mazurach, o której godzinie słuchać, jak zachować się w lesie w sezonie polowań i gdzie spać, żeby las mieć za progiem. Okolice Węgorzewa.</description>
+    </item>
     <item>
       <title>Domek na Mazurach na Boże Narodzenie 2026 — święta w leśniczówce</title>
       <link>https://gajowkawegorzewo.pl/blog/domek-na-mazurach-na-boze-narodzenie-2026.html</link>
@@ -140,13 +147,6 @@
       <guid isPermaLink="true">https://gajowkawegorzewo.pl/blog/sup-i-wioslowanie-wegorzewo-jezioro-mamry-2026.html</guid>
       <pubDate>Tue, 11 Aug 2026 10:00:00 GMT</pubDate>
       <description>Deska SUP nad jeziorem Mamry: gdzie pływać osłonięte od wiatru, różnica względem kajaka, bezpieczeństwo na dużym jeziorze i najlepsze pory dnia. Baza w lesie 5 min od wody.</description>
-    </item>
-    <item>
-      <title>Mazury czy morze z dziećmi 2026 — porównanie i nocleg</title>
-      <link>https://gajowkawegorzewo.pl/blog/mazury-czy-morze-z-dziecmi-2026.html</link>
-      <guid isPermaLink="true">https://gajowkawegorzewo.pl/blog/mazury-czy-morze-z-dziecmi-2026.html</guid>
-      <pubDate>Sun, 09 Aug 2026 10:00:00 GMT</pubDate>
-      <description>Woda, dojazd, sinice, plan na deszcz i koszty — rzeczowe porównanie wyjazdu z dziećmi nad Bałtyk i na Mazury w 2026 roku oraz baza noclegowa pod Węgorzewem.</description>
     </item>
   </channel>
 </rss>
