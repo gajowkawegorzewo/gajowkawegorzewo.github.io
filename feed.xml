@@ -5,9 +5,16 @@
     <link>https://gajowkawegorzewo.pl/blog/</link>
     <description>Praktyczne przewodniki po Mazurach i okolicach Węgorzewa: atrakcje, transport, domki, sezon, wydarzenia. Pisane lokalnie, bez clickbaitu.</description>
     <language>pl-PL</language>
-    <lastBuildDate>Sun, 20 Sep 2026 07:14:55 GMT</lastBuildDate>
-    <pubDate>Sun, 20 Sep 2026 10:00:00 GMT</pubDate>
+    <lastBuildDate>Mon, 21 Sep 2026 07:09:52 GMT</lastBuildDate>
+    <pubDate>Mon, 21 Sep 2026 10:00:00 GMT</pubDate>
     <atom:link href="https://gajowkawegorzewo.pl/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Żurawie i gęsi jesienią pod Węgorzewem — gdzie i kiedy patrzeć</title>
+      <link>https://gajowkawegorzewo.pl/blog/jesienne-przeloty-zurawi-gesi-wegorzewo-nocleg-2026.html</link>
+      <guid isPermaLink="true">https://gajowkawegorzewo.pl/blog/jesienne-przeloty-zurawi-gesi-wegorzewo-nocleg-2026.html</guid>
+      <pubDate>Mon, 21 Sep 2026 10:00:00 GMT</pubDate>
+      <description>Jesienne przeloty żurawi i gęsi wokół Węgorzewa: kiedy szczyt, które rezerwaty i ostoje odwiedzić, jak patrzeć, żeby nie płoszyć ptaków, i gdzie spać w lesie blisko.</description>
+    </item>
     <item>
       <title>Domek na Mazurach z wyżywieniem czy z własną kuchnią</title>
       <link>https://gajowkawegorzewo.pl/blog/domek-na-mazurach-z-wyzywieniem-czy-z-kuchnia-2026.html</link>
@@ -140,13 +147,6 @@
       <guid isPermaLink="true">https://gajowkawegorzewo.pl/blog/domek-czy-apartament-na-mazurach-co-wybrac-2026.html</guid>
       <pubDate>Tue, 18 Aug 2026 10:00:00 GMT</pubDate>
       <description>Domek na wyłączność czy samodzielny apartament na Mazurach? Realne liczby osób, ceny za dobę i na osobę, prywatność, plusy i minusy — na przykładzie 4 obiektów pod Węgorzewem.</description>
-    </item>
-    <item>
-      <title>Apteka i pomoc medyczna w Węgorzewie — co warto wiedzieć (2026)</title>
-      <link>https://gajowkawegorzewo.pl/blog/apteka-pomoc-medyczna-wegorzewo-2026.html</link>
-      <guid isPermaLink="true">https://gajowkawegorzewo.pl/blog/apteka-pomoc-medyczna-wegorzewo-2026.html</guid>
-      <pubDate>Mon, 17 Aug 2026 10:00:00 GMT</pubDate>
-      <description>Apteki, dyżury nocne, nocna pomoc lekarska i status SOR w Węgorzewie — praktyczny przegląd na 2026 rok z oficjalnych źródeł, przydatny przed wyjazdem na Mazury.</description>
     </item>
   </channel>
 </rss>
