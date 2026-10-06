@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script defer src="/assets/gj-analytics.js"></script>
 <title>Forest Lodge in Masuria, Poland | Gajówka — since the 19th century</title>
 <meta name="description" content="A historic 19th-century forester's lodge in the Masurian forest, 5 min from Lake Mamry: four units for 6–12 guests, hot tub, barrel sauna, own fishing lake. 30 km from the Wolf's Lair, 2 km from Mamerki bunkers.">
 <link rel="canonical" href="https://gajowkawegorzewo.pl/en/">
@@ -343,7 +344,7 @@ function enSubmit(e){
   fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify(payload)})
     .then(function(r){return r.json();})
     .then(function(d){
-      if(d.success){document.getElementById('enForm').style.display='none';document.getElementById('enOk').style.display='block';document.getElementById('enOk').scrollIntoView({behavior:'smooth',block:'center'});}
+      if(d.success){if(typeof gtag==='function')gtag('event','generate_lead',{form:'rezerwacja',lang:'en'});document.getElementById('enForm').style.display='none';document.getElementById('enOk').style.display='block';document.getElementById('enOk').scrollIntoView({behavior:'smooth',block:'center'});}
       else{alert('Sending failed. Please call us: +48 574 753 831');btn.disabled=false;btn.textContent='Send enquiry →';}
     })
     .catch(function(){alert('Sending failed. Please call us: +48 574 753 831');btn.disabled=false;btn.textContent='Send enquiry →';});

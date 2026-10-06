@@ -10,6 +10,7 @@ function blogPostTemplate({ title, description, content, slug, date, tags = [] }
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script defer src="/assets/gj-analytics.js"></script>
     <title>${title} | Blog Gajówka Mazury</title>
     <meta name="description" content="${description}">
     <link rel="canonical" href="https://gajowkawegorzewo.pl/blog/${slug}">

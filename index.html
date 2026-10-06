@@ -14,6 +14,7 @@ gtag("config","G-FV3WMT39RV",{anonymize_ip:true});
 <meta name="msvalidate.01" content="90532E5AFC32959250287CCCB6F225F1" />
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
+<script defer src="/assets/gj-analytics.js"></script>
 <link rel="manifest" href="/manifest.json">
 <meta name="theme-color" content="#1d3227">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -550,6 +551,7 @@ function dosubmit(){
     headers:{'Content-Type':'application/json',Accept:'application/json'}
   }).then(function(r){
     if(r.ok){
+      if(typeof gtag==='function')gtag('event','generate_lead',{form:'rezerwacja',lang:'pl'});
       document.getElementById('sname').innerText='Dziękujemy, '+nm+'!';
       document.getElementById('sbox').style.display='block';
       document.getElementById('fbox').style.display='none';

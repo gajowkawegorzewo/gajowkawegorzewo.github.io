@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script defer src="/assets/gj-analytics.js"></script>
 <title>Ferienhaus im Wald in Masuren | Gajówka — Forsthaus aus dem 19. Jahrhundert</title>
 <meta name="description" content="Historisches Forsthaus aus dem 19. Jahrhundert im Wald Masurens, 5 Min vom Mamry-See: 4 Unterkünfte für 6–12 Personen, Hot Tub, Fasssauna, eigener Angelsee. 30 km zur Wolfsschanze, 2 km nach Mamerki.">
 <link rel="canonical" href="https://gajowkawegorzewo.pl/de/">
@@ -348,7 +349,7 @@ function deSubmit(e){
   fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify(payload)})
     .then(function(r){return r.json();})
     .then(function(d){
-      if(d.success){document.getElementById('deForm').style.display='none';document.getElementById('deOk').style.display='block';document.getElementById('deOk').scrollIntoView({behavior:'smooth',block:'center'});}
+      if(d.success){if(typeof gtag==='function')gtag('event','generate_lead',{form:'rezerwacja',lang:'de'});document.getElementById('deForm').style.display='none';document.getElementById('deOk').style.display='block';document.getElementById('deOk').scrollIntoView({behavior:'smooth',block:'center'});}
       else{alert('Senden fehlgeschlagen. Bitte rufen Sie uns an: +48 574 753 831');btn.disabled=false;btn.textContent='Anfrage senden →';}
     })
     .catch(function(){alert('Senden fehlgeschlagen. Bitte rufen Sie uns an: +48 574 753 831');btn.disabled=false;btn.textContent='Anfrage senden →';});
