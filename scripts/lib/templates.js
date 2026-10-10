@@ -1,5 +1,9 @@
 /**
  * Templates for Gajówka Blog
+ *
+ * AI Act art. 50 (Rozporządzenie UE 2024/1689): każdy wpis generowany automatem MUSI mieć
+ * oznaczenie AI — badge (class="ai-disclosure") zaraz po <h1> oraz notę (id="ai-info")
+ * na dole artykułu, przed stopką. Nie usuwać; nie wpisywać nazwy modelu/dostawcy.
  */
 
 function blogPostTemplate({ title, description, content, slug, date, tags = [] }) {
@@ -164,6 +168,7 @@ function blogPostTemplate({ title, description, content, slug, date, tags = [] }
     </div>
 
     <h1>${title}</h1>
+    <p class="ai-disclosure" style="display:inline-block; padding:5px 11px; border-radius:6px; background:#f6efd9; color:#3b3220; font-size:13px; line-height:1.5; margin:8px 0 14px;">Tekst przygotowany z pomocą sztucznej inteligencji (AI). Terminy, ceny i godziny otwarcia sprawdź u organizatora.</p>
 
     <div class="blog-content">
         ${content}
@@ -174,6 +179,8 @@ function blogPostTemplate({ title, description, content, slug, date, tags = [] }
         <p>Gajówka to idealne miejsce na relaks blisko natury, z dala od zgiełku miasta.</p>
         <a href="/#rezerwacja" class="btn">Zarezerwuj termin</a>
     </div>
+
+    <div id="ai-info" class="ai-disclosure-note" style="margin:28px 0 0; padding:14px 18px; border-left:4px solid #c5a059; border-radius:0 6px 6px 0; background:#f6efd9; color:#3b3220; font-size:14px; line-height:1.6;"><strong>Jak powstał ten wpis.</strong> Tekst został przygotowany z pomocą sztucznej inteligencji (AI) na podstawie publicznie dostępnych informacji. Mógł się zdezaktualizować — przed wyjazdem sprawdź szczegóły u organizatora lub na oficjalnej stronie wydarzenia.</div>
 </main>
 
 <footer>
