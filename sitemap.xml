@@ -390,4 +390,10 @@
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
+  <url>
+    <loc>https://gajowkawegorzewo.pl/blog/jarmark-bozonarodzeniowy-gizycko-nocleg-2026.html</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
 </urlset>
