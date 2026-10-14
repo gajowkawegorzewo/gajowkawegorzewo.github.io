@@ -81,8 +81,8 @@
       "source": "Alohacamp"
     },
     {
-      "from": "2026-10-11",
-      "to": "2029-04-14",
+      "from": "2026-10-12",
+      "to": "2029-04-15",
       "source": "Airbnb+Booking+Alohacamp"
     }
   ],
@@ -113,8 +113,8 @@
       "source": "Alohacamp"
     },
     {
-      "from": "2026-10-13",
-      "to": "2026-10-14",
+      "from": "2026-10-14",
+      "to": "2026-10-15",
       "source": "Airbnb"
     },
     {
@@ -128,8 +128,8 @@
       "source": "Booking"
     },
     {
-      "from": "2027-10-13",
-      "to": "2029-10-14",
+      "from": "2027-10-14",
+      "to": "2029-10-15",
       "source": "Airbnb+Alohacamp"
     }
   ],
@@ -191,19 +191,19 @@
     },
     {
       "from": "2027-01-11",
-      "to": "2029-10-14",
+      "to": "2029-10-15",
       "source": "Booking+Airbnb+Alohacamp"
     }
   ],
   "Leśne pogaduchy": [
     {
-      "from": "2026-10-13",
+      "from": "2026-10-14",
       "to": "2026-10-19",
       "source": "Booking"
     },
     {
       "from": "2027-02-01",
-      "to": "2028-04-13",
+      "to": "2028-04-14",
       "source": "Booking"
     }
   ]
