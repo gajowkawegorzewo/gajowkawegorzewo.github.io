@@ -202,6 +202,11 @@
       "source": "Booking"
     },
     {
+      "from": "2026-10-23",
+      "to": "2026-10-25",
+      "source": "Booking"
+    },
+    {
       "from": "2027-02-01",
       "to": "2028-04-15",
       "source": "Booking"
