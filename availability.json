@@ -118,6 +118,11 @@
       "source": "Airbnb"
     },
     {
+      "from": "2026-11-27",
+      "to": "2026-11-29",
+      "source": "Booking"
+    },
+    {
       "from": "2026-12-30",
       "to": "2027-01-02",
       "source": "Airbnb"
