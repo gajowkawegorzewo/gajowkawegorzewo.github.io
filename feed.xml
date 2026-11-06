@@ -5,9 +5,16 @@
     <link>https://gajowkawegorzewo.pl/blog/</link>
     <description>Praktyczne przewodniki po Mazurach i okolicach Węgorzewa: atrakcje, transport, domki, sezon, wydarzenia. Pisane lokalnie, bez clickbaitu.</description>
     <language>pl-PL</language>
-    <lastBuildDate>Fri, 30 Oct 2026 14:05:24 GMT</lastBuildDate>
-    <pubDate>Fri, 30 Oct 2026 10:00:00 GMT</pubDate>
+    <lastBuildDate>Fri, 06 Nov 2026 10:47:29 GMT</lastBuildDate>
+    <pubDate>Fri, 06 Nov 2026 10:00:00 GMT</pubDate>
     <atom:link href="https://gajowkawegorzewo.pl/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Morsowanie na Mazurach 2026/2027 — zloty morsów i nocleg | Gajówka Węgorzewo</title>
+      <link>https://gajowkawegorzewo.pl/blog/morsowanie-mazury-zloty-morsow-2026-2027.html</link>
+      <guid isPermaLink="true">https://gajowkawegorzewo.pl/blog/morsowanie-mazury-zloty-morsow-2026-2027.html</guid>
+      <pubDate>Fri, 06 Nov 2026 10:00:00 GMT</pubDate>
+      <description>Zloty morsów na Mazurach: Giżycko (luty), Mikołajki (marzec), finał sezonu w kwietniu. Daty ostatnich edycji, zasady bezpieczeństwa i nocleg z balią i sauną.</description>
+    </item>
     <item>
       <title>Twierdza Boyen poza sezonem 2026 — godziny, bilety, nocleg | Gajówka Węgorzewo</title>
       <link>https://gajowkawegorzewo.pl/blog/twierdza-boyen-gizycko-poza-sezonem-nocleg-2026.html</link>
@@ -140,13 +147,6 @@
       <guid isPermaLink="true">https://gajowkawegorzewo.pl/blog/jesienne-przeloty-zurawi-gesi-wegorzewo-nocleg-2026.html</guid>
       <pubDate>Mon, 21 Sep 2026 10:00:00 GMT</pubDate>
       <description>Jesienne przeloty żurawi i gęsi wokół Węgorzewa: kiedy szczyt, które rezerwaty i ostoje odwiedzić, jak patrzeć, żeby nie płoszyć ptaków, i gdzie spać w lesie blisko.</description>
-    </item>
-    <item>
-      <title>Domek na Mazurach z wyżywieniem czy z własną kuchnią</title>
-      <link>https://gajowkawegorzewo.pl/blog/domek-na-mazurach-z-wyzywieniem-czy-z-kuchnia-2026.html</link>
-      <guid isPermaLink="true">https://gajowkawegorzewo.pl/blog/domek-na-mazurach-z-wyzywieniem-czy-z-kuchnia-2026.html</guid>
-      <pubDate>Sun, 20 Sep 2026 10:00:00 GMT</pubDate>
-      <description>Pełne wyżywienie, śniadania, produkty na zamówienie czy własna kuchnia — co oferują obiekty na Mazurach, ile kosztuje jedzenie i o co zapytać przed rezerwacją.</description>
     </item>
   </channel>
 </rss>
